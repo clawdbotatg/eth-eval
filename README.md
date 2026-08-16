@@ -8,9 +8,14 @@ knowledge [ethskills.com](https://ethskills.com) packages for AI agents.
 
 Two questions it answers:
 
-1. **Which model knows Ethereum best?** A leaderboard across ~175 tasks in 14
-   categories (wallets, standards, security, testing, tooling, gas, calldata,
-   derivations, L2s, frontend, indexing, protocol, concepts, addresses).
+1. **Which model knows Ethereum best?** A leaderboard across 243 closed-book
+   tasks in 23 categories: wallets, standards, security, testing, tooling, gas,
+   calldata, derivations, L2s, frontend, indexing, protocol, concepts,
+   addresses, fundamentals, units — plus CROPS (censorship resistance / open
+   source / privacy / security), MEV, cryptoeconomics (walkaway-test
+   scenarios), cypherpunk ideals, fork roadmap (date-tagged), contract-reading
+   (full Solidity source in the prompt), and honesty (live-data questions where
+   the only right closed-book answer is "I can't know that").
 2. **What can ethskills stop teaching?** Every knowledge task is keyed to a
    specific ethskills SKILL.md claim. When every frontier model aces a skill's
    tasks, that content is already in the models and is a candidate for
@@ -78,6 +83,21 @@ One JSON object per line in `tasks/*.jsonl`:
 which pattern) vs objective `fact`s — reports can split them.
 
 See `tasks/AUTHORING.md` for the authoring rules and grader semantics.
+
+## Live / agentic track
+
+`run_live_eval.py` + `tasks-live/` test whether a tool-using AGENT (claude -p,
+codex, …) can do real Ethereum work right now: current block/gas/ETH price,
+a Uniswap pool's live liquidity, a proxy's implementation slot, building exact
+transfer calldata with correct decimals. No LLM judge: the harness computes
+ground truth itself via `cast` against the same RPC at grade time, and
+compares within a declared tolerance. Needs `RPC_URL` in a gitignored `.env`
+(Alchemy — never a public RPC).
+
+```bash
+python3 run_live_eval.py --self-test                        # truth cmds resolve
+python3 run_live_eval.py --name haiku --cmd 'claude -p --model haiku'
+```
 
 ## Roadmap
 

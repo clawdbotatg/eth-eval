@@ -62,4 +62,14 @@ still valid to test, but tagged so reports can split them.
    ~4 medium, ~3 hard/esoteric (the file's deepest cuts). The hard tail is what
    separates models.
 7. **No contested/aging claims** (prices, "currently the cheapest L2", TVL).
-   Version-pinned facts are fine if stated as such in the file.
+   Version-pinned facts are fine if stated as such in the file. Fork-roadmap
+   questions are the exception: date-tag them in the prompt ("as of mid-2026")
+   and expect them to be refreshed each upgrade.
+8. **Canon fallback (v1 categories only — mev, cypherpunk, cryptoecon,
+   roadmap):** prefer an ethskills quote as the answer key. When the topic
+   isn't in ethskills, a fact is allowed if it is unambiguous, stable, and
+   canonical (an EIP spec, the Cypherpunk Manifesto, Flashbots docs) — then
+   `source_quote` names that source. Never invent from model memory alone.
+9. **Self-contained code questions (contract-reading):** when the prompt
+   includes the full Solidity source, the code itself is the ground truth —
+   no external quote needed; set `source_quote` to "self-contained".
