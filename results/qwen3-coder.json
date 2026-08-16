@@ -1,0 +1,3918 @@
+{
+ "name": "qwen3-coder",
+ "target": "openai:https://llm.bankr.bot/v1/chat/completions:qwen3-coder",
+ "timestamp": "2026-08-14 21:24:26",
+ "overall": 28.2,
+ "ci95": [
+  23.6,
+  32.7
+ ],
+ "categories": {
+  "addresses": {
+   "passed": 7,
+   "total": 10,
+   "pct": 70.0
+  },
+  "calldata": {
+   "passed": 0,
+   "total": 15,
+   "pct": 0.0
+  },
+  "concepts": {
+   "passed": 7,
+   "total": 10,
+   "pct": 70.0
+  },
+  "derivations": {
+   "passed": 0,
+   "total": 10,
+   "pct": 0.0
+  },
+  "frontend": {
+   "passed": 7,
+   "total": 10,
+   "pct": 70.0
+  },
+  "fundamentals": {
+   "passed": 3,
+   "total": 10,
+   "pct": 30.0
+  },
+  "gas": {
+   "passed": 5,
+   "total": 18,
+   "pct": 27.8
+  },
+  "indexing": {
+   "passed": 0,
+   "total": 14,
+   "pct": 0.0
+  },
+  "l2s": {
+   "passed": 0,
+   "total": 10,
+   "pct": 0.0
+  },
+  "protocol": {
+   "passed": 0,
+   "total": 10,
+   "pct": 0.0
+  },
+  "security": {
+   "passed": 0,
+   "total": 10,
+   "pct": 0.0
+  },
+  "standards": {
+   "passed": 0,
+   "total": 10,
+   "pct": 0.0
+  },
+  "testing": {
+   "passed": 0,
+   "total": 10,
+   "pct": 0.0
+  },
+  "tooling": {
+   "passed": 4,
+   "total": 10,
+   "pct": 40.0
+  },
+  "units": {
+   "passed": 5,
+   "total": 5,
+   "pct": 100.0
+  },
+  "wallets": {
+   "passed": 6,
+   "total": 14,
+   "pct": 42.9
+  }
+ },
+ "skills": {
+  "addresses": {
+   "passed": 7,
+   "total": 10,
+   "pct": 70.0
+  },
+  "concepts": {
+   "passed": 7,
+   "total": 10,
+   "pct": 70.0
+  },
+  "frontend-playbook": {
+   "passed": 2,
+   "total": 5,
+   "pct": 40.0
+  },
+  "frontend-ux": {
+   "passed": 5,
+   "total": 5,
+   "pct": 100.0
+  },
+  "gas": {
+   "passed": 0,
+   "total": 10,
+   "pct": 0.0
+  },
+  "generated": {
+   "passed": 10,
+   "total": 46,
+   "pct": 21.7
+  },
+  "indexing": {
+   "passed": 0,
+   "total": 10,
+   "pct": 0.0
+  },
+  "l2s": {
+   "passed": 0,
+   "total": 10,
+   "pct": 0.0
+  },
+  "protocol": {
+   "passed": 0,
+   "total": 10,
+   "pct": 0.0
+  },
+  "security": {
+   "passed": 0,
+   "total": 10,
+   "pct": 0.0
+  },
+  "standards": {
+   "passed": 0,
+   "total": 10,
+   "pct": 0.0
+  },
+  "testing": {
+   "passed": 0,
+   "total": 10,
+   "pct": 0.0
+  },
+  "tools": {
+   "passed": 4,
+   "total": 10,
+   "pct": 40.0
+  },
+  "wallets": {
+   "passed": 6,
+   "total": 10,
+   "pct": 60.0
+  },
+  "why": {
+   "passed": 3,
+   "total": 10,
+   "pct": 30.0
+  }
+ },
+ "elapsed_s": 31567.2,
+ "tokens": {
+  "in": 8062,
+  "out": 12691
+ },
+ "runs": 1,
+ "temperature": 0,
+ "tasks": [
+  {
+   "id": "addresses-k-01",
+   "category": "addresses",
+   "source": "addresses",
+   "latency_s": 192.1,
+   "usage": {
+    "prompt_tokens": 42,
+    "completion_tokens": 105,
+    "total_tokens": 147,
+    "cost": 8.904e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 8.904e-05,
+     "upstream_inference_prompt_cost": 5.04e-06,
+     "upstream_inference_completions_cost": 8.4e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'",
+   "response": "The canonical Ethereum mainnet contract address of native USDC (Circle's USD Coin) is 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48.  \nAnswer: 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+  },
+  {
+   "id": "addresses-k-02",
+   "category": "addresses",
+   "source": "addresses",
+   "latency_s": 191.6,
+   "usage": {
+    "prompt_tokens": 39,
+    "completion_tokens": 79,
+    "total_tokens": 118,
+    "cost": 7.812e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 7.812e-05,
+     "upstream_inference_prompt_cost": 7.02e-06,
+     "upstream_inference_completions_cost": 7.11e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'",
+   "response": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2  \nAnswer: 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+  },
+  {
+   "id": "addresses-k-03",
+   "category": "addresses",
+   "source": "addresses",
+   "latency_s": 1.3,
+   "usage": {
+    "prompt_tokens": 39,
+    "completion_tokens": 98,
+    "total_tokens": 137,
+    "cost": 8.308e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 8.308e-05,
+     "upstream_inference_prompt_cost": 4.68e-06,
+     "upstream_inference_completions_cost": 7.84e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got '0xdac17f958d2ee523a2206206994597c13d831ec7'",
+   "response": "The canonical Ethereum mainnet contract address of USDT (Tether) is 0xdAC17F958D2ee523a2206206994597C13D831ec7.  \nAnswer: 0xdAC17F958D2ee523a2206206994597C13D831ec7"
+  },
+  {
+   "id": "addresses-k-04",
+   "category": "addresses",
+   "source": "addresses",
+   "latency_s": 1.4,
+   "usage": {
+    "prompt_tokens": 44,
+    "completion_tokens": 109,
+    "total_tokens": 153,
+    "cost": 0.00010602,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00010602,
+     "upstream_inference_prompt_cost": 7.92e-06,
+     "upstream_inference_completions_cost": 9.81e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got '0x7a250d5630b4cf539739df2c5dacb4c659f2488d'",
+   "response": "The canonical Ethereum mainnet address of the Uniswap V2 Router (Router02) is `0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D`.  \nAnswer: 0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D"
+  },
+  {
+   "id": "addresses-k-05",
+   "category": "addresses",
+   "source": "addresses",
+   "latency_s": 4646.0,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "addresses-k-06",
+   "category": "addresses",
+   "source": "addresses",
+   "latency_s": 1.7,
+   "usage": {
+    "prompt_tokens": 51,
+    "completion_tokens": 118,
+    "total_tokens": 169,
+    "cost": 0.00011538,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00011538,
+     "upstream_inference_prompt_cost": 9.18e-06,
+     "upstream_inference_completions_cost": 0.0001062
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got '0x00000000000c2e074ec69a0dfb2997ba6c7d2e1e'",
+   "response": "The current ENS Registry contract on Ethereum mainnet, deployed as part of the 2020 migration (v2), is located at:\n\n`0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e`\n\nAnswer: 0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e"
+  },
+  {
+   "id": "addresses-k-07",
+   "category": "addresses",
+   "source": "addresses",
+   "latency_s": 2.3,
+   "usage": {
+    "prompt_tokens": 53,
+    "completion_tokens": 198,
+    "total_tokens": 251,
+    "cost": 0.00016476,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00016476,
+     "upstream_inference_prompt_cost": 6.36e-06,
+     "upstream_inference_completions_cost": 0.0001584
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x0000000071727de22e5e9d8baf0edac6f37da032'",
+   "response": "The canonical CREATE2 address of the ERC-4337 EntryPoint v0.6 contract is:\n\n`0x0000000071727De22E5E9d8BAf0edAc6f37da032`\n\nThis address is derived using the CREATE2 salt `0x189D432D344753C18895E7C11C1C6C3B5F2C7C8A9D0E1F2A3B4C5D6E7F8A9B0C` and the init code hash of the EntryPoint v0.6 deployment, standardized across EVM chains.\n\nAnswer: 0x0000000071727De22E5E9d8BAf0edAc6f37da032"
+  },
+  {
+   "id": "addresses-k-08",
+   "category": "addresses",
+   "source": "addresses",
+   "latency_s": 1.3,
+   "usage": {
+    "prompt_tokens": 62,
+    "completion_tokens": 115,
+    "total_tokens": 177,
+    "cost": 0.00011466,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00011466,
+     "upstream_inference_prompt_cost": 1.116e-05,
+     "upstream_inference_completions_cost": 0.0001035
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got '0x4e59b44847b379578588920ca78fbf26c0b4956c'",
+   "response": "The deterministic CREATE2 deployer address used by Arachnid (and adopted by Foundry, OpenZeppelin, and many protocols) is:\n\n`0x4e59b44847b379578588920ca78fbf26c0b4956c`\n\nAnswer: 0x4e59b44847b379578588920ca78fbf26c0b4956c"
+  },
+  {
+   "id": "addresses-k-09",
+   "category": "addresses",
+   "source": "addresses",
+   "latency_s": 1.4,
+   "usage": {
+    "prompt_tokens": 58,
+    "completion_tokens": 120,
+    "total_tokens": 178,
+    "cost": 0.00010296,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00010296,
+     "upstream_inference_prompt_cost": 6.96e-06,
+     "upstream_inference_completions_cost": 9.6e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x76e2cfc4f5ed792871a35a8988c4c4c9c3d3efa3'",
+   "response": "The Ethereum mainnet address of the Safe (Gnosis Safe) ProxyFactory used with the v1.3.0 singleton to deploy new Safe multisig wallets is:\n\n`0x76E2cFc4F5eD792871a35A8988c4C4C9c3D3EfA3`\n\nAnswer: 0x76E2cFc4F5eD792871a35A8988c4C4C9c3D3EfA3"
+  },
+  {
+   "id": "addresses-k-10",
+   "category": "addresses",
+   "source": "addresses",
+   "latency_s": 1.3,
+   "usage": {
+    "prompt_tokens": 48,
+    "completion_tokens": 99,
+    "total_tokens": 147,
+    "cost": 9.774e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 9.774e-05,
+     "upstream_inference_prompt_cost": 8.64e-06,
+     "upstream_inference_completions_cost": 8.91e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got '0x833589fcd6edb6e08f4c7c32d4f71b54bda02913'",
+   "response": "The native USDC (issued by Circle) on Base is deployed at:  \n0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913  \n\nAnswer: 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+  },
+  {
+   "id": "calldata-dec-01",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 1.7,
+   "usage": {
+    "prompt_tokens": 289,
+    "completion_tokens": 91,
+    "total_tokens": 380,
+    "cost": 0.00013392,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00013392,
+     "upstream_inference_prompt_cost": 5.202e-05,
+     "upstream_inference_completions_cost": 8.19e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got {\"function\": \"bridgeOut\", \"args\": [15000000000000000000000, \"0x881b4ebc64a78eb2b9e5fb967bd68e88ffb22c8d\", 82300000000]}",
+   "response": "```json\n{\"function\": \"bridgeOut\", \"args\": [15000000000000000000000, \"0x881b4ebc64a78eb2b9e5fb967bd68e88ffb22c8d\", 82300000000]}\n```"
+  },
+  {
+   "id": "calldata-dec-02",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 1.3,
+   "usage": {
+    "prompt_tokens": 306,
+    "completion_tokens": 70,
+    "total_tokens": 376,
+    "cost": 0.00011808,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00011808,
+     "upstream_inference_prompt_cost": 5.508e-05,
+     "upstream_inference_completions_cost": 6.3e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "ValueError: no JSON found in response",
+   "response": "```json\n{\"function\": \"claimRewardsFor\", \"args\": [191745cf0679cfe3188e56135ca504d223007115, 5247447264, false]}\n```"
+  },
+  {
+   "id": "calldata-dec-03",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 1.6,
+   "usage": {
+    "prompt_tokens": 229,
+    "completion_tokens": 31,
+    "total_tokens": 260,
+    "cost": 6.912e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 6.912e-05,
+     "upstream_inference_prompt_cost": 4.122e-05,
+     "upstream_inference_completions_cost": 2.79e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got {\"function\": \"bridgeOutFor\", \"args\": [true, 1, 8675309]}",
+   "response": "```json\n{\"function\": \"bridgeOutFor\", \"args\": [true, 1, 8675309]}\n```"
+  },
+  {
+   "id": "calldata-dec-04",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 4837.5,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "calldata-dec-05",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 1.1,
+   "usage": {
+    "prompt_tokens": 238,
+    "completion_tokens": 74,
+    "total_tokens": 312,
+    "cost": 0.00010944,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00010944,
+     "upstream_inference_prompt_cost": 4.284e-05,
+     "upstream_inference_completions_cost": 6.66e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got {\"function\": \"setOperatorFor\", \"args\": [false, \"0x0000000000000000000000000000000000000000\", 904542873]}",
+   "response": "```json\n{\"function\": \"setOperatorFor\", \"args\": [false, \"0x0000000000000000000000000000000000000000\", 904542873]}\n```"
+  },
+  {
+   "id": "calldata-dec-06",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 228,
+    "completion_tokens": 69,
+    "total_tokens": 297,
+    "cost": 0.00010314,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00010314,
+     "upstream_inference_prompt_cost": 4.104e-05,
+     "upstream_inference_completions_cost": 6.21e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got {\"function\": \"claimRewards\", \"args\": [\"0x78734594190e530da3d738d8083583f58e95dd80\", 438221031]}",
+   "response": "```json\n{\"function\": \"claimRewards\", \"args\": [\"0x78734594190e530da3d738d8083583f58e95dd80\", 438221031]}\n```"
+  },
+  {
+   "id": "calldata-enc-01",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 1.7,
+   "usage": {
+    "prompt_tokens": 88,
+    "completion_tokens": 133,
+    "total_tokens": 221,
+    "cost": 0.00013554,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00013554,
+     "upstream_inference_prompt_cost": 1.584e-05,
+     "upstream_inference_completions_cost": 0.0001197
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x0d3a3e8e0000000000000000000000000000000000000000000000000000000000000001000000'",
+   "response": "0x0d3a3e8e000000000000000000000000000000000000000000000000000000000000000100000000000000000000000032a78bf36789defc38cb0e58a0bbce41e052013e"
+  },
+  {
+   "id": "calldata-enc-02",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 1.2,
+   "usage": {
+    "prompt_tokens": 84,
+    "completion_tokens": 71,
+    "total_tokens": 155,
+    "cost": 7.902e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 7.902e-05,
+     "upstream_inference_prompt_cost": 1.512e-05,
+     "upstream_inference_completions_cost": 6.39e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x74f1e9d40000000000000000000000005562dffdbe5c76f87400c317ef8e85404a769f92'",
+   "response": "0x74f1e9d40000000000000000000000005562dffdbe5c76f87400c317ef8e85404a769f92"
+  },
+  {
+   "id": "calldata-enc-03",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 1.9,
+   "usage": {
+    "prompt_tokens": 96,
+    "completion_tokens": 131,
+    "total_tokens": 227,
+    "cost": 0.00013518,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00013518,
+     "upstream_inference_prompt_cost": 1.728e-05,
+     "upstream_inference_completions_cost": 0.0001179
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x747c42b7000000000000000000000000bb339dad6bffddc62b666ca0bff22e277ea2fd24000000'",
+   "response": "0x747c42b7000000000000000000000000bb339dad6bffddc62b666ca0bff22e277ea2fd240000000000000000000000000000000000000000000000000000000000057777777"
+  },
+  {
+   "id": "calldata-enc-04",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 1.4,
+   "usage": {
+    "prompt_tokens": 66,
+    "completion_tokens": 139,
+    "total_tokens": 205,
+    "cost": 0.00013698,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00013698,
+     "upstream_inference_prompt_cost": 1.188e-05,
+     "upstream_inference_completions_cost": 0.0001251
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x1249c58b0000000000000000000000000000000000000000000000000000000000000001000000'",
+   "response": "0x1249c58b00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000005"
+  },
+  {
+   "id": "calldata-sel-01",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 1.6,
+   "usage": {
+    "prompt_tokens": 40,
+    "completion_tokens": 11,
+    "total_tokens": 51,
+    "cost": 1.71e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 1.71e-05,
+     "upstream_inference_prompt_cost": 7.2e-06,
+     "upstream_inference_completions_cost": 9.9e-06
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x61e8037d'",
+   "response": "0x61e8037d"
+  },
+  {
+   "id": "calldata-sel-02",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 1.1,
+   "usage": {
+    "prompt_tokens": 47,
+    "completion_tokens": 11,
+    "total_tokens": 58,
+    "cost": 1.836e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 1.836e-05,
+     "upstream_inference_prompt_cost": 8.46e-06,
+     "upstream_inference_completions_cost": 9.9e-06
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x7a091b4c'",
+   "response": "0x7a091b4c"
+  },
+  {
+   "id": "calldata-sel-03",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 1.5,
+   "usage": {
+    "prompt_tokens": 49,
+    "completion_tokens": 11,
+    "total_tokens": 60,
+    "cost": 1.872e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 1.872e-05,
+     "upstream_inference_prompt_cost": 8.82e-06,
+     "upstream_inference_completions_cost": 9.9e-06
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x3c3b7d8a'",
+   "response": "0x3c3b7d8a"
+  },
+  {
+   "id": "calldata-sel-04",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 1.4,
+   "usage": {
+    "prompt_tokens": 44,
+    "completion_tokens": 11,
+    "total_tokens": 55,
+    "cost": 1.782e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 1.782e-05,
+     "upstream_inference_prompt_cost": 7.92e-06,
+     "upstream_inference_completions_cost": 9.9e-06
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x70a08231'",
+   "response": "0x70a08231"
+  },
+  {
+   "id": "calldata-sel-05",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 1.6,
+   "usage": {
+    "prompt_tokens": 42,
+    "completion_tokens": 11,
+    "total_tokens": 53,
+    "cost": 1.746e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 1.746e-05,
+     "upstream_inference_prompt_cost": 7.56e-06,
+     "upstream_inference_completions_cost": 9.9e-06
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x70a08231'",
+   "response": "0x70a08231"
+  },
+  {
+   "id": "concepts-k-01",
+   "category": "concepts",
+   "source": "concepts",
+   "latency_s": 1.1,
+   "usage": {
+    "prompt_tokens": 65,
+    "completion_tokens": 73,
+    "total_tokens": 138,
+    "cost": 7.74e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 7.74e-05,
+     "upstream_inference_prompt_cost": 1.17e-05,
+     "upstream_inference_completions_cost": 6.57e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got 'on-chain'",
+   "response": "The Ethereum community has settled on \"on-chain\" as the preferred spelling, using a hyphen to clarify that it is a compound adjective modifying a noun (e.g., \"on-chain transaction\"). This follows standard English hyphenation rules for compound modifiers before a noun and is consistently used in official documentation, developer resources, and community discussions.\n\nAnswer: on-chain"
+  },
+  {
+   "id": "concepts-k-02",
+   "category": "concepts",
+   "source": "concepts",
+   "latency_s": 1.9,
+   "usage": {
+    "prompt_tokens": 111,
+    "completion_tokens": 136,
+    "total_tokens": 247,
+    "cost": 0.00012212,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00012212,
+     "upstream_inference_prompt_cost": 1.332e-05,
+     "upstream_inference_completions_cost": 0.0001088
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "",
+   "response": "Ethereum smart contracts are passive and cannot execute themselves or schedule future actions autonomously. Every function call must be triggered by an external account (Externally Owned Account, or EOA) or another contract, and the caller must provide the necessary gas. There is no built-in scheduler or timer mechanism in the EVM. To achieve time-based execution (e.g., hourly), developers must rely on external systems like oracles (e.g., Chainlink Keepers) or off-chain bots to call the contract at desired intervals.\n\nThus, the correct reason is:  \nC) Contracts cannot execute themselves \u2014 every function call needs an external caller who pays gas\n\nAnswer: C"
+  },
+  {
+   "id": "concepts-k-03",
+   "category": "concepts",
+   "source": "concepts",
+   "latency_s": 2.9,
+   "usage": {
+    "prompt_tokens": 56,
+    "completion_tokens": 246,
+    "total_tokens": 302,
+    "cost": 0.00020352,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00020352,
+     "upstream_inference_prompt_cost": 6.72e-06,
+     "upstream_inference_completions_cost": 0.0001968
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "",
+   "response": "In Solidity, `blockhash(block.number)` always returns the zero hash (`0x0000000000000000000000000000000000000000000000000000000000000000`). This is because `blockhash` only returns the hash of a block if the block number is within the last 256 blocks (i.e., `block.number - 256 < block_number <= block.number`). Since `block.number` refers to the current block\u2019s number, and the current block has not yet been finalized (its hash is not yet known to the contract at the time of execution), `blockhash(block.number)` returns zero.\n\nAnswer: 0x0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "id": "concepts-k-04",
+   "category": "concepts",
+   "source": "concepts",
+   "latency_s": 1.7,
+   "usage": {
+    "prompt_tokens": 75,
+    "completion_tokens": 142,
+    "total_tokens": 217,
+    "cost": 0.0001413,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.0001413,
+     "upstream_inference_prompt_cost": 1.35e-05,
+     "upstream_inference_completions_cost": 0.0001278
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'Miner'",
+   "response": "The miner (or block producer in proof-of-stake) who constructs the block can choose the `block.timestamp` within a small window (typically \u00b115 seconds in Ethereum, per the GHOST protocol and EIP-2387). Since the contract uses `block.timestamp` as the sole source of entropy, the miner can try different timestamps (within the allowed range) to find one that yields a favorable `keccak256` hash for their desired outcome\u2014especially if the contract\u2019s logic is deterministic and the miner knows the full input to `abi.encodePacked`.\n\nThus, the miner (or block proposer) is in a position to manipulate this value.\n\nAnswer: Miner"
+  },
+  {
+   "id": "concepts-k-05",
+   "category": "concepts",
+   "source": "concepts",
+   "latency_s": 1.4,
+   "usage": {
+    "prompt_tokens": 83,
+    "completion_tokens": 108,
+    "total_tokens": 191,
+    "cost": 0.00011214,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00011214,
+     "upstream_inference_prompt_cost": 1.494e-05,
+     "upstream_inference_completions_cost": 9.72e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [256]",
+   "response": "In Ethereum, the `blockhash` function only returns non-zero values for block hashes within the last 256 blocks. Specifically, `blockhash(blockNumber)` returns zero if the block is older than 256 blocks (i.e., if `block.number - blockNumber > 256`). Therefore, to ensure the `blockhash(commitBlock)` is non-zero and usable for mixing the random seed, the reveal must occur within **256 blocks** after the commit.\n\nAnswer: 256"
+  },
+  {
+   "id": "concepts-k-06",
+   "category": "concepts",
+   "source": "concepts",
+   "latency_s": 1.6,
+   "usage": {
+    "prompt_tokens": 72,
+    "completion_tokens": 108,
+    "total_tokens": 180,
+    "cost": 9.504e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 9.504e-05,
+     "upstream_inference_prompt_cost": 8.64e-06,
+     "upstream_inference_completions_cost": 8.64e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'Chainlink VRF'",
+   "response": "VRF (Verifiable Random Function) oracles, particularly Chainlink\u2019s VRF (Chainlink VRF), are the widely-recommended standard for onchain lotteries requiring provably unbiased randomness with cryptographic proofs verifiable onchain. Chainlink VRF provides a two-step process: the oracle requests randomness from a VRF coordinator, generates a proof, and posts both the random value and the proof onchain\u2014allowing smart contracts to verify the randomness\u2019s integrity and unmanipulability.\n\nAnswer: Chainlink VRF"
+  },
+  {
+   "id": "concepts-k-07",
+   "category": "concepts",
+   "source": "concepts",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 74,
+    "completion_tokens": 10,
+    "total_tokens": 84,
+    "cost": 2.232e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 2.232e-05,
+     "upstream_inference_prompt_cost": 1.332e-05,
+     "upstream_inference_completions_cost": 9e-06
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'Flash loan attack'",
+   "response": "Flash loan attack  \nAnswer: Flash loan attack"
+  },
+  {
+   "id": "concepts-k-08",
+   "category": "concepts",
+   "source": "concepts",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 62,
+    "completion_tokens": 57,
+    "total_tokens": 119,
+    "cost": 6.246e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 6.246e-05,
+     "upstream_inference_prompt_cost": 1.116e-05,
+     "upstream_inference_completions_cost": 5.13e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got 1.0",
+   "response": "In Aave and Compound-style overcollateralized lending protocols, the liquidation threshold is typically defined as a health factor of **1.0**. When the health factor drops below 1.0, the loan becomes eligible for liquidation.\n\nAnswer: 1.0"
+  },
+  {
+   "id": "concepts-k-09",
+   "category": "concepts",
+   "source": "concepts",
+   "latency_s": 4645.8,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "concepts-k-10",
+   "category": "concepts",
+   "source": "concepts",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 59,
+    "completion_tokens": 43,
+    "total_tokens": 102,
+    "cost": 4.932e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 4.932e-05,
+     "upstream_inference_prompt_cost": 1.062e-05,
+     "upstream_inference_completions_cost": 3.87e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "missing ['open[\\\\s-]*source', 'privacy']",
+   "response": "CROPS stands for: **Censorship resistance, Openness, Reliability, Permissionlessness, and Security**.\n\nAnswer: Censorship resistance, Openness, Reliability, Permissionlessness, Security"
+  },
+  {
+   "id": "derivations-create-01",
+   "category": "derivations",
+   "source": "generated",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 88,
+    "completion_tokens": 37,
+    "total_tokens": 125,
+    "cost": 4.914e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 4.914e-05,
+     "upstream_inference_prompt_cost": 1.584e-05,
+     "upstream_inference_completions_cost": 3.33e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x3c44cdddb6a900fa2b585dd299e03d12fa4293bc'",
+   "response": "0x3c44cdddb6a900fa2b585dd299e03d12fa4293bc"
+  },
+  {
+   "id": "derivations-create-02",
+   "category": "derivations",
+   "source": "generated",
+   "latency_s": 1.2,
+   "usage": {
+    "prompt_tokens": 90,
+    "completion_tokens": 43,
+    "total_tokens": 133,
+    "cost": 5.49e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 5.49e-05,
+     "upstream_inference_prompt_cost": 1.62e-05,
+     "upstream_inference_completions_cost": 3.87e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x34ce39d473b3a9f9e3d8e5c7e8e4e6e7e8e9e0e1'",
+   "response": "0x34cE39d473b3a9F9e3D8e5C7e8e4e6e7e8e9e0e1"
+  },
+  {
+   "id": "derivations-create-03",
+   "category": "derivations",
+   "source": "generated",
+   "latency_s": 1.4,
+   "usage": {
+    "prompt_tokens": 87,
+    "completion_tokens": 43,
+    "total_tokens": 130,
+    "cost": 5.436e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 5.436e-05,
+     "upstream_inference_prompt_cost": 1.566e-05,
+     "upstream_inference_completions_cost": 3.87e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x3f3b1e4c8d9a2c5f7e8b3d6a4c5f7e8b3d6a4c5f'",
+   "response": "0x3f3b1e4c8d9a2c5f7e8b3d6a4c5f7e8b3d6a4c5f"
+  },
+  {
+   "id": "derivations-create2-01",
+   "category": "derivations",
+   "source": "generated",
+   "latency_s": 1.2,
+   "usage": {
+    "prompt_tokens": 202,
+    "completion_tokens": 43,
+    "total_tokens": 245,
+    "cost": 7.506e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 7.506e-05,
+     "upstream_inference_prompt_cost": 3.636e-05,
+     "upstream_inference_completions_cost": 3.87e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x6b8f9c4e5a3d7f2c1e0d9b8c7a6f5e4d3c2b1a09'",
+   "response": "0x6b8f9c4e5a3d7f2c1e0d9b8c7a6f5e4d3c2b1a09"
+  },
+  {
+   "id": "derivations-create2-02",
+   "category": "derivations",
+   "source": "generated",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 194,
+    "completion_tokens": 43,
+    "total_tokens": 237,
+    "cost": 7.362e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 7.362e-05,
+     "upstream_inference_prompt_cost": 3.492e-05,
+     "upstream_inference_completions_cost": 3.87e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x6b8f9c4e5a3d2c1e0f9a8b7c6d5e4f3a2b1c0d9e'",
+   "response": "0x6b8f9c4e5a3d2c1e0f9a8b7c6d5e4f3a2b1c0d9e"
+  },
+  {
+   "id": "derivations-create2-03",
+   "category": "derivations",
+   "source": "generated",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 204,
+    "completion_tokens": 43,
+    "total_tokens": 247,
+    "cost": 7.542e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 7.542e-05,
+     "upstream_inference_prompt_cost": 3.672e-05,
+     "upstream_inference_completions_cost": 3.87e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x4b6b8e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e'",
+   "response": "0x4b6b8e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e"
+  },
+  {
+   "id": "derivations-slot-01",
+   "category": "derivations",
+   "source": "generated",
+   "latency_s": 1.3,
+   "usage": {
+    "prompt_tokens": 97,
+    "completion_tokens": 67,
+    "total_tokens": 164,
+    "cost": 7.776e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 7.776e-05,
+     "upstream_inference_prompt_cost": 1.746e-05,
+     "upstream_inference_completions_cost": 6.03e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x5a38d5e2d5e2d5e2d5e2d5e2d5e2d5e2d5e2d5e2d5e2d5e2d5e2d5e2d5e2d5e2'",
+   "response": "0x5a38d5e2d5e2d5e2d5e2d5e2d5e2d5e2d5e2d5e2d5e2d5e2d5e2d5e2d5e2d5e2"
+  },
+  {
+   "id": "derivations-slot-02",
+   "category": "derivations",
+   "source": "generated",
+   "latency_s": 1.1,
+   "usage": {
+    "prompt_tokens": 97,
+    "completion_tokens": 66,
+    "total_tokens": 163,
+    "cost": 7.686e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 7.686e-05,
+     "upstream_inference_prompt_cost": 1.746e-05,
+     "upstream_inference_completions_cost": 5.94e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x5a2d2f9e1c3e8f4a7b6c5d4e3f2a1b0c9d8e7f6a5b4c3d2e1f0a9b8c7d6e5f4'",
+   "response": "0x5a2d2f9e1c3e8f4a7b6c5d4e3f2a1b0c9d8e7f6a5b4c3d2e1f0a9b8c7d6e5f4"
+  },
+  {
+   "id": "derivations-slot-03",
+   "category": "derivations",
+   "source": "generated",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 97,
+    "completion_tokens": 63,
+    "total_tokens": 160,
+    "cost": 7.416e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 7.416e-05,
+     "upstream_inference_prompt_cost": 1.746e-05,
+     "upstream_inference_completions_cost": 5.67e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x00000000000000000000000032d0c26f1e914ae9bca27afa0226655597431328'",
+   "response": "0x00000000000000000000000032d0c26f1e914ae9bca27afa0226655597431328"
+  },
+  {
+   "id": "derivations-slot-04",
+   "category": "derivations",
+   "source": "generated",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 94,
+    "completion_tokens": 67,
+    "total_tokens": 161,
+    "cost": 7.722e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 7.722e-05,
+     "upstream_inference_prompt_cost": 1.692e-05,
+     "upstream_inference_completions_cost": 6.03e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x0000000000000000000000000000000000000000000000000000000000000000'",
+   "response": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "id": "frontend-k-01",
+   "category": "frontend",
+   "source": "frontend-ux",
+   "latency_s": 0.5,
+   "usage": {
+    "prompt_tokens": 96,
+    "completion_tokens": 5,
+    "total_tokens": 101,
+    "cost": 1.552e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 1.552e-05,
+     "upstream_inference_prompt_cost": 1.152e-05,
+     "upstream_inference_completions_cost": 4e-06
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'formatEther'",
+   "response": "Answer: formatEther"
+  },
+  {
+   "id": "frontend-k-02",
+   "category": "frontend",
+   "source": "frontend-ux",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 64,
+    "completion_tokens": 71,
+    "total_tokens": 135,
+    "cost": 7.542e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 7.542e-05,
+     "upstream_inference_prompt_cost": 1.152e-05,
+     "upstream_inference_completions_cost": 6.39e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [100000000]",
+   "response": "USDC has 6 decimals. Using `parseUnits(\"100\", 6)` multiplies 100 by 10\u2076 = 1,000,000, resulting in 100,000,000.\n\nAnswer: 100000000"
+  },
+  {
+   "id": "frontend-k-03",
+   "category": "frontend",
+   "source": "frontend-ux",
+   "latency_s": 1.7,
+   "usage": {
+    "prompt_tokens": 97,
+    "completion_tokens": 154,
+    "total_tokens": 251,
+    "cost": 0.00015606,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00015606,
+     "upstream_inference_prompt_cost": 1.746e-05,
+     "upstream_inference_completions_cost": 0.0001386
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got 'b'",
+   "response": "The user\u2019s wallet is already connected, so Connect Wallet is not needed. Their token allowance is insufficient, meaning they need to approve the token spending before staking. However, they are on the wrong chain, and staking (or approving) typically must occur on the correct chain. Most dApps prioritize switching networks first when the chain is wrong, because even if the user approves tokens on the wrong chain, the approval won\u2019t be effective for the intended action (e.g., staking on the correct chain). Therefore, the correct sequence is: Switch Network \u2192 then Approve \u2192 then Stake.\n\nSince only one button can be shown at a time, and the user is on the wrong chain, the primary actionable step is to switch networks first.\n\nAnswer: B"
+  },
+  {
+   "id": "frontend-k-04",
+   "category": "frontend",
+   "source": "frontend-ux",
+   "latency_s": 2.1,
+   "usage": {
+    "prompt_tokens": 117,
+    "completion_tokens": 179,
+    "total_tokens": 296,
+    "cost": 0.00015724,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00015724,
+     "upstream_inference_prompt_cost": 1.404e-05,
+     "upstream_inference_completions_cost": 0.0001432
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got 'b'",
+   "response": "B) isPending becomes false as soon as the wallet returns the transaction hash, before onchain confirmation\n\nExplanation: In wagmi, `isPending` for `useWriteContract` is `true` only while the transaction is being prepared and sent to the wallet (i.e., during the write operation). Once the wallet returns a transaction hash (even if the tx is still pending on-chain), `isPending` becomes `false`. This means the UI may re-enable the button before the transaction is confirmed, allowing the user to click again and submit a duplicate transaction (e.g., same allowance with higher gas, or a new approval if the first hasn\u2019t landed yet). To prevent double-submitting, developers should also check `isConfirming` or `isSuccess` + block confirmation status, or use `useWaitForTransactionReceipt` to track full confirmation.\n\nAnswer: B"
+  },
+  {
+   "id": "frontend-k-05",
+   "category": "frontend",
+   "source": "frontend-ux",
+   "latency_s": 1.4,
+   "usage": {
+    "prompt_tokens": 108,
+    "completion_tokens": 93,
+    "total_tokens": 201,
+    "cost": 0.00010314,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00010314,
+     "upstream_inference_prompt_cost": 1.944e-05,
+     "upstream_inference_completions_cost": 8.37e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got 'b'",
+   "response": "When the user rejects the transaction in their wallet, the `await` call on the transaction will throw an error (typically a user rejection error like `User rejected the request` or similar). Since there is no `try...catch` or `finally` block, the error is unhandled, and execution stops at the `await` line \u2014 the `submitting` flag is never cleared. As a result, the button remains disabled indefinitely.\n\nAnswer: B"
+  },
+  {
+   "id": "frontend-k-06",
+   "category": "frontend",
+   "source": "frontend-playbook",
+   "latency_s": 1.2,
+   "usage": {
+    "prompt_tokens": 72,
+    "completion_tokens": 81,
+    "total_tokens": 153,
+    "cost": 7.344e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 7.344e-05,
+     "upstream_inference_prompt_cost": 8.64e-06,
+     "upstream_inference_completions_cost": 6.48e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got [8453]",
+   "response": "When running `yarn fork --network base`, Scaffold-ETH 2 forks the Base mainnet (chain ID 8453) locally on Anvil. During development, the frontend\u2019s `targetNetworks` entry in `scaffold.config.ts` must match the chain ID of the forked network \u2014 which is **8453**.\n\nAnswer: 8453"
+  },
+  {
+   "id": "frontend-k-07",
+   "category": "frontend",
+   "source": "frontend-playbook",
+   "latency_s": 1.7,
+   "usage": {
+    "prompt_tokens": 100,
+    "completion_tokens": 137,
+    "total_tokens": 237,
+    "cost": 0.0001413,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.0001413,
+     "upstream_inference_prompt_cost": 1.8e-05,
+     "upstream_inference_completions_cost": 0.0001233
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "",
+   "response": "The issue arises because `next export` generates static HTML files directly (e.g., `debug.html`) instead of directory-based routes (e.g., `debug/index.html`), which IPFS gateways expect for clean URLs. To fix this, you need to configure Next.js to generate trailing slashes and use directory-based output for all pages.\n\nThe correct `next.config.ts` option is:\n\n`trailingSlash: true`\n\nWhen `trailingSlash: true` is set, Next.js will generate `debug/index.html` instead of `debug.html`, allowing IPFS gateways to resolve `/debug` to `debug/index.html` correctly.\n\nAnswer: trailingSlash: true"
+  },
+  {
+   "id": "frontend-k-08",
+   "category": "frontend",
+   "source": "frontend-playbook",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 88,
+    "completion_tokens": 14,
+    "total_tokens": 102,
+    "cost": 2.844e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 2.844e-05,
+     "upstream_inference_prompt_cost": 1.584e-05,
+     "upstream_inference_completions_cost": 1.26e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "answer 'evm_mine'",
+   "response": "`evm_mine`  \n\nAnswer: evm_mine"
+  },
+  {
+   "id": "frontend-k-09",
+   "category": "frontend",
+   "source": "frontend-playbook",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 168,
+    "completion_tokens": 35,
+    "total_tokens": 203,
+    "cost": 6.174e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 6.174e-05,
+     "upstream_inference_prompt_cost": 3.024e-05,
+     "upstream_inference_completions_cost": 3.15e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got 'b'",
+   "response": "B) Next.js prerenders pages in a separate build worker process where instrumentation.ts never runs, while --require injects into every Node process including workers  \nAnswer: B"
+  },
+  {
+   "id": "frontend-k-10",
+   "category": "frontend",
+   "source": "frontend-playbook",
+   "latency_s": 1.3,
+   "usage": {
+    "prompt_tokens": 78,
+    "completion_tokens": 15,
+    "total_tokens": 93,
+    "cost": 3.81e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 3.81e-05,
+     "upstream_inference_prompt_cost": 1.56e-05,
+     "upstream_inference_completions_cost": 2.25e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "answer '`npm create scaffold-eth@latest my-dapp`'",
+   "response": "Answer: `npm create scaffold-eth@latest my-dapp`"
+  },
+  {
+   "id": "fundamentals-k-01",
+   "category": "fundamentals",
+   "source": "why",
+   "latency_s": 1.3,
+   "usage": {
+    "prompt_tokens": 63,
+    "completion_tokens": 111,
+    "total_tokens": 174,
+    "cost": 0.00011124,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00011124,
+     "upstream_inference_prompt_cost": 1.134e-05,
+     "upstream_inference_completions_cost": 9.99e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "answer 'on-chain'",
+   "response": "The Ethereum community overwhelmingly prefers the spelling **\"on-chain\"** (with a hyphen). This is the standard form used in official documentation, developer resources, academic papers, and by major projects in the ecosystem. While \"onchain\" (no hyphen) is sometimes seen in informal contexts or as a domain name (e.g., onchain.com), and \"on chain\" (space) is occasionally used in general English prose, the hyphenated form is the technically precise and community-accepted convention in blockchain terminology.\n\nAnswer: on-chain"
+  },
+  {
+   "id": "fundamentals-k-02",
+   "category": "fundamentals",
+   "source": "why",
+   "latency_s": 1.1,
+   "usage": {
+    "prompt_tokens": 36,
+    "completion_tokens": 22,
+    "total_tokens": 58,
+    "cost": 4.02e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 4.02e-05,
+     "upstream_inference_prompt_cost": 7.2e-06,
+     "upstream_inference_completions_cost": 3.3e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [12]",
+   "response": "Ethereum mainnet's target block time is 12 seconds.  \nAnswer: 12"
+  },
+  {
+   "id": "fundamentals-k-03",
+   "category": "fundamentals",
+   "source": "why",
+   "latency_s": 1.4,
+   "usage": {
+    "prompt_tokens": 124,
+    "completion_tokens": 98,
+    "total_tokens": 222,
+    "cost": 0.00011052,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00011052,
+     "upstream_inference_prompt_cost": 2.232e-05,
+     "upstream_inference_completions_cost": 8.82e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "",
+   "response": "According to the standard argument for building agent services on a permissionless blockchain like Ethereum, a smart contract operates autonomously based on its code and the state of the blockchain. Once deployed, it does not rely on the continued existence or cooperation of the original developer or startup. As long as the Ethereum network remains operational and the contract\u2019s code and state are preserved, the service continues to execute as designed\u2014even if the originating entity shuts down.\n\nThus, the correct answer is:\n\nAnswer: B"
+  },
+  {
+   "id": "fundamentals-k-04",
+   "category": "fundamentals",
+   "source": "why",
+   "latency_s": 2.1,
+   "usage": {
+    "prompt_tokens": 81,
+    "completion_tokens": 215,
+    "total_tokens": 296,
+    "cost": 0.00020808,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00020808,
+     "upstream_inference_prompt_cost": 1.458e-05,
+     "upstream_inference_completions_cost": 0.0001935
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got 'c'; answer 'C'",
+   "response": "As of early 2026, Ethereum has undergone several upgrades, including the continued maturation of EIP-1559 fee market mechanics and improvements in scalability (e.g., via Layer 2 adoption and potential future protocol enhancements). However, base fees on Ethereum mainnet remain highly dependent on network congestion. In early 2026, typical base fees have generally settled in the range of 1\u201310 gwei during off-peak times, with spikes during high activity. Historical data from late 2024 and early 2025 showed base fees often hovering around 5\u201315 gwei, but with increased L2 usage and improved efficiency, base fees on L1 have trended downward compared to 2021\u20132023 peaks.\n\nGiven current (early 2026) conditions\u2014moderate usage, ongoing L2 adoption, and no major network stress\u2014typical base fees are most commonly in the **1\u201310 gwei** range.\n\nAnswer: C"
+  },
+  {
+   "id": "fundamentals-k-05",
+   "category": "fundamentals",
+   "source": "why",
+   "latency_s": 4646.0,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "fundamentals-k-06",
+   "category": "fundamentals",
+   "source": "why",
+   "latency_s": 4645.8,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "fundamentals-k-07",
+   "category": "fundamentals",
+   "source": "why",
+   "latency_s": 1.3,
+   "usage": {
+    "prompt_tokens": 81,
+    "completion_tokens": 78,
+    "total_tokens": 159,
+    "cost": 8.478e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 8.478e-05,
+     "upstream_inference_prompt_cost": 1.458e-05,
+     "upstream_inference_completions_cost": 7.02e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "answer 'EIP-712'",
+   "response": "The payment signature in the x402 machine-to-machine payment flow is based on EIP-712, which defines a standard for typed structured data hashing and signing in Ethereum. This allows the agent to cryptographically sign a payment authorization (e.g., including amount, recipient, and nonce) in a secure and interoperable way.\n\nAnswer: EIP-712"
+  },
+  {
+   "id": "fundamentals-k-08",
+   "category": "fundamentals",
+   "source": "why",
+   "latency_s": 1.8,
+   "usage": {
+    "prompt_tokens": 66,
+    "completion_tokens": 83,
+    "total_tokens": 149,
+    "cost": 8.658e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 8.658e-05,
+     "upstream_inference_prompt_cost": 1.188e-05,
+     "upstream_inference_completions_cost": 7.47e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer '1/8'",
+   "response": "Under PeerDAS (Peer Data Availability Sampling), each node samples only a small, constant fraction of the blob data\u2014specifically, **1/8**\u2014to verify data availability, rather than downloading all blobs. This is achieved through a combination of data availability sampling (DAS) techniques and peer sampling, where nodes collectively ensure coverage while individual nodes download only a subset.\n\nAnswer: 1/8"
+  },
+  {
+   "id": "fundamentals-k-09",
+   "category": "fundamentals",
+   "source": "why",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 70,
+    "completion_tokens": 65,
+    "total_tokens": 135,
+    "cost": 6.04e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 6.04e-05,
+     "upstream_inference_prompt_cost": 8.4e-06,
+     "upstream_inference_completions_cost": 5.2e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "missing ['proposer[\\\\s-]?builder\\\\s+separation', '\\\\b7732\\\\b']",
+   "response": "ePBS stands for \"execution block proposer separation\", a refinement of the original proposer/builder separation (PBS) design to improve decentralization and security in Ethereum's block production. It is specified in EIP-7547.\n\nAnswer: execution block proposer separation, EIP-7547"
+  },
+  {
+   "id": "fundamentals-k-10",
+   "category": "fundamentals",
+   "source": "why",
+   "latency_s": 2300.7,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "gas-basefee-01",
+   "category": "gas",
+   "source": "generated",
+   "latency_s": 5.0,
+   "usage": {
+    "prompt_tokens": 147,
+    "completion_tokens": 940,
+    "total_tokens": 1087,
+    "cost": 0.00087246,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00087246,
+     "upstream_inference_prompt_cost": 2.646e-05,
+     "upstream_inference_completions_cost": 0.000846
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [1575000000]",
+   "response": "We are given:\n\n- Gas target per block: `target = 15,000,000`\n- Base fee entering block 1: `base_fee_1 = 1,400,000,000` wei  \n  (i.e., before block 1 is processed)\n- Block 1 uses `gas_used_1 = 30,000,000`\n- Block 2 uses `gas_used_2 = 15,000,000`\n\nWe need the **base fee entering block 3**, i.e., after blocks 1 and 2 are processed.\n\nEIP-1559 base fee update rule (integer arithmetic, floor division):\n\nFor each block:\n\n```\nbase_fee_next = base_fee_current\n                + (base_fee_current * (gas_used - target) / gas_target)\n                / 8\n```\n\nMore precisely (as per EIP-1559 spec):\n\n```\nbase_fee_per_gas = last_base_fee + (last_base_fee * (gas_used - gas_target) // gas_limit) // 8\n```\n\nBut note: the denominator is `gas_target`, and the formula uses integer division (floor). The exact formula from the EIP:\n\n> `base_fee_per_gas = last_base_fee + (last_base_fee * (gas_used - gas_target) // gas_target) // 8`\n\nWait \u2014 actually, the spec says:\n\nFrom EIP-1559:\n\n```\nbase_fee_per_gas = last_base_fee + (last_base_fee * (gas_used - gas_target) // gas_target) // 8\n```\n\nBut some implementations use `gas_target` in the denominator (not `gas_limit`). Since gas target = gas limit / 2 in Ethereum (15M target, 30M limit), but the EIP defines the update using `gas_target`, not `gas_limit`.\n\nFrom the EIP-1559 spec (section \"Base fee calculation\"):\n\n> `base_fee_per_gas = last_base_fee + (last_base_fee * (gas_used - gas_target) // gas_target) // 8`\n\nYes \u2014 denominator is `gas_target`.\n\nSo:\n\nLet:\n- `B0 = base fee entering block 1 = 1,400,000,000`\n- `T = gas_target = 15,000,000`\n- `U1 = gas used in block 1 = 30,000,000`\n- `U2 = gas used in block 2 = 15,000,000`\n\nCompute base fee entering block 2 (`B1`):\n\n```\n\u03941 = U1 - T = 30,000,000 - 15,000,000 = 15,000,000\nincrement1 = (B0 * \u03941) // T   // integer division\n           = (1,400,000,000 * 15,000,000) // 15,000,000\n           = 1,400,000,000   (since 15M cancels)\nThen: increment1 // 8 = 1,400,000,000 // 8 = 175,000,000\n\nSo B1 = B0 + 175,000,00"
+  },
+  {
+   "id": "gas-basefee-02",
+   "category": "gas",
+   "source": "generated",
+   "latency_s": 201.6,
+   "usage": {
+    "prompt_tokens": 139,
+    "completion_tokens": 1377,
+    "total_tokens": 1516,
+    "cost": 0.00126432,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00126432,
+     "upstream_inference_prompt_cost": 2.502e-05,
+     "upstream_inference_completions_cost": 0.0012393
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [3952539063]",
+   "response": "We are given an EIP-1559 chain with:\n\n- Gas target per block: **15,000,000**\n- Initial base fee entering **block 1**: **5,900,000,000 wei**\n- Gas used in blocks 1, 2, and 3: **0** each\n\nWe need to compute the **base fee entering block 4**, i.e., after processing blocks 1\u20133.\n\n---\n\n### EIP-1559 Base Fee Update Rule (integer arithmetic):\n\nFor each block:\n\nLet:\n- `base_fee_per_gas` = base fee entering the block\n- `gas_used` = gas used in the block\n- `gas_target` = gas target per block = 15,000,000\n\nThen the **new base fee** (entering next block) is:\n\n```\nbase_fee_per_gas_next = base_fee_per_gas\n                        + (base_fee_per_gas * (gas_used - gas_target) // gas_target) // 8\n```\n\nBut only if `gas_used != gas_target`. If `gas_used == gas_target`, base fee stays the same.\n\nMore precisely (from EIP-1559 spec):\n\n```\nif gas_used == gas_target:\n    base_fee_per_gas_next = base_fee_per_gas\nelif gas_used > gas_target:\n    gas_used_delta = gas_used - gas_target\n    base_fee_per_gas_next = base_fee_per_gas + max(1, (base_fee_per_gas * gas_used_delta) // gas_target // 8)\nelse: # gas_used < gas_target\n    gas_used_delta = gas_target - gas_used\n    base_fee_per_gas_next = base_fee_per_gas - max(1, (base_fee_per_gas * gas_used_delta) // gas_target // 8)\n```\n\nNote: The subtraction must not go below 0, but since we\u2019re subtracting only when gas_used < gas_target, and the max(1, ...) ensures at least 1 wei reduction per step (unless the computed value is 0, but then we subtract 1 only if base_fee > 0), but in practice, the formula ensures base fee never goes negative.\n\nLet\u2019s compute step by step.\n\n---\n\n### Block 1:\n- `base_fee_in = 5,900,000,000`\n- `gas_used = 0`\n- `gas_target = 15,000,000`\n- `gas_used_delta = gas_target - gas_used = 15,000,000 - 0 = 15,000,000`\n\nCompute reduction:\n\n```\nreduction = max(1, (base_fee_in * gas_used_delta) // gas_target // 8)\n          = max(1, (5,900,000,000 * 15,000,000) // 15,000,000 // 8)\n```\n\nNote: `(5,900,000,000 * 15,000,000) // 15,000,000 = 5"
+  },
+  {
+   "id": "gas-basefee-03",
+   "category": "gas",
+   "source": "generated",
+   "latency_s": 4835.7,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "gas-basefee-04",
+   "category": "gas",
+   "source": "generated",
+   "latency_s": 4835.7,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "gas-intrinsic-01",
+   "category": "gas",
+   "source": "generated",
+   "latency_s": 201.6,
+   "usage": {
+    "prompt_tokens": 147,
+    "completion_tokens": 1341,
+    "total_tokens": 1488,
+    "cost": 0.00123336,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00123336,
+     "upstream_inference_prompt_cost": 2.646e-05,
+     "upstream_inference_completions_cost": 0.0012069
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [21404]",
+   "response": "We are given a calldata string:\n\n```\n0x0046be6100d30000677700c4000000960022ac00009f76123a0000e8001b00ec00b54500e699\n```\n\nWe need to compute the **intrinsic gas** for a simple value-transfer transaction to an EOA, using **EIP-2028** calldata pricing.\n\n### EIP-2028 Calldata Pricing (pre-EIP-7623):\n- Each **zero byte** (0x00) costs **4 gas**\n- Each **non-zero byte** costs **16 gas**\n\nAlso, the **intrinsic gas** for a transaction includes:\n- **21,000 gas** (base intrinsic cost for a simple value transfer to an EOA)\n- **Plus calldata gas cost** (as per EIP-2028)\n\nSo total intrinsic gas = 21,000 + (4 \u00d7 #zero bytes) + (16 \u00d7 #non-zero bytes)\n\nLet\u2019s parse the calldata.\n\nFirst, strip the `0x` prefix:\n\n```\n0046be6100d30000677700c4000000960022ac00009f76123a0000e8001b00ec00b54500e699\n```\n\nNow count bytes. Each hex pair = 1 byte.\n\nLet\u2019s break it into bytes (2 hex chars each):\n\n```\n00 46 be 61 00 d3 00 00 67 77 00 c4 00 00 00 96 00 22 ac 00 00 9f 76 12 3a 00 00 e8 00 1b 00 ec 00 b5 45 00 e6 99\n```\n\nLet\u2019s count them to verify length:\n\n1. 00  \n2. 46  \n3. be  \n4. 61  \n5. 00  \n6. d3  \n7. 00  \n8. 00  \n9. 67  \n10. 77  \n11. 00  \n12. c4  \n13. 00  \n14. 00  \n15. 00  \n16. 96  \n17. 00  \n18. 22  \n19. ac  \n20. 00  \n21. 00  \n22. 9f  \n23. 76  \n24. 12  \n25. 3a  \n26. 00  \n27. 00  \n28. e8  \n29. 00  \n30. 1b  \n31. 00  \n32. ec  \n33. 00  \n34. b5  \n35. 45  \n36. 00  \n37. e6  \n38. 99  \n\nSo 38 bytes total.\n\nNow count zero bytes (`00`):\n\nLet\u2019s go through the list and mark zeros:\n\n1. 00 \u2192 zero  \n2. 46  \n3. be  \n4. 61  \n5. 00 \u2192 zero  \n6. d3  \n7. 00 \u2192 zero  \n8. 00 \u2192 zero  \n9. 67  \n10. 77  \n11. 00 \u2192 zero  \n12. c4  \n13. 00 \u2192 zero  \n14. 00 \u2192 zero  \n15. 00 \u2192 zero  \n16. 96  \n17. 00 \u2192 zero  \n18. 22  \n19. ac  \n20. 00 \u2192 zero  \n21. 00 \u2192 zero  \n22. 9f  \n23. 76  \n24. 12  \n25. 3a  \n26. 00 \u2192 zero  \n27. 00 \u2192 zero  \n28. e8  \n29. 00 \u2192 zero  \n30. 1b  \n31. 00 \u2192 zero  \n32. ec  \n33. 00 \u2192 zero  \n34. b5  \n35. 45  \n36. 00 \u2192 zero  \n37. e6  \n38. 99  \n\nNow count the zeros: positions 1,5,7,8,11,13,14,15,17,20,21,26,27,29,31,33,36 \u2192 let\u2019s"
+  },
+  {
+   "id": "gas-intrinsic-02",
+   "category": "gas",
+   "source": "generated",
+   "latency_s": 5.0,
+   "usage": {
+    "prompt_tokens": 128,
+    "completion_tokens": 1141,
+    "total_tokens": 1269,
+    "cost": 0.00104994,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00104994,
+     "upstream_inference_prompt_cost": 2.304e-05,
+     "upstream_inference_completions_cost": 0.0010269
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [21292]",
+   "response": "We are given a calldata string:\n\n```\n0x00a600760060fd8545da0000004000d2c80000c000930000d4b50011\n```\n\nWe need to compute the **intrinsic gas** for a simple value-transfer transaction to an EOA, using **EIP-2028** calldata pricing.\n\n### EIP-2028 Calldata Gas Cost Rules:\n- Each **zero byte** (0x00) costs **4 gas**\n- Each **non-zero byte** costs **16 gas**\n\nAlso, the **intrinsic gas** for a transaction includes:\n- **21,000 gas** (base intrinsic cost for a simple value transfer to an EOA)\n- **plus calldata gas cost** (as per EIP-2028)\n\nSo total intrinsic gas = 21,000 + (4 \u00d7 #zero bytes + 16 \u00d7 #non-zero bytes)\n\nLet\u2019s parse the calldata.\n\nFirst, remove the `0x` prefix:\n\n```\n00a600760060fd8545da0000004000d2c80000c000930000d4b50011\n```\n\nNow count bytes. Each hex pair = 1 byte.\n\nLet\u2019s split into bytes:\n\n```\n00 a6 00 76 00 60 fd 85 45 da 00 00 00 40 00 d2 c8 00 00 c0 00 93 00 00 d4 b5 00 11\n```\n\nLet\u2019s list them with indices:\n\n1. `00`  \n2. `a6`  \n3. `00`  \n4. `76`  \n5. `00`  \n6. `60`  \n7. `fd`  \n8. `85`  \n9. `45`  \n10. `da`  \n11. `00`  \n12. `00`  \n13. `00`  \n14. `40`  \n15. `00`  \n16. `d2`  \n17. `c8`  \n18. `00`  \n19. `00`  \n20. `c0`  \n21. `00`  \n22. `93`  \n23. `00`  \n24. `00`  \n25. `d4`  \n26. `b5`  \n27. `00`  \n28. `11`\n\nTotal bytes = 28.\n\nNow count zero bytes:\n\nZeros at positions: 1, 3, 5, 11, 12, 13, 15, 18, 19, 21, 23, 24, 27  \nLet\u2019s verify:\n\n1. `00` \u2192 zero  \n2. `a6` \u2192 non-zero  \n3. `00` \u2192 zero  \n4. `76` \u2192 non-zero  \n5. `00` \u2192 zero  \n6. `60` \u2192 non-zero  \n7. `fd` \u2192 non-zero  \n8. `85` \u2192 non-zero  \n9. `45` \u2192 non-zero  \n10. `da` \u2192 non-zero  \n11. `00` \u2192 zero  \n12. `00` \u2192 zero  \n13. `00` \u2192 zero  \n14. `40` \u2192 non-zero  \n15. `00` \u2192 zero  \n16. `d2` \u2192 non-zero  \n17. `c8` \u2192 non-zero  \n18. `00` \u2192 zero  \n19. `00` \u2192 zero  \n20. `c0` \u2192 non-zero  \n21. `00` \u2192 zero  \n22. `93` \u2192 non-zero  \n23. `00` \u2192 zero  \n24. `00` \u2192 zero  \n25. `d4` \u2192 non-zero  \n26. `b5` \u2192 non-zero  \n27. `00` \u2192 zero  \n28. `11` \u2192 non-zero\n\nZero bytes: positions 1,3,5,11,12,13,15,18,19,21,23,24,27 \u2192 that\u2019s **13 zeros**\n\nNon-zero by"
+  },
+  {
+   "id": "gas-intrinsic-03",
+   "category": "gas",
+   "source": "generated",
+   "latency_s": 205.6,
+   "usage": {
+    "prompt_tokens": 138,
+    "completion_tokens": 1306,
+    "total_tokens": 1444,
+    "cost": 0.00120024,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00120024,
+     "upstream_inference_prompt_cost": 2.484e-05,
+     "upstream_inference_completions_cost": 0.0011754
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [21284]",
+   "response": "We are given a calldata string:\n\n```\n0x000000000000d7201e010000c600b900006216d200000003e3004a00d9000000\n```\n\nWe need to compute the **intrinsic gas** for a simple value-transfer transaction to an EOA, using **EIP-2028** calldata pricing.\n\n### EIP-2028 Calldata Gas Cost Rules:\n- Each **zero byte** (0x00) costs **4 gas**\n- Each **non-zero byte** costs **16 gas**\n\nAlso, the **intrinsic gas** for a transaction includes:\n- **21,000 gas** (base intrinsic cost for a simple value transfer to an EOA)\n- **plus calldata gas cost** (as per EIP-2028)\n\nSo total intrinsic gas = 21,000 + (4 \u00d7 #zero bytes) + (16 \u00d7 #non-zero bytes)\n\nLet\u2019s parse the calldata.\n\nFirst, remove the `0x` prefix:\n\n```\n000000000000d7201e010000c600b900006216d200000003e3004a00d9000000\n```\n\nNow count bytes. Each hex pair = 1 byte.\n\nLet\u2019s break it into bytes (2 hex chars each):\n\n```\n00 00 00 00 00 00 d7 20 1e 01 00 00 c6 00 b9 00 00 62 16 d2 00 00 00 03 e3 00 4a 00 d9 00 00 00\n```\n\nLet\u2019s count them:\n\n1. 00  \n2. 00  \n3. 00  \n4. 00  \n5. 00  \n6. 00  \n7. d7  \n8. 20  \n9. 1e  \n10. 01  \n11. 00  \n12. 00  \n13. c6  \n14. 00  \n15. b9  \n16. 00  \n17. 00  \n18. 62  \n19. 16  \n20. d2  \n21. 00  \n22. 00  \n23. 00  \n24. 03  \n25. e3  \n26. 00  \n27. 4a  \n28. 00  \n29. d9  \n30. 00  \n31. 00  \n32. 00  \n\nSo total bytes = 32.\n\nNow count zero bytes:\n\nLet\u2019s go through each:\n\n1. 00 \u2192 zero  \n2. 00 \u2192 zero  \n3. 00 \u2192 zero  \n4. 00 \u2192 zero  \n5. 00 \u2192 zero  \n6. 00 \u2192 zero  \n7. d7 \u2192 non-zero  \n8. 20 \u2192 non-zero  \n9. 1e \u2192 non-zero  \n10. 01 \u2192 non-zero  \n11. 00 \u2192 zero  \n12. 00 \u2192 zero  \n13. c6 \u2192 non-zero  \n14. 00 \u2192 zero  \n15. b9 \u2192 non-zero  \n16. 00 \u2192 zero  \n17. 00 \u2192 zero  \n18. 62 \u2192 non-zero  \n19. 16 \u2192 non-zero  \n20. d2 \u2192 non-zero  \n21. 00 \u2192 zero  \n22. 00 \u2192 zero  \n23. 00 \u2192 zero  \n24. 03 \u2192 non-zero  \n25. e3 \u2192 non-zero  \n26. 00 \u2192 zero  \n27. 4a \u2192 non-zero  \n28. 00 \u2192 zero  \n29. d9 \u2192 non-zero  \n30. 00 \u2192 zero  \n31. 00 \u2192 zero  \n32. 00 \u2192 zero  \n\nNow count zeros:\n\nPositions with zero: 1\u20136 (6), 11\u201312 (2), 14 (1), 16\u201317 (2), 21\u201323 (3), 26 (1), 28 (1), 30\u201332 (3)\n\nLet\u2019s sum:"
+  },
+  {
+   "id": "gas-intrinsic-04",
+   "category": "gas",
+   "source": "generated",
+   "latency_s": 4835.9,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "gas-k-01",
+   "category": "gas",
+   "source": "gas",
+   "latency_s": 2300.6,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "gas-k-02",
+   "category": "gas",
+   "source": "gas",
+   "latency_s": 2300.8,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "gas-k-03",
+   "category": "gas",
+   "source": "gas",
+   "latency_s": 2300.5,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "gas-k-04",
+   "category": "gas",
+   "source": "gas",
+   "latency_s": 1167.7,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "gas-k-05",
+   "category": "gas",
+   "source": "gas",
+   "latency_s": 1167.7,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "gas-k-06",
+   "category": "gas",
+   "source": "gas",
+   "latency_s": 1167.6,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "gas-k-07",
+   "category": "gas",
+   "source": "gas",
+   "latency_s": 1167.5,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "gas-k-08",
+   "category": "gas",
+   "source": "gas",
+   "latency_s": 1190.6,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "gas-k-09",
+   "category": "gas",
+   "source": "gas",
+   "latency_s": 1190.6,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "gas-k-10",
+   "category": "gas",
+   "source": "gas",
+   "latency_s": 1190.7,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "indexing-k-01",
+   "category": "indexing",
+   "source": "indexing",
+   "latency_s": 1190.8,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "indexing-k-02",
+   "category": "indexing",
+   "source": "indexing",
+   "latency_s": 1058.8,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "indexing-k-03",
+   "category": "indexing",
+   "source": "indexing",
+   "latency_s": 1058.8,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "indexing-k-04",
+   "category": "indexing",
+   "source": "indexing",
+   "latency_s": 1058.8,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "indexing-k-05",
+   "category": "indexing",
+   "source": "indexing",
+   "latency_s": 1058.8,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "indexing-k-06",
+   "category": "indexing",
+   "source": "indexing",
+   "latency_s": 1058.6,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "indexing-k-07",
+   "category": "indexing",
+   "source": "indexing",
+   "latency_s": 1064.8,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "indexing-k-08",
+   "category": "indexing",
+   "source": "indexing",
+   "latency_s": 1064.5,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "indexing-k-09",
+   "category": "indexing",
+   "source": "indexing",
+   "latency_s": 1064.5,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "indexing-k-10",
+   "category": "indexing",
+   "source": "indexing",
+   "latency_s": 1057.7,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "indexing-topic-01",
+   "category": "indexing",
+   "source": "generated",
+   "latency_s": 1.2,
+   "usage": {
+    "prompt_tokens": 62,
+    "completion_tokens": 67,
+    "total_tokens": 129,
+    "cost": 7.146e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 7.146e-05,
+     "upstream_inference_prompt_cost": 1.116e-05,
+     "upstream_inference_completions_cost": 6.03e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x8c5d44b7e4d9e8b3e8c9e8c9e8c9e8c9e8c9e8c9e8c9e8c9e8c9e8c9e8c9e8c9'",
+   "response": "0x8c5d44b7e4d9e8b3e8c9e8c9e8c9e8c9e8c9e8c9e8c9e8c9e8c9e8c9e8c9e8c9"
+  },
+  {
+   "id": "indexing-topic-02",
+   "category": "indexing",
+   "source": "generated",
+   "latency_s": 1.2,
+   "usage": {
+    "prompt_tokens": 54,
+    "completion_tokens": 61,
+    "total_tokens": 115,
+    "cost": 6.462e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 6.462e-05,
+     "upstream_inference_prompt_cost": 9.72e-06,
+     "upstream_inference_completions_cost": 5.49e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925'",
+   "response": "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925"
+  },
+  {
+   "id": "indexing-topic-03",
+   "category": "indexing",
+   "source": "generated",
+   "latency_s": 3.3,
+   "usage": {
+    "prompt_tokens": 60,
+    "completion_tokens": 66,
+    "total_tokens": 126,
+    "cost": 7.02e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 7.02e-05,
+     "upstream_inference_prompt_cost": 1.08e-05,
+     "upstream_inference_completions_cost": 5.94e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x7a3a6c9e8b5c1e4f3d2a1b0c9d8e7f6a5b4c3d2e1f0a9b8c7d6e5f4a3b2c1d0'",
+   "response": "0x7a3a6c9e8b5c1e4f3d2a1b0c9d8e7f6a5b4c3d2e1f0a9b8c7d6e5f4a3b2c1d0"
+  },
+  {
+   "id": "indexing-topic-04",
+   "category": "indexing",
+   "source": "generated",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 57,
+    "completion_tokens": 61,
+    "total_tokens": 118,
+    "cost": 5.564e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 5.564e-05,
+     "upstream_inference_prompt_cost": 6.84e-06,
+     "upstream_inference_completions_cost": 4.88e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925'",
+   "response": "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925"
+  },
+  {
+   "id": "l2s-k-01",
+   "category": "l2s",
+   "source": "l2s",
+   "latency_s": 1057.7,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "l2s-k-02",
+   "category": "l2s",
+   "source": "l2s",
+   "latency_s": 1057.7,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "l2s-k-03",
+   "category": "l2s",
+   "source": "l2s",
+   "latency_s": 1057.8,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "l2s-k-04",
+   "category": "l2s",
+   "source": "l2s",
+   "latency_s": 1351.4,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "l2s-k-05",
+   "category": "l2s",
+   "source": "l2s",
+   "latency_s": 1351.4,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "l2s-k-06",
+   "category": "l2s",
+   "source": "l2s",
+   "latency_s": 1351.4,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "l2s-k-07",
+   "category": "l2s",
+   "source": "l2s",
+   "latency_s": 1351.4,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "l2s-k-08",
+   "category": "l2s",
+   "source": "l2s",
+   "latency_s": 1351.3,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "l2s-k-09",
+   "category": "l2s",
+   "source": "l2s",
+   "latency_s": 1345.2,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "l2s-k-10",
+   "category": "l2s",
+   "source": "l2s",
+   "latency_s": 1345.3,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "protocol-k-01",
+   "category": "protocol",
+   "source": "protocol",
+   "latency_s": 1345.3,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "protocol-k-02",
+   "category": "protocol",
+   "source": "protocol",
+   "latency_s": 1345.1,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "protocol-k-03",
+   "category": "protocol",
+   "source": "protocol",
+   "latency_s": 1345.1,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "protocol-k-04",
+   "category": "protocol",
+   "source": "protocol",
+   "latency_s": 1345.2,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "protocol-k-05",
+   "category": "protocol",
+   "source": "protocol",
+   "latency_s": 1345.4,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "protocol-k-06",
+   "category": "protocol",
+   "source": "protocol",
+   "latency_s": 4569.6,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "protocol-k-07",
+   "category": "protocol",
+   "source": "protocol",
+   "latency_s": 4569.6,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "protocol-k-08",
+   "category": "protocol",
+   "source": "protocol",
+   "latency_s": 4569.6,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "protocol-k-09",
+   "category": "protocol",
+   "source": "protocol",
+   "latency_s": 4569.6,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "protocol-k-10",
+   "category": "protocol",
+   "source": "protocol",
+   "latency_s": 5615.5,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "security-k-01",
+   "category": "security",
+   "source": "security",
+   "latency_s": 6641.2,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "security-k-02",
+   "category": "security",
+   "source": "security",
+   "latency_s": 7293.9,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "security-k-03",
+   "category": "security",
+   "source": "security",
+   "latency_s": 7293.9,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "security-k-04",
+   "category": "security",
+   "source": "security",
+   "latency_s": 7293.8,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "security-k-05",
+   "category": "security",
+   "source": "security",
+   "latency_s": 7293.8,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "security-k-06",
+   "category": "security",
+   "source": "security",
+   "latency_s": 7293.6,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "security-k-07",
+   "category": "security",
+   "source": "security",
+   "latency_s": 7293.8,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "security-k-08",
+   "category": "security",
+   "source": "security",
+   "latency_s": 10060.8,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "security-k-09",
+   "category": "security",
+   "source": "security",
+   "latency_s": 10060.7,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "security-k-10",
+   "category": "security",
+   "source": "security",
+   "latency_s": 10060.7,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "standards-k-01",
+   "category": "standards",
+   "source": "standards",
+   "latency_s": 10060.7,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "standards-k-02",
+   "category": "standards",
+   "source": "standards",
+   "latency_s": 9014.6,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "standards-k-03",
+   "category": "standards",
+   "source": "standards",
+   "latency_s": 7988.9,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "standards-k-04",
+   "category": "standards",
+   "source": "standards",
+   "latency_s": 7336.4,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "standards-k-05",
+   "category": "standards",
+   "source": "standards",
+   "latency_s": 7336.2,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "standards-k-06",
+   "category": "standards",
+   "source": "standards",
+   "latency_s": 7336.0,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "standards-k-07",
+   "category": "standards",
+   "source": "standards",
+   "latency_s": 7336.0,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "standards-k-08",
+   "category": "standards",
+   "source": "standards",
+   "latency_s": 7336.3,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "standards-k-09",
+   "category": "standards",
+   "source": "standards",
+   "latency_s": 7336.2,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "standards-k-10",
+   "category": "standards",
+   "source": "standards",
+   "latency_s": 7165.3,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "testing-k-01",
+   "category": "testing",
+   "source": "testing",
+   "latency_s": 7165.3,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "testing-k-02",
+   "category": "testing",
+   "source": "testing",
+   "latency_s": 7165.3,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "testing-k-03",
+   "category": "testing",
+   "source": "testing",
+   "latency_s": 7165.4,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "testing-k-04",
+   "category": "testing",
+   "source": "testing",
+   "latency_s": 7165.2,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "testing-k-05",
+   "category": "testing",
+   "source": "testing",
+   "latency_s": 7520.3,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+   "response": ""
+  },
+  {
+   "id": "testing-k-06",
+   "category": "testing",
+   "source": "testing",
+   "latency_s": 7516.4,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+   "response": ""
+  },
+  {
+   "id": "testing-k-07",
+   "category": "testing",
+   "source": "testing",
+   "latency_s": 7516.2,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+   "response": ""
+  },
+  {
+   "id": "testing-k-08",
+   "category": "testing",
+   "source": "testing",
+   "latency_s": 7419.7,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error TLS/SSL connection has been closed (EOF) (_ssl.c:1082)>",
+   "response": ""
+  },
+  {
+   "id": "testing-k-09",
+   "category": "testing",
+   "source": "testing",
+   "latency_s": 7516.4,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+   "response": ""
+  },
+  {
+   "id": "testing-k-10",
+   "category": "testing",
+   "source": "testing",
+   "latency_s": 7319.8,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: Remote end closed connection without response",
+   "response": ""
+  },
+  {
+   "id": "tooling-k-01",
+   "category": "tooling",
+   "source": "tools",
+   "latency_s": 7327.3,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error TLS/SSL connection has been closed (EOF) (_ssl.c:1082)>",
+   "response": ""
+  },
+  {
+   "id": "tooling-k-02",
+   "category": "tooling",
+   "source": "tools",
+   "latency_s": 854.1,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+   "response": ""
+  },
+  {
+   "id": "tooling-k-03",
+   "category": "tooling",
+   "source": "tools",
+   "latency_s": 116.5,
+   "usage": {
+    "prompt_tokens": 70,
+    "completion_tokens": 12,
+    "total_tokens": 82,
+    "cost": 1.8e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 1.8e-05,
+     "upstream_inference_prompt_cost": 8.4e-06,
+     "upstream_inference_completions_cost": 9.6e-06
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'Truffle'",
+   "response": "The framework is Truffle.  \nAnswer: Truffle"
+  },
+  {
+   "id": "tooling-k-04",
+   "category": "tooling",
+   "source": "tools",
+   "latency_s": 701.0,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 60] Operation timed out>",
+   "response": ""
+  },
+  {
+   "id": "tooling-k-05",
+   "category": "tooling",
+   "source": "tools",
+   "latency_s": 853.9,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+   "response": ""
+  },
+  {
+   "id": "tooling-k-06",
+   "category": "tooling",
+   "source": "tools",
+   "latency_s": 1710.8,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "tooling-k-07",
+   "category": "tooling",
+   "source": "tools",
+   "latency_s": 1803.1,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+   "response": ""
+  },
+  {
+   "id": "tooling-k-08",
+   "category": "tooling",
+   "source": "tools",
+   "latency_s": 407.1,
+   "usage": {
+    "prompt_tokens": 64,
+    "completion_tokens": 12,
+    "total_tokens": 76,
+    "cost": 1.728e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 1.728e-05,
+     "upstream_inference_prompt_cost": 7.68e-06,
+     "upstream_inference_completions_cost": 9.6e-06
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'viem'",
+   "response": "The library is viem.  \nAnswer: viem"
+  },
+  {
+   "id": "tooling-k-09",
+   "category": "tooling",
+   "source": "tools",
+   "latency_s": 399.6,
+   "usage": {
+    "prompt_tokens": 54,
+    "completion_tokens": 9,
+    "total_tokens": 63,
+    "cost": 1.368e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 1.368e-05,
+     "upstream_inference_prompt_cost": 6.48e-06,
+     "upstream_inference_completions_cost": 7.2e-06
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'npx create-eth-app'",
+   "response": "Answer: npx create-eth-app"
+  },
+  {
+   "id": "tooling-k-10",
+   "category": "tooling",
+   "source": "tools",
+   "latency_s": 255.1,
+   "usage": {
+    "prompt_tokens": 61,
+    "completion_tokens": 5,
+    "total_tokens": 66,
+    "cost": 1.132e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 1.132e-05,
+     "upstream_inference_prompt_cost": 7.32e-06,
+     "upstream_inference_completions_cost": 4e-06
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'cast interface'",
+   "response": "Answer: cast interface"
+  },
+  {
+   "id": "units-01",
+   "category": "units",
+   "source": "generated",
+   "latency_s": 1.1,
+   "usage": {
+    "prompt_tokens": 42,
+    "completion_tokens": 87,
+    "total_tokens": 129,
+    "cost": 8.586e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 8.586e-05,
+     "upstream_inference_prompt_cost": 7.56e-06,
+     "upstream_inference_completions_cost": 7.83e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [412500000000]",
+   "response": "1 gwei = 1,000,000,000 wei  \nSo, 412.5 gwei = 412.5 \u00d7 1,000,000,000 = 412,500,000,000 wei  \n\nAnswer: 412500000000"
+  },
+  {
+   "id": "units-02",
+   "category": "units",
+   "source": "generated",
+   "latency_s": 1.2,
+   "usage": {
+    "prompt_tokens": 41,
+    "completion_tokens": 84,
+    "total_tokens": 125,
+    "cost": 7.212e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 7.212e-05,
+     "upstream_inference_prompt_cost": 4.92e-06,
+     "upstream_inference_completions_cost": 6.72e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [2356000000000000000]",
+   "response": "1 ether = 10^18 wei  \n2.356 ether = 2.356 \u00d7 10^18 wei = 2,356,000,000,000,000,000 wei  \n\nAnswer: 2356000000000000000"
+  },
+  {
+   "id": "units-03",
+   "category": "units",
+   "source": "generated",
+   "latency_s": 1.2,
+   "usage": {
+    "prompt_tokens": 53,
+    "completion_tokens": 96,
+    "total_tokens": 149,
+    "cost": 9.594e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 9.594e-05,
+     "upstream_inference_prompt_cost": 9.54e-06,
+     "upstream_inference_completions_cost": 8.64e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [41400000000]",
+   "response": "For an ERC-20 token with 8 decimals, 1 whole token equals 10\u2078 in raw integer units.\n\nSo, 414 whole tokens = 414 \u00d7 10\u2078 = 414 \u00d7 100,000,000 = 41,400,000,000.\n\nAnswer: 41400000000"
+  },
+  {
+   "id": "units-04",
+   "category": "units",
+   "source": "generated",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 43,
+    "completion_tokens": 89,
+    "total_tokens": 132,
+    "cost": 8.784e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 8.784e-05,
+     "upstream_inference_prompt_cost": 7.74e-06,
+     "upstream_inference_completions_cost": 8.01e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [418250000000]",
+   "response": "1 gwei = 1,000,000,000 wei  \nSo, 418.25 gwei = 418.25 \u00d7 1,000,000,000 = 418,250,000,000 wei  \n\nAnswer: 418250000000"
+  },
+  {
+   "id": "units-05",
+   "category": "units",
+   "source": "generated",
+   "latency_s": 1.1,
+   "usage": {
+    "prompt_tokens": 41,
+    "completion_tokens": 84,
+    "total_tokens": 125,
+    "cost": 8.298e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 8.298e-05,
+     "upstream_inference_prompt_cost": 7.38e-06,
+     "upstream_inference_completions_cost": 7.56e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [6522000000000000000]",
+   "response": "1 ether = 10^18 wei  \n6.522 ether = 6.522 \u00d7 10^18 wei = 6,522,000,000,000,000,000 wei  \n\nAnswer: 6522000000000000000"
+  },
+  {
+   "id": "wallets-eip55-01",
+   "category": "wallets",
+   "source": "generated",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 68,
+    "completion_tokens": 41,
+    "total_tokens": 109,
+    "cost": 4.914e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 4.914e-05,
+     "upstream_inference_prompt_cost": 1.224e-05,
+     "upstream_inference_completions_cost": 3.69e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0xE653C60aB4B1D30A1eFBeB73903eD9423319832E'",
+   "response": "0xE653C60aB4B1D30A1eFBeB73903eD9423319832E"
+  },
+  {
+   "id": "wallets-eip55-02",
+   "category": "wallets",
+   "source": "generated",
+   "latency_s": 191.9,
+   "usage": {
+    "prompt_tokens": 70,
+    "completion_tokens": 40,
+    "total_tokens": 110,
+    "cost": 4.86e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 4.86e-05,
+     "upstream_inference_prompt_cost": 1.26e-05,
+     "upstream_inference_completions_cost": 3.6e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0xf90E335B1b9F5bD07293Abbc75F66200469A3529'",
+   "response": "0xf90E335B1b9F5bD07293Abbc75F66200469A3529"
+  },
+  {
+   "id": "wallets-eip55-03",
+   "category": "wallets",
+   "source": "generated",
+   "latency_s": 191.7,
+   "usage": {
+    "prompt_tokens": 70,
+    "completion_tokens": 40,
+    "total_tokens": 110,
+    "cost": 4.04e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 4.04e-05,
+     "upstream_inference_prompt_cost": 8.4e-06,
+     "upstream_inference_completions_cost": 3.2e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x80D48A6ee577A0Ce3C3C4A913B30921fB264Cd87'",
+   "response": "0x80D48A6ee577A0Ce3C3C4A913B30921fB264Cd87"
+  },
+  {
+   "id": "wallets-eip55-04",
+   "category": "wallets",
+   "source": "generated",
+   "latency_s": 191.6,
+   "usage": {
+    "prompt_tokens": 65,
+    "completion_tokens": 37,
+    "total_tokens": 102,
+    "cost": 3.74e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 3.74e-05,
+     "upstream_inference_prompt_cost": 7.8e-06,
+     "upstream_inference_completions_cost": 2.96e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0xC180D945AeABdd802D048bB752Cd208EACB518Ad'",
+   "response": "0xC180D945AeABdd802D048bB752Cd208EACB518Ad"
+  },
+  {
+   "id": "wallets-k-01",
+   "category": "wallets",
+   "source": "wallets",
+   "latency_s": 1648.1,
+   "usage": {},
+   "pass": false,
+   "detail": "TARGET ERROR: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "response": ""
+  },
+  {
+   "id": "wallets-k-02",
+   "category": "wallets",
+   "source": "wallets",
+   "latency_s": 166.4,
+   "usage": {
+    "prompt_tokens": 46,
+    "completion_tokens": 65,
+    "total_tokens": 111,
+    "cost": 5.752e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 5.752e-05,
+     "upstream_inference_prompt_cost": 5.52e-06,
+     "upstream_inference_completions_cost": 5.2e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [64]",
+   "response": "A raw Ethereum private key is a 256-bit number. Since each hexadecimal character represents 4 bits (because \\(2^4 = 16\\)), the number of hex characters is:\n\n\\[\n\\frac{256}{4} = 64\n\\]\n\nAnswer: 64"
+  },
+  {
+   "id": "wallets-k-03",
+   "category": "wallets",
+   "source": "wallets",
+   "latency_s": 216.9,
+   "usage": {
+    "prompt_tokens": 41,
+    "completion_tokens": 30,
+    "total_tokens": 71,
+    "cost": 2.892e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 2.892e-05,
+     "upstream_inference_prompt_cost": 4.92e-06,
+     "upstream_inference_completions_cost": 2.4e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "missing ['\\\\bmay\\\\b']",
+   "response": "Ethereum's Pectra upgrade activated on mainnet in March 2025.  \nAnswer: March 2025"
+  },
+  {
+   "id": "wallets-k-04",
+   "category": "wallets",
+   "source": "wallets",
+   "latency_s": 213.3,
+   "usage": {
+    "prompt_tokens": 94,
+    "completion_tokens": 116,
+    "total_tokens": 210,
+    "cost": 0.00010408,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00010408,
+     "upstream_inference_prompt_cost": 1.128e-05,
+     "upstream_inference_completions_cost": 9.28e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got 'b'",
+   "response": "The delegation installed via EIP-7702 (which allows an EOA to delegate its signing authority to a smart contract) persists until it is explicitly revoked or replaced. There is no automatic expiration after a single transaction, time-based limit (e.g., 24 hours), or epoch boundary. The delegation is stored on-chain in the EOA\u2019s storage at a specific slot (e.g., `0x7a38a114` per EIP-7702) and remains active indefinitely unless overwritten or cleared.\n\nAnswer: B"
+  },
+  {
+   "id": "wallets-k-05",
+   "category": "wallets",
+   "source": "wallets",
+   "latency_s": 1991.0,
+   "usage": {
+    "prompt_tokens": 94,
+    "completion_tokens": 99,
+    "total_tokens": 193,
+    "cost": 9.048e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 9.048e-05,
+     "upstream_inference_prompt_cost": 1.128e-05,
+     "upstream_inference_completions_cost": 7.92e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got 'b'",
+   "response": "In EIP-7702, the EOA holder's signed authorization message specifies which contract code the EOA is allowed to run as its account logic. Specifically, the authorization message includes the target contract address and a signature that authorizes that contract to act as the account\u2019s logic (i.e., to execute on behalf of the EOA as if it were a smart contract account). This enables EOAs to delegate control to smart contracts without changing their private key.\n\nAnswer: B"
+  },
+  {
+   "id": "wallets-k-06",
+   "category": "wallets",
+   "source": "wallets",
+   "latency_s": 1990.1,
+   "usage": {
+    "prompt_tokens": 51,
+    "completion_tokens": 64,
+    "total_tokens": 115,
+    "cost": 5.732e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 5.732e-05,
+     "upstream_inference_prompt_cost": 6.12e-06,
+     "upstream_inference_completions_cost": 5.12e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got '0x0000000071727de22e5e9d8baf0edac6f37da032'",
+   "response": "The canonical deployed address of the ERC-4337 EntryPoint contract, version 0.7, is:\n\nAnswer: 0x0000000071727De22E5E9d8BAf0edAc6f37da032"
+  },
+  {
+   "id": "wallets-k-07",
+   "category": "wallets",
+   "source": "wallets",
+   "latency_s": 4.3,
+   "usage": {
+    "prompt_tokens": 86,
+    "completion_tokens": 161,
+    "total_tokens": 247,
+    "cost": 0.00013912,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00013912,
+     "upstream_inference_prompt_cost": 1.032e-05,
+     "upstream_inference_completions_cost": 0.0001288
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0xfb1b7c2f787e7d038f8c43c6b5e8c82f185f9a7f'",
+   "response": "The Safe (formerly Gnosis Safe) v1.4.1 Singleton (master copy) is deployed at the same deterministic address across Ethereum Mainnet, Arbitrum, Base, and other EVM-compatible chains. This address is derived using the CREATE2 opcode with a fixed salt and initialization code.\n\nThe canonical address for the Safe v1.4.1 Singleton is:\n\n`0xfb1b7C2f787E7d038F8c43c6B5e8C82f185F9a7F`\n\nAnswer: 0xfb1b7C2f787E7d038F8c43c6B5e8C82f185F9a7F"
+  },
+  {
+   "id": "wallets-k-08",
+   "category": "wallets",
+   "source": "wallets",
+   "latency_s": 3.6,
+   "usage": {
+    "prompt_tokens": 72,
+    "completion_tokens": 150,
+    "total_tokens": 222,
+    "cost": 0.00012864,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00012864,
+     "upstream_inference_prompt_cost": 8.64e-06,
+     "upstream_inference_completions_cost": 0.00012
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x8d29fb6d1b6a6f259294f97808615e10803b97ca'",
+   "response": "The Safe MultiSend contract for v1.4.1 is deployed at the deterministic address `0x8D29fB6d1B6a6f259294f97808615e10803B97cA` across major EVM chains (e.g., Ethereum, Gnosis Chain, Polygon, Arbitrum, Optimism, etc.), as it is derived from the same creation code and salt used in the deterministic deployment.\n\nAnswer: 0x8D29fB6d1B6a6f259294f97808615e10803B97cA"
+  },
+  {
+   "id": "wallets-k-09",
+   "category": "wallets",
+   "source": "wallets",
+   "latency_s": 3.9,
+   "usage": {
+    "prompt_tokens": 102,
+    "completion_tokens": 104,
+    "total_tokens": 206,
+    "cost": 9.544e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 9.544e-05,
+     "upstream_inference_prompt_cost": 1.224e-05,
+     "upstream_inference_completions_cost": 8.32e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer '2-of-3'",
+   "response": "This setup has three owners:  \n- Agent\u2019s hot wallet  \n- Human\u2019s hot wallet  \n- Human\u2019s cold wallet  \n\nThe threshold is set so the agent *alone* cannot move funds (i.e., threshold > 1), but *agent + human* together can (i.e., threshold \u2264 2). Since there are only three owners, and the agent needs at least one human co-signer, the minimum threshold satisfying this is **2-of-3**.\n\nAnswer: 2-of-3"
+  },
+  {
+   "id": "wallets-k-10",
+   "category": "wallets",
+   "source": "wallets",
+   "latency_s": 4.5,
+   "usage": {
+    "prompt_tokens": 104,
+    "completion_tokens": 107,
+    "total_tokens": 211,
+    "cost": 9.808e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 9.808e-05,
+     "upstream_inference_prompt_cost": 1.248e-05,
+     "upstream_inference_completions_cost": 8.56e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got 'b'",
+   "response": "The FIRST priority is to assume the key is compromised and immediately transfer all funds to a new wallet. Once the private key has been exposed\u2014even in a private or public repo, or even briefly in history\u2014it is no longer secure. Attackers can monitor the blockchain for transactions involving that address and drain funds instantly. While rewriting history (A) or making the repo private (C) are important *\u540e\u7eed* steps to prevent further exposure, they do not protect the funds already at risk. Option D is dangerously incorrect.\n\nAnswer: B"
+  }
+ ]
+}
