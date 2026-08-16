@@ -222,6 +222,14 @@ class OpenAITarget:
                     data = json.load(resp)
                 content = (data.get("choices") or [{}])[0].get("message", {}).get("content") or ""
                 usage = data.get("usage") or {}
+                if not content.strip():
+                    # reasoning models can burn the whole budget thinking and
+                    # return empty content — retry rather than score a blank
+                    last = "empty content"
+                    if attempt < len(backoffs):
+                        time.sleep(backoffs[attempt])
+                        continue
+                    raise RuntimeError(last)
                 return content, usage
             except urllib.error.HTTPError as e:
                 last = f"HTTP {e.code}: {e.read()[:200]!r}"
@@ -321,7 +329,7 @@ def main():
     ap.add_argument("--limit", type=int)
     ap.add_argument("--runs", type=int, default=1)
     ap.add_argument("--concurrency", type=int, default=8)
-    ap.add_argument("--max-tokens", type=int, default=4000)
+    ap.add_argument("--max-tokens", type=int, default=16000)
     ap.add_argument("--verbose", "-v", action="store_true")
     args = ap.parse_args()
 

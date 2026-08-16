@@ -1,0 +1,4402 @@
+{
+ "name": "gpt-5.4-mini",
+ "target": "openai:https://llm.bankr.bot/v1/chat/completions:gpt-5.4-mini",
+ "timestamp": "2026-08-15 18:17:54",
+ "overall": 70.3,
+ "ci95": [
+  65.3,
+  74.9
+ ],
+ "categories": {
+  "addresses": {
+   "passed": 9,
+   "total": 10,
+   "pct": 90.0
+  },
+  "calldata": {
+   "passed": 1,
+   "total": 15,
+   "pct": 6.7
+  },
+  "concepts": {
+   "passed": 7,
+   "total": 10,
+   "pct": 70.0
+  },
+  "derivations": {
+   "passed": 0,
+   "total": 10,
+   "pct": 0.0
+  },
+  "frontend": {
+   "passed": 9,
+   "total": 10,
+   "pct": 90.0
+  },
+  "fundamentals": {
+   "passed": 6,
+   "total": 10,
+   "pct": 60.0
+  },
+  "gas": {
+   "passed": 12,
+   "total": 18,
+   "pct": 66.7
+  },
+  "indexing": {
+   "passed": 10,
+   "total": 14,
+   "pct": 71.4
+  },
+  "l2s": {
+   "passed": 7,
+   "total": 10,
+   "pct": 70.0
+  },
+  "protocol": {
+   "passed": 8,
+   "total": 10,
+   "pct": 80.0
+  },
+  "security": {
+   "passed": 10,
+   "total": 10,
+   "pct": 100.0
+  },
+  "standards": {
+   "passed": 8,
+   "total": 10,
+   "pct": 80.0
+  },
+  "testing": {
+   "passed": 10,
+   "total": 10,
+   "pct": 100.0
+  },
+  "tooling": {
+   "passed": 9,
+   "total": 10,
+   "pct": 90.0
+  },
+  "units": {
+   "passed": 5,
+   "total": 5,
+   "pct": 100.0
+  },
+  "wallets": {
+   "passed": 7,
+   "total": 14,
+   "pct": 50.0
+  }
+ },
+ "skills": {
+  "addresses": {
+   "passed": 9,
+   "total": 10,
+   "pct": 90.0
+  },
+  "concepts": {
+   "passed": 7,
+   "total": 10,
+   "pct": 70.0
+  },
+  "frontend-playbook": {
+   "passed": 4,
+   "total": 5,
+   "pct": 80.0
+  },
+  "frontend-ux": {
+   "passed": 5,
+   "total": 5,
+   "pct": 100.0
+  },
+  "gas": {
+   "passed": 8,
+   "total": 10,
+   "pct": 80.0
+  },
+  "generated": {
+   "passed": 10,
+   "total": 46,
+   "pct": 21.7
+  },
+  "indexing": {
+   "passed": 10,
+   "total": 10,
+   "pct": 100.0
+  },
+  "l2s": {
+   "passed": 7,
+   "total": 10,
+   "pct": 70.0
+  },
+  "protocol": {
+   "passed": 8,
+   "total": 10,
+   "pct": 80.0
+  },
+  "security": {
+   "passed": 10,
+   "total": 10,
+   "pct": 100.0
+  },
+  "standards": {
+   "passed": 8,
+   "total": 10,
+   "pct": 80.0
+  },
+  "testing": {
+   "passed": 10,
+   "total": 10,
+   "pct": 100.0
+  },
+  "tools": {
+   "passed": 9,
+   "total": 10,
+   "pct": 90.0
+  },
+  "wallets": {
+   "passed": 7,
+   "total": 10,
+   "pct": 70.0
+  },
+  "why": {
+   "passed": 6,
+   "total": 10,
+   "pct": 60.0
+  }
+ },
+ "elapsed_s": 272.6,
+ "tokens": {
+  "in": 12622,
+  "out": 10189
+ },
+ "runs": 1,
+ "temperature": 0,
+ "tasks": [
+  {
+   "id": "addresses-k-01",
+   "category": "addresses",
+   "source": "addresses",
+   "latency_s": 1.8,
+   "usage": {
+    "prompt_tokens": 40,
+    "completion_tokens": 88,
+    "total_tokens": 128,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'",
+   "response": "The canonical Ethereum mainnet contract address for native USDC (Circle\u2019s USD Coin) is:\n\n0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48\n\nAnswer: 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+  },
+  {
+   "id": "addresses-k-02",
+   "category": "addresses",
+   "source": "addresses",
+   "latency_s": 1.8,
+   "usage": {
+    "prompt_tokens": 37,
+    "completion_tokens": 47,
+    "total_tokens": 84,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'",
+   "response": "The canonical WETH contract address on Ethereum mainnet is:\n\nAnswer: 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+  },
+  {
+   "id": "addresses-k-03",
+   "category": "addresses",
+   "source": "addresses",
+   "latency_s": 1.1,
+   "usage": {
+    "prompt_tokens": 37,
+    "completion_tokens": 67,
+    "total_tokens": 104,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got '0xdac17f958d2ee523a2206206994597c13d831ec7'",
+   "response": "The canonical Ethereum mainnet contract address for USDT (Tether) is:\n\n0xdAC17F958D2ee523a2206206994597C13D831ec7\n\nAnswer: 0xdAC17F958D2ee523a2206206994597C13D831ec7"
+  },
+  {
+   "id": "addresses-k-04",
+   "category": "addresses",
+   "source": "addresses",
+   "latency_s": 77.6,
+   "usage": {
+    "prompt_tokens": 40,
+    "completion_tokens": 87,
+    "total_tokens": 127,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got '0x7a250d5630b4cf539739df2c5dacb4c659f2488d'",
+   "response": "The canonical Ethereum mainnet address for the Uniswap V2 Router02 is:\n\n0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D\n\nAnswer: 0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D"
+  },
+  {
+   "id": "addresses-k-05",
+   "category": "addresses",
+   "source": "addresses",
+   "latency_s": 78.5,
+   "usage": {
+    "prompt_tokens": 58,
+    "completion_tokens": 45,
+    "total_tokens": 103,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got '0x000000000022d473030f116ddee9f6b43ac78ba3'",
+   "response": "Permit2 is deployed at the same deterministic CREATE2 address on EVM chains:\n\nAnswer: 0x000000000022D473030F116dDEE9F6B43aC78BA3"
+  },
+  {
+   "id": "addresses-k-06",
+   "category": "addresses",
+   "source": "addresses",
+   "latency_s": 77.5,
+   "usage": {
+    "prompt_tokens": 46,
+    "completion_tokens": 51,
+    "total_tokens": 97,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got '0x00000000000c2e074ec69a0dfb2997ba6c7d2e1e'",
+   "response": "The ENS Registry currently used on Ethereum mainnet since the 2020 migration is:\n\nAnswer: 0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e"
+  },
+  {
+   "id": "addresses-k-07",
+   "category": "addresses",
+   "source": "addresses",
+   "latency_s": 78.0,
+   "usage": {
+    "prompt_tokens": 50,
+    "completion_tokens": 80,
+    "total_tokens": 130,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x0576a174d229e3cfa37253523e645a78a0c91b57'",
+   "response": "The canonical ERC-4337 EntryPoint v0.6 contract address is:\n\n`0x0576a174D229E3cFA37253523E645A78A0C91B57`\n\nAnswer: 0x0576a174D229E3cFA37253523E645A78A0C91B57"
+  },
+  {
+   "id": "addresses-k-08",
+   "category": "addresses",
+   "source": "addresses",
+   "latency_s": 78.3,
+   "usage": {
+    "prompt_tokens": 60,
+    "completion_tokens": 76,
+    "total_tokens": 136,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got '0x4e59b44847b379578588920ca78fbf26c0b4956c'",
+   "response": "Arachnid\u2019s deterministic CREATE2 deployer is at:\n\n`0x4e59b44847b379578588920cA78FbF26c0B4956C`\n\nAnswer: 0x4e59b44847b379578588920cA78FbF26c0B4956C"
+  },
+  {
+   "id": "addresses-k-09",
+   "category": "addresses",
+   "source": "addresses",
+   "latency_s": 77.6,
+   "usage": {
+    "prompt_tokens": 56,
+    "completion_tokens": 66,
+    "total_tokens": 122,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got '0xa6b71e26c5e0845f74c812102ca7114b6a896ab2'",
+   "response": "The Ethereum mainnet `ProxyFactory` commonly used with the Safe (formerly Gnosis Safe) v1.3.0 singleton is:\n\nAnswer: 0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2"
+  },
+  {
+   "id": "addresses-k-10",
+   "category": "addresses",
+   "source": "addresses",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 46,
+    "completion_tokens": 61,
+    "total_tokens": 107,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got '0x833589fcd6edb6e08f4c7c32d4f71b54bda02913'",
+   "response": "The native USDC on Base, issued by Circle, uses the official USDC contract deployed on Base:\n\nAnswer: 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+  },
+  {
+   "id": "calldata-dec-01",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 17.0,
+   "usage": {
+    "prompt_tokens": 173,
+    "completion_tokens": 56,
+    "total_tokens": 229,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got {\"function\": \"bridgeOut\", \"args\": [384524810, \"0x881b4ebc64a78eb2b9e5fb967bd68e88ffb22c8d\", 821848146]}",
+   "response": "{\"function\":\"bridgeOut\",\"args\":[384524810, \"0x881b4ebc64a78eb2b9e5fb967bd68e88ffb22c8d\", 821848146]}"
+  },
+  {
+   "id": "calldata-dec-02",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 16.9,
+   "usage": {
+    "prompt_tokens": 176,
+    "completion_tokens": 46,
+    "total_tokens": 222,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got {\"function\": \"claimRewardsFor\", \"args\": [3279080000, \"0x191745cf0679cfe3188e56135ca504d223007115\", 0]}",
+   "response": "{\"function\":\"claimRewardsFor\",\"args\":[3279080000,\"0x191745cf0679cfe3188e56135ca504d223007115\",0]}"
+  },
+  {
+   "id": "calldata-dec-03",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 150,
+    "completion_tokens": 49,
+    "total_tokens": 199,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "",
+   "response": "{\"function\":\"redeemFor\",\"args\":[true,\"0xc4d9cb82f0a80d126547355c5cfbb18fe30c7c9c\"]}"
+  },
+  {
+   "id": "calldata-dec-04",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 2.8,
+   "usage": {
+    "prompt_tokens": 171,
+    "completion_tokens": 47,
+    "total_tokens": 218,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got {\"function\": \"rebalance\", \"args\": [\"0x794f812efe8f79aaa4e640dcee6943c3af709a91\", false, 120500631]}",
+   "response": "{\"function\":\"rebalance\",\"args\":[\"0x794f812efe8f79aaa4e640dcee6943c3af709a91\",false,120500631]}"
+  },
+  {
+   "id": "calldata-dec-05",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 1.2,
+   "usage": {
+    "prompt_tokens": 144,
+    "completion_tokens": 25,
+    "total_tokens": 169,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got {\"function\": \"setOperatorV2\", \"args\": [false, 904523417]}",
+   "response": "{\"function\":\"setOperatorV2\",\"args\":[false,904523417]}"
+  },
+  {
+   "id": "calldata-dec-06",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 1.5,
+   "usage": {
+    "prompt_tokens": 146,
+    "completion_tokens": 44,
+    "total_tokens": 190,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got {\"function\": \"claimRewards\", \"args\": [\"0x78734594190e530da3d738d8083583f58e95dd80\", 27426279]}",
+   "response": "{\"function\":\"claimRewards\",\"args\":[\"0x78734594190e530da3d738d8083583f58e95dd80\",27426279]}"
+  },
+  {
+   "id": "calldata-enc-01",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 1.2,
+   "usage": {
+    "prompt_tokens": 70,
+    "completion_tokens": 69,
+    "total_tokens": 139,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0xa7a5a0a40000000000000000000000000000000000000000000000000000000000000001000000'",
+   "response": "0xa7a5a0a4000000000000000000000000000000000000000000000000000000000000000100000000000000000000000032a78bf36789defc38cb0e58a0bbce41e052013e"
+  },
+  {
+   "id": "calldata-enc-02",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 17.1,
+   "usage": {
+    "prompt_tokens": 65,
+    "completion_tokens": 47,
+    "total_tokens": 112,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0xd77d9d1e5562dffdbe5c76f87400c317ef8e85404a769f92000000000000000000000000'",
+   "response": "0xd77d9d1e5562dffdbe5c76f87400c317ef8e85404a769f92000000000000000000000000"
+  },
+  {
+   "id": "calldata-enc-03",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 16.7,
+   "usage": {
+    "prompt_tokens": 74,
+    "completion_tokens": 71,
+    "total_tokens": 145,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x4029e9e5000000000000000000000000bb339dad6bffddc62b666ca0bff22e277ea2fd24000000'",
+   "response": "0x4029e9e5000000000000000000000000bb339dad6bffddc62b666ca0bff22e277ea2fd2400000000000000000000000000000000000000000000000000000000159f7d31"
+  },
+  {
+   "id": "calldata-enc-04",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 16.6,
+   "usage": {
+    "prompt_tokens": 51,
+    "completion_tokens": 63,
+    "total_tokens": 114,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x8e2d1ad10000000000000000000000000000000000000000000000000000000000000001000000'",
+   "response": "0x8e2d1ad100000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000030d3f0fc"
+  },
+  {
+   "id": "calldata-sel-01",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 36,
+    "completion_tokens": 15,
+    "total_tokens": 51,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x13af4035'",
+   "response": "0x13af4035"
+  },
+  {
+   "id": "calldata-sel-02",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 41,
+    "completion_tokens": 16,
+    "total_tokens": 57,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x55a53c77'",
+   "response": "0x55a53c77"
+  },
+  {
+   "id": "calldata-sel-03",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 41,
+    "completion_tokens": 17,
+    "total_tokens": 58,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x7b0472f2'",
+   "response": "0x7b0472f2"
+  },
+  {
+   "id": "calldata-sel-04",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 16.4,
+   "usage": {
+    "prompt_tokens": 39,
+    "completion_tokens": 16,
+    "total_tokens": 55,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x94d07f53'",
+   "response": "0x94d07f53"
+  },
+  {
+   "id": "calldata-sel-05",
+   "category": "calldata",
+   "source": "generated",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 38,
+    "completion_tokens": 15,
+    "total_tokens": 53,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0xcaa8efbd'",
+   "response": "0xcaa8efbd"
+  },
+  {
+   "id": "concepts-k-01",
+   "category": "concepts",
+   "source": "concepts",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 63,
+    "completion_tokens": 25,
+    "total_tokens": 88,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got 'on-chain'",
+   "response": "The Ethereum community generally prefers **\"on-chain\"**.\n\nAnswer: on-chain"
+  },
+  {
+   "id": "concepts-k-02",
+   "category": "concepts",
+   "source": "concepts",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 108,
+    "completion_tokens": 64,
+    "total_tokens": 172,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "",
+   "response": "C) Contracts cannot execute themselves \u2014 every function call needs an external caller who pays gas\n\nEthereum smart contracts are passive code: they only run when an externally initiated transaction or call triggers them. There is no native clock or scheduler in the EVM that wakes a contract up on its own.\n\nAnswer: C"
+  },
+  {
+   "id": "concepts-k-03",
+   "category": "concepts",
+   "source": "concepts",
+   "latency_s": 1.4,
+   "usage": {
+    "prompt_tokens": 53,
+    "completion_tokens": 66,
+    "total_tokens": 119,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "",
+   "response": "`blockhash(block.number)` always returns `bytes32(0)`.\n\nThis is because `blockhash` only works for the 256 most recent **completed** blocks, and the current block\u2019s hash is not available while the block is still being mined/executed.\n\nAnswer: `bytes32(0)`"
+  },
+  {
+   "id": "concepts-k-04",
+   "category": "concepts",
+   "source": "concepts",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 69,
+    "completion_tokens": 62,
+    "total_tokens": 131,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'the miner/validator (block proposer)'",
+   "response": "The **block producer** \u2014 i.e. the **miner/validator proposing the block** \u2014 can manipulate `block.timestamp` within a small allowed window (roughly seconds, often cited around 15 seconds) and thus bias the derived value.\n\nAnswer: the miner/validator (block proposer)"
+  },
+  {
+   "id": "concepts-k-05",
+   "category": "concepts",
+   "source": "concepts",
+   "latency_s": 1.1,
+   "usage": {
+    "prompt_tokens": 81,
+    "completion_tokens": 32,
+    "total_tokens": 113,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [256]",
+   "response": "The reveal must happen within **256 blocks** after the commit. After that, `blockhash(commitBlock)` returns zero.\n\nAnswer: 256"
+  },
+  {
+   "id": "concepts-k-06",
+   "category": "concepts",
+   "source": "concepts",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 71,
+    "completion_tokens": 42,
+    "total_tokens": 113,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'Chainlink VRF'",
+   "response": "The standard choice is **Chainlink VRF** (Verifiable Random Function), which provides onchain-verifiable randomness with a cryptographic proof that anyone can check.\n\nAnswer: Chainlink VRF"
+  },
+  {
+   "id": "concepts-k-07",
+   "category": "concepts",
+   "source": "concepts",
+   "latency_s": 1.1,
+   "usage": {
+    "prompt_tokens": 72,
+    "completion_tokens": 48,
+    "total_tokens": 120,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'flash loan attack'",
+   "response": "The attack primitive is a **flash loan attack**. An attacker can temporarily manipulate a DEX pool\u2019s reserves within one transaction to distort the spot price, then revert the state before the transaction ends.\n\nAnswer: flash loan attack"
+  },
+  {
+   "id": "concepts-k-08",
+   "category": "concepts",
+   "source": "concepts",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 61,
+    "completion_tokens": 39,
+    "total_tokens": 100,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got 1.0",
+   "response": "In Aave/Compound-style overcollateralized lending, liquidation is typically allowed once the loan\u2019s health factor falls below **1.0**.\n\nAnswer: 1.0"
+  },
+  {
+   "id": "concepts-k-09",
+   "category": "concepts",
+   "source": "concepts",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 69,
+    "completion_tokens": 70,
+    "total_tokens": 139,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "answer 'decentralized autonomous protocol'",
+   "response": "The term is **\"decentralized autonomous protocol\"** \u2014 often shortened to **DAP** or discussed as an **\u201cimmortal protocol\u201d** / **\u201cprotocol as a product\u201d** in Ethereum circles. Uniswap is commonly cited as the canonical example of this idea.\n\nAnswer: decentralized autonomous protocol"
+  },
+  {
+   "id": "concepts-k-10",
+   "category": "concepts",
+   "source": "concepts",
+   "latency_s": 1.3,
+   "usage": {
+    "prompt_tokens": 57,
+    "completion_tokens": 62,
+    "total_tokens": 119,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "missing ['open[\\\\s-]*source', 'privacy', 'security']",
+   "response": "CROPS stands for:\n\n- **Censorship resistance**\n- **Resistance to centralization**\n- **Open to anyone**\n- **Permissionless**\n- **Secure**\n\nAnswer: censorship resistance, resistance to centralization, open to anyone, permissionless, secure"
+  },
+  {
+   "id": "derivations-create-01",
+   "category": "derivations",
+   "source": "generated",
+   "latency_s": 1.1,
+   "usage": {
+    "prompt_tokens": 71,
+    "completion_tokens": 51,
+    "total_tokens": 122,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x3f3f2b0f8b0d1d2c1b0f2e5f0bc4d1c0a1a8dc7e'",
+   "response": "0x3f3f2B0F8b0D1d2C1B0f2E5f0bC4d1C0a1A8dC7E"
+  },
+  {
+   "id": "derivations-create-02",
+   "category": "derivations",
+   "source": "generated",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 72,
+    "completion_tokens": 51,
+    "total_tokens": 123,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x7f1e5bc7b0b3f4f9d7b2b9d7ff1fc8d4c4f0b0a3'",
+   "response": "0x7f1E5bC7b0B3f4F9d7B2b9d7Ff1fC8D4c4f0b0A3"
+  },
+  {
+   "id": "derivations-create-03",
+   "category": "derivations",
+   "source": "generated",
+   "latency_s": 1.4,
+   "usage": {
+    "prompt_tokens": 73,
+    "completion_tokens": 49,
+    "total_tokens": 122,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x8d8c9c8d2b1f4a9d4d2ad8c5fdb7f9f2f1a4c7a5'",
+   "response": "0x8d8c9c8d2b1f4a9d4d2ad8c5fdb7f9f2f1a4c7a5"
+  },
+  {
+   "id": "derivations-create2-01",
+   "category": "derivations",
+   "source": "generated",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 136,
+    "completion_tokens": 50,
+    "total_tokens": 186,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x37c6d2a4f5f0e2c9b8f8f0a7a2f4e1b3c4f7d9a1'",
+   "response": "0x37c6d2a4f5f0e2c9b8f8f0a7a2f4e1b3c4f7d9a1"
+  },
+  {
+   "id": "derivations-create2-02",
+   "category": "derivations",
+   "source": "generated",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 144,
+    "completion_tokens": 51,
+    "total_tokens": 195,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x3e0d2d5f4c9f1f2f9f7f1f9c0f3f4e8b9d9d0f2c'",
+   "response": "0x3e0d2d5f4c9f1f2f9f7f1f9c0f3f4e8b9d9d0f2c"
+  },
+  {
+   "id": "derivations-create2-03",
+   "category": "derivations",
+   "source": "generated",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 149,
+    "completion_tokens": 46,
+    "total_tokens": 195,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0xe6a8b0f39b3a2f1a61c6f3c4c3d0f5bb50a4a7b9'",
+   "response": "0xe6a8b0f39b3a2f1a61c6f3c4c3d0f5bb50a4a7b9"
+  },
+  {
+   "id": "derivations-slot-01",
+   "category": "derivations",
+   "source": "generated",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 71,
+    "completion_tokens": 68,
+    "total_tokens": 139,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x6f6d0f58f34a0d5f2fce26bcf0b2f3b5f7fbcf07c2f5e6c3c5f3f1f5f8b4e8c3'",
+   "response": "0x6f6d0f58f34a0d5f2fce26bcf0b2f3b5f7fbcf07c2f5e6c3c5f3f1f5f8b4e8c3"
+  },
+  {
+   "id": "derivations-slot-02",
+   "category": "derivations",
+   "source": "generated",
+   "latency_s": 2.8,
+   "usage": {
+    "prompt_tokens": 75,
+    "completion_tokens": 67,
+    "total_tokens": 142,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x0bdfd31948c4b7f38dbf76d1f3d8f9edc4f2e3a5a3a4f7c7d6f2b1d1f0c5b8c0'",
+   "response": "0x0bdfd31948c4b7f38dbf76d1f3d8f9edc4f2e3a5a3a4f7c7d6f2b1d1f0c5b8c0"
+  },
+  {
+   "id": "derivations-slot-03",
+   "category": "derivations",
+   "source": "generated",
+   "latency_s": 1.1,
+   "usage": {
+    "prompt_tokens": 75,
+    "completion_tokens": 73,
+    "total_tokens": 148,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x5f9f7d4d0f6c7a9c1d5fd3e9f0a7f4e0f1f7d9f1e6c1f8fbb9b5a1f6d5a4d8e3'",
+   "response": "0x5f9f7d4d0f6c7a9c1d5fd3e9f0a7f4e0f1f7d9f1e6c1f8fbb9b5a1f6d5a4d8e3"
+  },
+  {
+   "id": "derivations-slot-04",
+   "category": "derivations",
+   "source": "generated",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 76,
+    "completion_tokens": 69,
+    "total_tokens": 145,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x9e05c1f0f0e21f57dbb2f72ed4d5f4f0d3f3f2c0b7f7f0d3c7b9f4d1d3b5e8f1'",
+   "response": "0x9e05c1f0f0e21f57dbb2f72ed4d5f4f0d3f3f2c0b7f7f0d3c7b9f4d1d3b5e8f1"
+  },
+  {
+   "id": "frontend-k-01",
+   "category": "frontend",
+   "source": "frontend-ux",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 82,
+    "completion_tokens": 33,
+    "total_tokens": 115,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'formatEther'",
+   "response": "Use viem\u2019s **`formatEther`** utility to convert wei `bigint` values into a human-readable ETH string.\n\nAnswer: formatEther"
+  },
+  {
+   "id": "frontend-k-02",
+   "category": "frontend",
+   "source": "frontend-ux",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 60,
+    "completion_tokens": 47,
+    "total_tokens": 107,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [100000000]",
+   "response": "USDC uses 6 decimals, so `parseUnits(\"100\", 6)` gives:\n\n`100 * 10^6 = 100000000`\n\nAnswer: 100000000"
+  },
+  {
+   "id": "frontend-k-03",
+   "category": "frontend",
+   "source": "frontend-ux",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 94,
+    "completion_tokens": 54,
+    "total_tokens": 148,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got 'b'",
+   "response": "B) Switch Network\n\nThe dApp should prompt the user to fix the blocking issue first. Since the wallet is already connected, and the network is incorrect, the next required action is switching to the correct chain before handling approval or staking.\n\nAnswer: B"
+  },
+  {
+   "id": "frontend-k-04",
+   "category": "frontend",
+   "source": "frontend-ux",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 115,
+    "completion_tokens": 57,
+    "total_tokens": 172,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got 'b'",
+   "response": "B) `isPending` becomes false as soon as the wallet returns the transaction hash, before onchain confirmation.\n\nThat means the button can re-enable while the approval transaction is still unconfirmed, letting the user click again and potentially submit a second approval.\n\nAnswer: B"
+  },
+  {
+   "id": "frontend-k-05",
+   "category": "frontend",
+   "source": "frontend-ux",
+   "latency_s": 37.6,
+   "usage": {
+    "prompt_tokens": 106,
+    "completion_tokens": 62,
+    "total_tokens": 168,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got 'b'",
+   "response": "B) It stays disabled permanently\n\nBecause the submitting flag is set before the async transaction call and only cleared after a successful await, a user rejection throws an error and skips the flag reset. Without a `finally` block or error handling that resets state, the button remains disabled.\n\nAnswer: B"
+  },
+  {
+   "id": "frontend-k-06",
+   "category": "frontend",
+   "source": "frontend-playbook",
+   "latency_s": 1.1,
+   "usage": {
+    "prompt_tokens": 69,
+    "completion_tokens": 84,
+    "total_tokens": 153,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [31337]",
+   "response": "When you run `yarn fork --network base`, the frontend should target the **forked local Anvil network**, not Base mainnet itself. In Scaffold-ETH 2, that means the `targetNetworks` entry in `scaffold.config.ts` should correspond to **Anvil\u2019s chain ID**, which is typically:\n\n- **31337** for local development forks\n\nAnswer: 31337"
+  },
+  {
+   "id": "frontend-k-07",
+   "category": "frontend",
+   "source": "frontend-playbook",
+   "latency_s": 37.2,
+   "usage": {
+    "prompt_tokens": 96,
+    "completion_tokens": 53,
+    "total_tokens": 149,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "",
+   "response": "Use the Next.js **trailing slash** setting:\n\n```ts\ntrailingSlash: true\n```\n\nThis makes routes like `/debug` export as `/debug/index.html`, which IPFS gateways can resolve correctly.\n\nAnswer: trailingSlash: true"
+  },
+  {
+   "id": "frontend-k-08",
+   "category": "frontend",
+   "source": "frontend-playbook",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 86,
+    "completion_tokens": 47,
+    "total_tokens": 133,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "answer 'anvil_setBlockTimestampInterval'",
+   "response": "Use the Anvil JSON-RPC method `anvil_setBlockTimestampInterval` to make the node advance time by mining blocks at a fixed interval, e.g. every second.\n\nAnswer: anvil_setBlockTimestampInterval"
+  },
+  {
+   "id": "frontend-k-09",
+   "category": "frontend",
+   "source": "frontend-playbook",
+   "latency_s": 37.6,
+   "usage": {
+    "prompt_tokens": 170,
+    "completion_tokens": 37,
+    "total_tokens": 207,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got 'b'",
+   "response": "B) Next.js prerenders pages in a separate build worker process where instrumentation.ts never runs, while --require injects into every Node process including workers\n\nAnswer: B"
+  },
+  {
+   "id": "frontend-k-10",
+   "category": "frontend",
+   "source": "frontend-playbook",
+   "latency_s": 36.7,
+   "usage": {
+    "prompt_tokens": 76,
+    "completion_tokens": 31,
+    "total_tokens": 107,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'npx create-eth@latest'",
+   "response": "Use the Scaffold-ETH 2 initializer command:\n\n`npx create-eth@latest`\n\nAnswer: npx create-eth@latest"
+  },
+  {
+   "id": "fundamentals-k-01",
+   "category": "fundamentals",
+   "source": "why",
+   "latency_s": 37.0,
+   "usage": {
+    "prompt_tokens": 61,
+    "completion_tokens": 71,
+    "total_tokens": 132,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "answer 'on-chain'",
+   "response": "In Ethereum writing, **\u201con-chain\u201d** is the most commonly preferred spelling.\n\n\u201cOnchain\u201d is also widely used in crypto, especially in newer product and technical contexts, but if you want the safest, most standard choice for Ethereum community usage, go with **on-chain**.\n\nAnswer: on-chain"
+  },
+  {
+   "id": "fundamentals-k-02",
+   "category": "fundamentals",
+   "source": "why",
+   "latency_s": 36.9,
+   "usage": {
+    "prompt_tokens": 34,
+    "completion_tokens": 20,
+    "total_tokens": 54,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [12]",
+   "response": "Ethereum mainnet\u2019s target block time is about 12 seconds.\n\nAnswer: 12"
+  },
+  {
+   "id": "fundamentals-k-03",
+   "category": "fundamentals",
+   "source": "why",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 120,
+    "completion_tokens": 60,
+    "total_tokens": 180,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "",
+   "response": "B) It keeps running indefinitely, because it never depended on any company's cooperation\n\nA key argument for deploying an agent service as a smart contract on a permissionless blockchain is that the service can continue as long as the blockchain itself continues, even if the original startup disappears.\n\nAnswer: B"
+  },
+  {
+   "id": "fundamentals-k-04",
+   "category": "fundamentals",
+   "source": "why",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 73,
+    "completion_tokens": 57,
+    "total_tokens": 130,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got 'c'; answer 'C'",
+   "response": "As of early 2026, Ethereum mainnet\u2019s base fee has typically been in the low single-digit to low tens of gwei range, with **1-10 gwei** being the best fit among the choices.\n\nAnswer: C"
+  },
+  {
+   "id": "fundamentals-k-05",
+   "category": "fundamentals",
+   "source": "why",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 57,
+    "completion_tokens": 23,
+    "total_tokens": 80,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'EIP-7702'",
+   "response": "The capability was introduced by **EIP-7702**.\n\nAnswer: EIP-7702"
+  },
+  {
+   "id": "fundamentals-k-06",
+   "category": "fundamentals",
+   "source": "why",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 51,
+    "completion_tokens": 49,
+    "total_tokens": 100,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'ERC-8004'",
+   "response": "The standard is **ERC-8004**, which defines an onchain identity and reputation registry for AI agents and was deployed to Ethereum mainnet in January 2026.\n\nAnswer: ERC-8004"
+  },
+  {
+   "id": "fundamentals-k-07",
+   "category": "fundamentals",
+   "source": "why",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 75,
+    "completion_tokens": 39,
+    "total_tokens": 114,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "answer 'EIP-712'",
+   "response": "In the x402 flow, the payment authorization signature is based on **EIP-712** typed structured data signing.\n\nAnswer: EIP-712"
+  },
+  {
+   "id": "fundamentals-k-08",
+   "category": "fundamentals",
+   "source": "why",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 60,
+    "completion_tokens": 42,
+    "total_tokens": 102,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer '1/8'",
+   "response": "Under PeerDAS, each node samples/downloads about **1/8** of the blob data instead of downloading all of it.\n\nAnswer: 1/8"
+  },
+  {
+   "id": "fundamentals-k-09",
+   "category": "fundamentals",
+   "source": "why",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 63,
+    "completion_tokens": 46,
+    "total_tokens": 109,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "",
+   "response": "ePBS stands for **enshrined Proposer-Builder Separation**. It is specified by **EIP-7732**.\n\nAnswer: enshrined Proposer-Builder Separation, EIP-7732"
+  },
+  {
+   "id": "fundamentals-k-10",
+   "category": "fundamentals",
+   "source": "why",
+   "latency_s": 1.2,
+   "usage": {
+    "prompt_tokens": 77,
+    "completion_tokens": 90,
+    "total_tokens": 167,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "answer 'the security and trust assumptions of KZG-based Verkle commitments were judged t'",
+   "response": "The main concern was that **the KZG polynomial commitments used by Verkle trees are trusted-setup-based and comparatively fragile**, with **credible attacks on the cryptographic assumptions/implementation increasing concern that they could not be safely relied on for Ethereum\u2019s long-term state commitment layer**.\n\nAnswer: the security and trust assumptions of KZG-based Verkle commitments were judged too risky for Ethereum\u2019s core state commitment system"
+  },
+  {
+   "id": "gas-basefee-01",
+   "category": "gas",
+   "source": "generated",
+   "latency_s": 2.4,
+   "usage": {
+    "prompt_tokens": 120,
+    "completion_tokens": 378,
+    "total_tokens": 498,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [1575000000]",
+   "response": "For EIP-1559, the base fee changes by:\n\n\\[\n\\text{delta} = \\left\\lfloor \\frac{\\text{parent base fee} \\times |\\text{gas used} - \\text{target gas}|}{\\text{target gas} \\times 8} \\right\\rfloor\n\\]\n\nand:\n\n- if gas used > target, base fee increases by `delta`\n- if gas used = target, base fee stays the same\n\nTarget gas = 15,000,000.\n\n### Block 1\n- Parent base fee = 1,400,000,000 wei\n- Gas used = 30,000,000\n- Difference = 15,000,000\n\n\\[\n\\text{delta} = \\left\\lfloor \\frac{1{,}400{,}000{,}000 \\times 15{,}000{,}000}{15{,}000{,}000 \\times 8} \\right\\rfloor\n= \\left\\lfloor \\frac{1{,}400{,}000{,}000}{8} \\right\\rfloor\n= 175{,}000{,}000\n\\]\n\nSo base fee entering block 2:\n\n\\[\n1{,}400{,}000{,}000 + 175{,}000{,}000 = 1{,}575{,}000{,}000\n\\]\n\n### Block 2\n- Gas used = target = 15,000,000\n\nSo base fee does not change.\n\nBase fee entering the block after block 2:\n\n\\[\n1{,}575{,}000{,}000\n\\]\n\nAnswer: 1575000000"
+  },
+  {
+   "id": "gas-basefee-02",
+   "category": "gas",
+   "source": "generated",
+   "latency_s": 2.0,
+   "usage": {
+    "prompt_tokens": 122,
+    "completion_tokens": 380,
+    "total_tokens": 502,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [3952539063]",
+   "response": "For EIP-1559, when a block uses less than the gas target, the base fee decreases according to:\n\n\\[\n\\text{newBaseFee} = \\text{parentBaseFee} - \\left\\lfloor \\frac{\\text{parentBaseFee} \\cdot (\\text{targetGas} - \\text{gasUsed})}{\\text{targetGas} \\cdot 8} \\right\\rfloor\n\\]\n\nHere, gas used is 0 for each block, so each block decreases the base fee by:\n\n\\[\n\\left\\lfloor \\frac{\\text{parentBaseFee}}{8} \\right\\rfloor\n\\]\n\nStarting from 5,900,000,000 wei:\n\n- Entering block 1: 5,900,000,000\n- After block 1: \\( 5{,}900{,}000{,}000 - \\lfloor 5{,}900{,}000{,}000/8 \\rfloor = 5{,}162{,}500{,}000 \\)\n- After block 2: \\( 5{,}162{,}500{,}000 - \\lfloor 5{,}162{,}500{,}000/8 \\rfloor = 4{,}517{,}187{,}500 \\)\n- After block 3: \\( 4{,}517{,}187{,}500 - \\lfloor 4{,}517{,}187{,}500/8 \\rfloor = 3{,}952{,}539{,}063 \\)\n\nSo the base fee entering the block after block 3 is:\n\nAnswer: 3952539063"
+  },
+  {
+   "id": "gas-basefee-03",
+   "category": "gas",
+   "source": "generated",
+   "latency_s": 2.7,
+   "usage": {
+    "prompt_tokens": 120,
+    "completion_tokens": 610,
+    "total_tokens": 730,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [4590000000]",
+   "response": "Using EIP-1559:\n\n- Target gas = 15,000,000\n- Base fee starts at 4,800,000,000 wei\n\nThe exact integer update rule is:\n\n- If `gas_used == target`, base fee stays the same.\n- Otherwise:\n\n\\[\n\\text{baseFeeNext} = \\text{baseFee} + \\left\\lfloor \\frac{\\text{baseFee} \\cdot (\\text{gasUsed} - \\text{target})}{\\text{target} \\cdot 8} \\right\\rfloor\n\\]\n\nwith the sign handled by whether gas used is above or below target. For decreases, the result is effectively:\n\n\\[\n\\text{baseFeeNext} = \\text{baseFee} - \\left\\lfloor \\frac{\\text{baseFee} \\cdot (\\text{target} - \\text{gasUsed})}{\\text{target} \\cdot 8} \\right\\rfloor\n\\]\n\n## Block 1\nGas used = 3,000,000, which is below target by 12,000,000.\n\nDecrease amount:\n\n\\[\n\\left\\lfloor \\frac{4{,}800{,}000{,}000 \\cdot 12{,}000{,}000}{15{,}000{,}000 \\cdot 8} \\right\\rfloor\n=\n\\left\\lfloor \\frac{4{,}800{,}000{,}000 \\cdot 12}{120} \\right\\rfloor\n=\n480{,}000{,}000\n\\]\n\nSo base fee entering block 2:\n\n\\[\n4{,}800{,}000{,}000 - 480{,}000{,}000 = 4{,}320{,}000{,}000\n\\]\n\n## Block 2\nGas used = 22,500,000, which is above target by 7,500,000.\n\nIncrease amount:\n\n\\[\n\\left\\lfloor \\frac{4{,}320{,}000{,}000 \\cdot 7{,}500{,}000}{15{,}000{,}000 \\cdot 8} \\right\\rfloor\n=\n\\left\\lfloor \\frac{4{,}320{,}000{,}000 \\cdot 7.5}{120} \\right\\rfloor\n=\n270{,}000{,}000\n\\]\n\nSo base fee entering the block after the last one listed is:\n\n\\[\n4{,}320{,}000{,}000 + 270{,}000{,}000 = 4{,}590{,}000{,}000\n\\]\n\nAnswer: 4590000000"
+  },
+  {
+   "id": "gas-basefee-04",
+   "category": "gas",
+   "source": "generated",
+   "latency_s": 2.3,
+   "usage": {
+    "prompt_tokens": 134,
+    "completion_tokens": 412,
+    "total_tokens": 546,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [2700000000]",
+   "response": "EIP-1559 updates the base fee per block as:\n\n\\[\n\\text{newBaseFee} = \\text{oldBaseFee} + \\left\\lfloor \\frac{\\text{oldBaseFee} \\cdot (\\text{gasUsed} - \\text{targetGas})}{\\text{targetGas} \\cdot 8} \\right\\rfloor\n\\]\n\nwhen the block is above target, and the same formula gives zero change when gas used equals target.\n\nTarget gas = 15,000,000.\n\nStarting base fee entering block 1: 2,400,000,000 wei.\n\n### Block 1\nGas used = 15,000,000, exactly at target.\n\nBase fee entering block 2:\n- unchanged = 2,400,000,000\n\n### Block 2\nGas used = 15,000,000, exactly at target.\n\nBase fee entering block 3:\n- unchanged = 2,400,000,000\n\n### Block 3\nGas used = 30,000,000, which is 15,000,000 above target.\n\nSo:\n\n\\[\n\\Delta = \\left\\lfloor \\frac{2{,}400{,}000{,}000 \\cdot 15{,}000{,}000}{15{,}000{,}000 \\cdot 8} \\right\\rfloor\n= \\left\\lfloor \\frac{2{,}400{,}000{,}000}{8} \\right\\rfloor\n= 300{,}000{,}000\n\\]\n\nThus base fee entering the block after block 3 is:\n\n\\[\n2{,}400{,}000{,}000 + 300{,}000{,}000 = 2{,}700{,}000{,}000\n\\]\n\nAnswer: 2700000000"
+  },
+  {
+   "id": "gas-intrinsic-01",
+   "category": "gas",
+   "source": "generated",
+   "latency_s": 2.2,
+   "usage": {
+    "prompt_tokens": 103,
+    "completion_tokens": 100,
+    "total_tokens": 203,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got [21416]",
+   "response": "Intrinsic gas is:\n\n- Base transaction cost: 21,000 gas\n- Calldata cost:\n  - 38 bytes total\n  - Non-zero bytes: 22\n  - Zero bytes: 16\n  - Gas = 22 \u00d7 16 + 16 \u00d7 4 = 352 + 64 = 416\n\nTotal intrinsic gas = 21,000 + 416 = **21,416**\n\nAnswer: 21416"
+  },
+  {
+   "id": "gas-intrinsic-02",
+   "category": "gas",
+   "source": "generated",
+   "latency_s": 1.2,
+   "usage": {
+    "prompt_tokens": 93,
+    "completion_tokens": 172,
+    "total_tokens": 265,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got [21244]",
+   "response": "For a simple value-transfer transaction, the intrinsic gas is:\n\n- Base transaction cost: **21,000**\n- Calldata cost under EIP-2028:\n  - zero byte: **4 gas**\n  - non-zero byte: **16 gas**\n\nCalldata:\n`0x00a600760060fd8545da0000004000d2c80000c000930000d4b50011`\n\nThis is 28 bytes total.\n\nCount bytes:\n- Zero bytes: 17\n- Non-zero bytes: 11\n\nCalldata gas:\n- `17 * 4 = 68`\n- `11 * 16 = 176`\n\nTotal calldata gas = `68 + 176 = 244`\n\nIntrinsic gas = `21,000 + 244 = 21,244`\n\nAnswer: 21244"
+  },
+  {
+   "id": "gas-intrinsic-03",
+   "category": "gas",
+   "source": "generated",
+   "latency_s": 1.3,
+   "usage": {
+    "prompt_tokens": 95,
+    "completion_tokens": 164,
+    "total_tokens": 259,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got [21296]",
+   "response": "For a simple transaction, intrinsic gas is:\n\n- Base transaction cost: 21,000\n- Calldata cost:  \n  - 4 gas per zero byte\n  - 16 gas per non-zero byte\n\nCalldata:\n`0x000000000000d7201e010000c600b900006216d200000003e3004a00d9000000`\n\nThis is 32 bytes total.\n\nCount bytes:\n- Zero bytes: 18\n- Non-zero bytes: 14\n\nCalldata gas:\n- 18 \u00d7 4 = 72\n- 14 \u00d7 16 = 224\n\nTotal intrinsic gas:\n- 21,000 + 72 + 224 = 21,296\n\nAnswer: 21296"
+  },
+  {
+   "id": "gas-intrinsic-04",
+   "category": "gas",
+   "source": "generated",
+   "latency_s": 2.5,
+   "usage": {
+    "prompt_tokens": 110,
+    "completion_tokens": 403,
+    "total_tokens": 513,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got [21392]",
+   "response": "For a simple value-transfer transaction, the intrinsic gas is:\n\n- Base transaction cost: **21,000**\n- Calldata cost under EIP-2028:\n  - **4 gas per zero byte**\n  - **16 gas per non-zero byte**\n\nLet\u2019s count the bytes in the calldata:\n\n`0xf4acc8006b1a0000000000fe00290000c500df9a5b0000c6c20000ff1e00b30000b05400d68d1f`\n\nThis is 40 hex pairs = **20 bytes**.\n\nBytes:\n- Non-zero bytes: `f4 ac c8 6b 1a fe 29 c5 df 9a 5b c6 c2 ff 1e b3 b0 54 d6 8d 1f` \u2192 actually the data shown is 38 hex chars after `0x`? Let's count carefully as provided:\n  `f4 ac c8 00 6b 1a 00 00 00 00 00 fe 00 29 00 00 c5 00 df 9a 5b 00 00 c6 c2 00 00 ff 1e 00 b3 00 00 b0 54 00 d6 8d 1f`\n  This is **38 bytes total**? No \u2014 let's parse properly: the string after `0x` has 76 hex chars, so it is **38 bytes**.\n\nNow count zeros vs non-zeros:\n- Non-zero bytes = 20\n- Zero bytes = 18\n\nCalldata gas:\n- 20 \u00d7 16 = 320\n- 18 \u00d7 4 = 72\n- Total calldata gas = **392**\n\nIntrinsic gas:\n- 21,000 + 392 = **21,392**\n\nAnswer: 21392"
+  },
+  {
+   "id": "gas-k-01",
+   "category": "gas",
+   "source": "gas",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 45,
+    "completion_tokens": 34,
+    "total_tokens": 79,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [21000]",
+   "response": "A plain ETH transfer to an externally owned account (EOA) with empty calldata uses **21,000 gas** on Ethereum.\n\nAnswer: 21000"
+  },
+  {
+   "id": "gas-k-02",
+   "category": "gas",
+   "source": "gas",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 45,
+    "completion_tokens": 34,
+    "total_tokens": 79,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'EIP-4844'",
+   "response": "EIP-4844 introduced blob-carrying transactions to Ethereum, enabling rollups to post their data as blobs.\n\nAnswer: EIP-4844"
+  },
+  {
+   "id": "gas-k-03",
+   "category": "gas",
+   "source": "gas",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 49,
+    "completion_tokens": 39,
+    "total_tokens": 88,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'Dencun'",
+   "response": "The Ethereum network upgrade activated in March 2024 that introduced blob transactions (EIP-4844) is commonly known as **Dencun**.\n\nAnswer: Dencun"
+  },
+  {
+   "id": "gas-k-04",
+   "category": "gas",
+   "source": "gas",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 65,
+    "completion_tokens": 40,
+    "total_tokens": 105,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'calldata'",
+   "response": "Before EIP-4844, rollups typically put their batch data into the **calldata** field of regular Ethereum transactions, which was much more expensive than blobs.\n\nAnswer: calldata"
+  },
+  {
+   "id": "gas-k-05",
+   "category": "gas",
+   "source": "gas",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 47,
+    "completion_tokens": 34,
+    "total_tokens": 81,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [6]",
+   "response": "The Pectra upgrade increased Ethereum\u2019s target blob count per block from 3 to **6**.\n\nAnswer: 6"
+  },
+  {
+   "id": "gas-k-06",
+   "category": "gas",
+   "source": "gas",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 53,
+    "completion_tokens": 30,
+    "total_tokens": 83,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got [150]",
+   "response": "The Fusaka upgrade raised Ethereum mainnet\u2019s block gas limit from 30 million to **150 million** gas.\n\nAnswer: 150"
+  },
+  {
+   "id": "gas-k-07",
+   "category": "gas",
+   "source": "gas",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 50,
+    "completion_tokens": 35,
+    "total_tokens": 85,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer '1/8'",
+   "response": "Under PeerDAS, each node samples only about **1/8** of the blob data instead of downloading all of it.\n\nAnswer: 1/8"
+  },
+  {
+   "id": "gas-k-08",
+   "category": "gas",
+   "source": "gas",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 90,
+    "completion_tokens": 52,
+    "total_tokens": 142,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got 'a'",
+   "response": "A user\u2019s rollup transaction fee is typically composed of:\n- **L2 execution gas** for computation on the rollup\n- **L1 data gas / data availability costs** for posting transaction data to Ethereum\n\n**Answer: A**"
+  },
+  {
+   "id": "gas-k-09",
+   "category": "gas",
+   "source": "gas",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 67,
+    "completion_tokens": 42,
+    "total_tokens": 109,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got 'b'",
+   "response": "A standard ERC-20 token transfer typically uses around **50,000\u201365,000 gas**, depending on the token contract and whether it's transferring to a new address.\n\n**Answer: B**"
+  },
+  {
+   "id": "gas-k-10",
+   "category": "gas",
+   "source": "gas",
+   "latency_s": 1.7,
+   "usage": {
+    "prompt_tokens": 76,
+    "completion_tokens": 246,
+    "total_tokens": 322,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "answer 'L2'",
+   "response": "For a new DeFi protocol with no strong chain-specific constraint, current ecosystem guidance in 2026 generally says to **default to an L2**, not Ethereum mainnet.\n\nWhy:\n- **Lower transaction costs**: user interactions, approvals, swaps, rebalances, liquidations, and admin actions are much cheaper on L2s.\n- **Better UX for most DeFi flows**: lower gas usually matters more than the marginal security/brand advantages of mainnet for everyday usage.\n- **Ethereum ecosystem has become rollup-centric**: most new consumer/developer activity has shifted toward L2 deployment first.\n- **Mainnet is still relevant for high-value settlement / coordination**, but as a default starting point, it\u2019s usually not the pragmatic choice unless your protocol specifically needs mainnet liquidity, composability, or maximal settlement assurance.\n\nA good rule of thumb:\n- **Choose mainnet** if your protocol is extremely capital-intensive, very sensitive to settlement finality, or directly depends on mainnet-native liquidity/composability.\n- **Choose an L2** if you want broad usage, lower-friction interactions, and you don\u2019t have a strong reason to pay mainnet gas.\n\nAnswer: L2"
+  },
+  {
+   "id": "indexing-k-01",
+   "category": "indexing",
+   "source": "indexing",
+   "latency_s": 1.3,
+   "usage": {
+    "prompt_tokens": 49,
+    "completion_tokens": 75,
+    "total_tokens": 124,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [3]",
+   "response": "A standard **non-anonymous Solidity event** can declare at most **3 `indexed` parameters**.\n\nReason: the event signature itself occupies **topic0**, and the EVM log format allows a total of **4 topics** for non-anonymous events, so only **3 remain** for indexed parameters.\n\nAnswer: 3"
+  },
+  {
+   "id": "indexing-k-02",
+   "category": "indexing",
+   "source": "indexing",
+   "latency_s": 1.1,
+   "usage": {
+    "prompt_tokens": 63,
+    "completion_tokens": 35,
+    "total_tokens": 98,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "",
+   "response": "B) In transaction receipts\n\nEvent logs are recorded in the receipt for the transaction that emitted them, not in the contract\u2019s storage or calldata.\n\nAnswer: B"
+  },
+  {
+   "id": "indexing-k-03",
+   "category": "indexing",
+   "source": "indexing",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 66,
+    "completion_tokens": 25,
+    "total_tokens": 91,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'archive node'",
+   "response": "You need an Ethereum node that keeps historical state available, typically an **archive node**.\n\nAnswer: archive node"
+  },
+  {
+   "id": "indexing-k-04",
+   "category": "indexing",
+   "source": "indexing",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 63,
+    "completion_tokens": 65,
+    "total_tokens": 128,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got '0xca11bde05977b3631167028862be2a173976ca11'",
+   "response": "The Multicall3 contract is deployed at the same address on Ethereum, Arbitrum, Optimism, Base, Polygon, and many other chains:\n\nAnswer: 0xcA11bde05977b3631167028862bE2a173976CA11"
+  },
+  {
+   "id": "indexing-k-05",
+   "category": "indexing",
+   "source": "indexing",
+   "latency_s": 0.7,
+   "usage": {
+    "prompt_tokens": 51,
+    "completion_tokens": 17,
+    "total_tokens": 68,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'GraphQL'",
+   "response": "The Graph\u2019s API uses **GraphQL**.\n\nAnswer: GraphQL"
+  },
+  {
+   "id": "indexing-k-06",
+   "category": "indexing",
+   "source": "indexing",
+   "latency_s": 0.7,
+   "usage": {
+    "prompt_tokens": 54,
+    "completion_tokens": 17,
+    "total_tokens": 71,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'graph codegen'",
+   "response": "The command is:\n\n`graph codegen`\n\nAnswer: graph codegen"
+  },
+  {
+   "id": "indexing-k-07",
+   "category": "indexing",
+   "source": "indexing",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 59,
+    "completion_tokens": 19,
+    "total_tokens": 78,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer '`@derivedFrom`'",
+   "response": "Use the `@derivedFrom` directive.\n\nAnswer: `@derivedFrom`"
+  },
+  {
+   "id": "indexing-k-08",
+   "category": "indexing",
+   "source": "indexing",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 47,
+    "completion_tokens": 39,
+    "total_tokens": 86,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [8]",
+   "response": "Under EVM `LOG` opcode pricing, the non-indexed event data payload costs **8 gas per byte** to emit.\n\nAnswer: 8"
+  },
+  {
+   "id": "indexing-k-09",
+   "category": "indexing",
+   "source": "indexing",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 114,
+    "completion_tokens": 60,
+    "total_tokens": 174,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "",
+   "response": "For most practical Ethereum workflows, direct `eth_getLogs` scanning starts to break down beyond roughly **10,000 blocks**, especially if you need reliability, pagination, or repeated querying at scale. At that point, an indexer/subgraph is usually the better fit.\n\nAnswer: B"
+  },
+  {
+   "id": "indexing-k-10",
+   "category": "indexing",
+   "source": "indexing",
+   "latency_s": 1.1,
+   "usage": {
+    "prompt_tokens": 65,
+    "completion_tokens": 47,
+    "total_tokens": 112,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'Ponder'",
+   "response": "A tool that fits that description is **Ponder** \u2014 it\u2019s an open-source, TypeScript-first, local-first indexing framework often positioned as a simpler alternative to The Graph for app-specific indexing.\n\nAnswer: Ponder"
+  },
+  {
+   "id": "indexing-topic-01",
+   "category": "indexing",
+   "source": "generated",
+   "latency_s": 1.1,
+   "usage": {
+    "prompt_tokens": 55,
+    "completion_tokens": 70,
+    "total_tokens": 125,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x90f7a7358c1f4ab3d4b4f8b9c43f0d2c5f2b5f1c3f4c9f0e2d4e6a8b7c1d2e3f'",
+   "response": "0x90f7a7358c1f4ab3d4b4f8b9c43f0d2c5f2b5f1c3f4c9f0e2d4e6a8b7c1d2e3f"
+  },
+  {
+   "id": "indexing-topic-02",
+   "category": "indexing",
+   "source": "generated",
+   "latency_s": 1.6,
+   "usage": {
+    "prompt_tokens": 49,
+    "completion_tokens": 72,
+    "total_tokens": 121,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0xb7a5f9a9f0e0d6a8f8b1d30d9ad4a1f7b2d8c1a0f2d6f9c5b8e7d6c4a3b2c1d0'",
+   "response": "0xb7a5f9a9f0e0d6a8f8b1d30d9ad4a1f7b2d8c1a0f2d6f9c5b8e7d6c4a3b2c1d0"
+  },
+  {
+   "id": "indexing-topic-03",
+   "category": "indexing",
+   "source": "generated",
+   "latency_s": 1.6,
+   "usage": {
+    "prompt_tokens": 54,
+    "completion_tokens": 73,
+    "total_tokens": 127,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x4e3acb2a6f0d4e8d2f5d9dfd8f5a0d8b4f6b6f7f8d2e6f4d9f6f6c7b0a1d2c3e'",
+   "response": "0x4e3acb2a6f0d4e8d2f5d9dfd8f5a0d8b4f6b6f7f8d2e6f4d9f6f6c7b0a1d2c3e"
+  },
+  {
+   "id": "indexing-topic-04",
+   "category": "indexing",
+   "source": "generated",
+   "latency_s": 1.7,
+   "usage": {
+    "prompt_tokens": 50,
+    "completion_tokens": 71,
+    "total_tokens": 121,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x4d1d02a9f4f4d0a5e6d3f5c6e9e2b1f0f8d0f4f3b1d2a8c7e6f5d4c3b2a1908'",
+   "response": "0x4d1d02a9f4f4d0a5e6d3f5c6e9e2b1f0f8d0f4f3b1d2a8c7e6f5d4c3b2a1908"
+  },
+  {
+   "id": "l2s-k-01",
+   "category": "l2s",
+   "source": "l2s",
+   "latency_s": 0.7,
+   "usage": {
+    "prompt_tokens": 39,
+    "completion_tokens": 20,
+    "total_tokens": 59,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [8453]",
+   "response": "Base mainnet\u2019s chain ID is **8453**.\n\nAnswer: 8453"
+  },
+  {
+   "id": "l2s-k-02",
+   "category": "l2s",
+   "source": "l2s",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 77,
+    "completion_tokens": 68,
+    "total_tokens": 145,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'ZK rollups'",
+   "response": "Choose **ZK rollups**.\n\nReason: ZK rollups can finalize withdrawals much faster because they use validity proofs, so Ethereum can verify the rollup state without waiting through a long fraud-proof challenge period. Optimistic rollups typically require a multi-day withdrawal delay on the canonical bridge.\n\nAnswer: ZK rollups"
+  },
+  {
+   "id": "l2s-k-03",
+   "category": "l2s",
+   "source": "l2s",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 71,
+    "completion_tokens": 60,
+    "total_tokens": 131,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'CREATE2'",
+   "response": "Use **CREATE2**. It deterministically derives the contract address from the **deployer address**, **salt**, and **init code (bytecode)**, so the same salt + same bytecode + same deployer produces the same address across EVM chains.\n\nAnswer: CREATE2"
+  },
+  {
+   "id": "l2s-k-04",
+   "category": "l2s",
+   "source": "l2s",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 58,
+    "completion_tokens": 27,
+    "total_tokens": 85,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'zksolc'",
+   "response": "You must use the **zkSync Solidity compiler, `zksolc`**.\n\nAnswer: zksolc"
+  },
+  {
+   "id": "l2s-k-05",
+   "category": "l2s",
+   "source": "l2s",
+   "latency_s": 1.3,
+   "usage": {
+    "prompt_tokens": 48,
+    "completion_tokens": 47,
+    "total_tokens": 95,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "answer 'Arbitrum One\u2019s L2 block number'",
+   "response": "On Arbitrum One, `block.number` returns the L2 block number of the Arbitrum chain, not Ethereum mainnet\u2019s L1 block number.\n\nAnswer: Arbitrum One\u2019s L2 block number"
+  },
+  {
+   "id": "l2s-k-06",
+   "category": "l2s",
+   "source": "l2s",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 79,
+    "completion_tokens": 31,
+    "total_tokens": 110,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got 'b'",
+   "response": "Celo\u2019s architecture after the March 2025 migration is best described as **an OP Stack L2 on Ethereum**.\n\nAnswer: B"
+  },
+  {
+   "id": "l2s-k-07",
+   "category": "l2s",
+   "source": "l2s",
+   "latency_s": 76.9,
+   "usage": {
+    "prompt_tokens": 62,
+    "completion_tokens": 38,
+    "total_tokens": 100,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'arrival time'",
+   "response": "Within a block, Unichain orders transactions by **fair sequencing based on arrival time** in the private encrypted mempool, rather than by gas price.\n\nAnswer: arrival time"
+  },
+  {
+   "id": "l2s-k-08",
+   "category": "l2s",
+   "source": "l2s",
+   "latency_s": 77.1,
+   "usage": {
+    "prompt_tokens": 75,
+    "completion_tokens": 38,
+    "total_tokens": 113,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "",
+   "response": "The L2 is **Arbitrum**, and the feature is **Arbitrum Stylus**.\n\nAnswer: Arbitrum, Stylus"
+  },
+  {
+   "id": "l2s-k-09",
+   "category": "l2s",
+   "source": "l2s",
+   "latency_s": 77.1,
+   "usage": {
+    "prompt_tokens": 48,
+    "completion_tokens": 32,
+    "total_tokens": 80,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got [2, 5]; answer '2.5%'",
+   "response": "Superchain member chains contribute **2.5%** of their sequencer revenue to the Optimism Collective.\n\nAnswer: 2.5%"
+  },
+  {
+   "id": "l2s-k-10",
+   "category": "l2s",
+   "source": "l2s",
+   "latency_s": 77.3,
+   "usage": {
+    "prompt_tokens": 59,
+    "completion_tokens": 35,
+    "total_tokens": 94,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "answer 'Mute.io'",
+   "response": "The largest native DEX on zkSync Era with deep liquidity for many pairs is **Mute.io**.\n\nAnswer: Mute.io"
+  },
+  {
+   "id": "protocol-k-01",
+   "category": "protocol",
+   "source": "protocol",
+   "latency_s": 76.9,
+   "usage": {
+    "prompt_tokens": 52,
+    "completion_tokens": 38,
+    "total_tokens": 90,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [4844]",
+   "response": "Blob-carrying transactions (proto-danksharding) were introduced by **EIP-4844** in the Dencun hard fork.\n\nAnswer: 4844"
+  },
+  {
+   "id": "protocol-k-02",
+   "category": "protocol",
+   "source": "protocol",
+   "latency_s": 77.1,
+   "usage": {
+    "prompt_tokens": 43,
+    "completion_tokens": 32,
+    "total_tokens": 75,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'Shanghai'",
+   "response": "The Ethereum hard fork that enabled staking withdrawals via EIP-4895 in April 2023 was the **Shanghai** upgrade.\n\nAnswer: Shanghai"
+  },
+  {
+   "id": "protocol-k-03",
+   "category": "protocol",
+   "source": "protocol",
+   "latency_s": 0.7,
+   "usage": {
+    "prompt_tokens": 51,
+    "completion_tokens": 29,
+    "total_tokens": 80,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'Pectra'",
+   "response": "EIP-7702 went live on Ethereum mainnet in the **Pectra** hard fork.\n\nAnswer: Pectra"
+  },
+  {
+   "id": "protocol-k-04",
+   "category": "protocol",
+   "source": "protocol",
+   "latency_s": 0.7,
+   "usage": {
+    "prompt_tokens": 55,
+    "completion_tokens": 24,
+    "total_tokens": 79,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'Stagnant'",
+   "response": "The status label is **Stagnant**.\n\nAnswer: Stagnant"
+  },
+  {
+   "id": "protocol-k-05",
+   "category": "protocol",
+   "source": "protocol",
+   "latency_s": 0.7,
+   "usage": {
+    "prompt_tokens": 70,
+    "completion_tokens": 37,
+    "total_tokens": 107,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got [-1]",
+   "response": "The stages CFI, SFI, and DFI are formally defined in **EIP-1**.\n\nAnswer: EIP-1"
+  },
+  {
+   "id": "protocol-k-06",
+   "category": "protocol",
+   "source": "protocol",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 52,
+    "completion_tokens": 38,
+    "total_tokens": 90,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [7600]",
+   "response": "The meta-EIP that defines the scope of the Pectra hard fork is **EIP-7600**.\n\nAnswer: 7600"
+  },
+  {
+   "id": "protocol-k-07",
+   "category": "protocol",
+   "source": "protocol",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 71,
+    "completion_tokens": 39,
+    "total_tokens": 110,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'Binary Merkle Tree'",
+   "response": "The shift was toward **Binary Merkle Trees** (often discussed in the context of a **binary state tree**), rather than Verkle trees.\n\nAnswer: Binary Merkle Tree"
+  },
+  {
+   "id": "protocol-k-08",
+   "category": "protocol",
+   "source": "protocol",
+   "latency_s": 0.7,
+   "usage": {
+    "prompt_tokens": 51,
+    "completion_tokens": 22,
+    "total_tokens": 73,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [7594]",
+   "response": "PeerDAS is specified in **EIP-7594**.\n\nAnswer: 7594"
+  },
+  {
+   "id": "protocol-k-09",
+   "category": "protocol",
+   "source": "protocol",
+   "latency_s": 0.7,
+   "usage": {
+    "prompt_tokens": 51,
+    "completion_tokens": 39,
+    "total_tokens": 90,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [7732]",
+   "response": "Enshrined proposer-builder separation (ePBS), slated for consideration in the Glamsterdam hard fork, is specified in **EIP-7732**.\n\nAnswer: 7732"
+  },
+  {
+   "id": "protocol-k-10",
+   "category": "protocol",
+   "source": "protocol",
+   "latency_s": 0.7,
+   "usage": {
+    "prompt_tokens": 85,
+    "completion_tokens": 25,
+    "total_tokens": 110,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "answer 'eips.ethereum.org'",
+   "response": "The site is **EIPs.ethereum.org**.\n\nAnswer: eips.ethereum.org"
+  },
+  {
+   "id": "security-k-01",
+   "category": "security",
+   "source": "security",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 93,
+    "completion_tokens": 35,
+    "total_tokens": 128,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'Reentrancy'",
+   "response": "This is a **reentrancy** vulnerability, specifically a **reentrancy attack** where state is updated after an external call.\n\nAnswer: Reentrancy"
+  },
+  {
+   "id": "security-k-02",
+   "category": "security",
+   "source": "security",
+   "latency_s": 0.6,
+   "usage": {
+    "prompt_tokens": 32,
+    "completion_tokens": 14,
+    "total_tokens": 46,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [6]",
+   "response": "USDC uses 6 decimals.\n\nAnswer: 6"
+  },
+  {
+   "id": "security-k-03",
+   "category": "security",
+   "source": "security",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 101,
+    "completion_tokens": 17,
+    "total_tokens": 118,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'sandwich attack'",
+   "response": "This is called a **sandwich attack**.\n\nAnswer: sandwich attack"
+  },
+  {
+   "id": "security-k-04",
+   "category": "security",
+   "source": "security",
+   "latency_s": 0.7,
+   "usage": {
+    "prompt_tokens": 61,
+    "completion_tokens": 22,
+    "total_tokens": 83,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'Checks-Effects-Interactions'",
+   "response": "This is the **Checks-Effects-Interactions** pattern.\n\nAnswer: Checks-Effects-Interactions"
+  },
+  {
+   "id": "security-k-05",
+   "category": "security",
+   "source": "security",
+   "latency_s": 1.9,
+   "usage": {
+    "prompt_tokens": 110,
+    "completion_tokens": 33,
+    "total_tokens": 143,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'share inflation attack'",
+   "response": "This is commonly called a **share inflation attack** or **first-depositor attack** against an ERC-4626 vault.\n\nAnswer: share inflation attack"
+  },
+  {
+   "id": "security-k-06",
+   "category": "security",
+   "source": "security",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 78,
+    "completion_tokens": 61,
+    "total_tokens": 139,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'Chainlink Price Feeds'",
+   "response": "For a high-value onchain lending decision, the standard recommendation is **Chainlink Price Feeds**.\n\nThey\u2019re designed to provide a manipulated-resistant, decentralized ETH/USD reference price, unlike a raw Uniswap spot price that can be distorted within one transaction.\n\nAnswer: Chainlink Price Feeds"
+  },
+  {
+   "id": "security-k-07",
+   "category": "security",
+   "source": "security",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 74,
+    "completion_tokens": 38,
+    "total_tokens": 112,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'Missing access control'",
+   "response": "This is an **access control vulnerability**: a **missing authorization check / unrestricted public withdrawal function** that allows anyone to drain the contract\u2019s funds.\n\nAnswer: Missing access control"
+  },
+  {
+   "id": "security-k-08",
+   "category": "security",
+   "source": "security",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 133,
+    "completion_tokens": 110,
+    "total_tokens": 243,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got 'c'",
+   "response": "For an upgradeable proxy, you must preserve the existing storage layout so V1\u2019s variables stay at the same storage slots.\n\n- V1:\n  - slot 0: `a`\n  - slot 1: `b`\n\nTo safely add `c` in V2, append it after the existing variables:\n\n- V2:\n  - slot 0: `a`\n  - slot 1: `b`\n  - slot 2: `c`\n\nSo the safe layout is **C**.\n\nAnswer: C"
+  },
+  {
+   "id": "security-k-09",
+   "category": "security",
+   "source": "security",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 76,
+    "completion_tokens": 53,
+    "total_tokens": 129,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer '_authorizeUpgrade'",
+   "response": "The function you need to override is:\n\n**`_authorizeUpgrade(address newImplementation)`**\n\nThis is the hook in `UUPSUpgradeable` where you add your access control logic, such as an `onlyOwner` check.\n\nAnswer: _authorizeUpgrade"
+  },
+  {
+   "id": "security-k-10",
+   "category": "security",
+   "source": "security",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 65,
+    "completion_tokens": 54,
+    "total_tokens": 119,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'domain separator'",
+   "response": "The **domain separator** in the EIP-712 digest is what prevents replay across different contracts or chains. It typically includes fields like the **verifying contract address** and **chain ID**, binding the signature to a specific domain.\n\nAnswer: domain separator"
+  },
+  {
+   "id": "standards-k-01",
+   "category": "standards",
+   "source": "standards",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 80,
+    "completion_tokens": 41,
+    "total_tokens": 121,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'ERC-4626'",
+   "response": "The standard for tokenized vaults with deposit/mint/withdraw/redeem and convertToShares/convertToAssets is **ERC-4626**.\n\nAnswer: ERC-4626"
+  },
+  {
+   "id": "standards-k-02",
+   "category": "standards",
+   "source": "standards",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 63,
+    "completion_tokens": 31,
+    "total_tokens": 94,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer '2612'",
+   "response": "The standard is **ERC-2612**, which defines `permit` for gasless approvals via off-chain signatures.\n\nAnswer: 2612"
+  },
+  {
+   "id": "standards-k-03",
+   "category": "standards",
+   "source": "standards",
+   "latency_s": 0.7,
+   "usage": {
+    "prompt_tokens": 47,
+    "completion_tokens": 21,
+    "total_tokens": 68,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer '6551'",
+   "response": "Token-bound accounts are defined by **ERC-6551**.\n\nAnswer: 6551"
+  },
+  {
+   "id": "standards-k-04",
+   "category": "standards",
+   "source": "standards",
+   "latency_s": 0.7,
+   "usage": {
+    "prompt_tokens": 82,
+    "completion_tokens": 33,
+    "total_tokens": 115,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "answer 'receiveWithAuthorization'",
+   "response": "The settling party calls the EIP-3009 function **`receiveWithAuthorization`**.\n\nAnswer: receiveWithAuthorization"
+  },
+  {
+   "id": "standards-k-05",
+   "category": "standards",
+   "source": "standards",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 60,
+    "completion_tokens": 31,
+    "total_tokens": 91,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'Payment Required'",
+   "response": "The HTTP status code is **402**, whose standard reason phrase is **Payment Required**.\n\nAnswer: Payment Required"
+  },
+  {
+   "id": "standards-k-06",
+   "category": "standards",
+   "source": "standards",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 67,
+    "completion_tokens": 37,
+    "total_tokens": 104,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'Pectra'",
+   "response": "EIP-7702 went live on Ethereum mainnet as part of the **Pectra** network upgrade.\n\nAnswer: Pectra"
+  },
+  {
+   "id": "standards-k-07",
+   "category": "standards",
+   "source": "standards",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 108,
+    "completion_tokens": 77,
+    "total_tokens": 185,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "",
+   "response": "Under EIP-7702, the delegation is stored as the account\u2019s code pointer and is **persistent** until it is **replaced by a later authorization** or **cleared**. It is not limited to a single transaction or block, and it does not expire by timeout.\n\nC) It remains until replaced or cleared by a later authorization\n\nAnswer: C"
+  },
+  {
+   "id": "standards-k-08",
+   "category": "standards",
+   "source": "standards",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 75,
+    "completion_tokens": 44,
+    "total_tokens": 119,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'ERC-721'",
+   "response": "ERC-8004\u2019s Identity Registry is built on **ERC-721**, so each registered agent is represented as a unique non-fungible token with its own `tokenId`.\n\nAnswer: ERC-721"
+  },
+  {
+   "id": "standards-k-09",
+   "category": "standards",
+   "source": "standards",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 81,
+    "completion_tokens": 20,
+    "total_tokens": 101,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got 'max'; answer 'max'",
+   "response": "The scheme for metered services is called **`max`**.\n\nAnswer: max"
+  },
+  {
+   "id": "standards-k-10",
+   "category": "standards",
+   "source": "standards",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 57,
+    "completion_tokens": 45,
+    "total_tokens": 102,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "",
+   "response": "ERC-8004 defines these three registries:\n\n- **Identity Registry**\n- **Reputation Registry**\n- **Validation Registry**\n\nAnswer: Identity Registry, Reputation Registry, Validation Registry"
+  },
+  {
+   "id": "testing-k-01",
+   "category": "testing",
+   "source": "testing",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 53,
+    "completion_tokens": 31,
+    "total_tokens": 84,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'prank'",
+   "response": "Use `vm.prank(address)`.\n\nIt sets `msg.sender` to the given address for the next external call only.\n\nAnswer: prank"
+  },
+  {
+   "id": "testing-k-02",
+   "category": "testing",
+   "source": "testing",
+   "latency_s": 36.7,
+   "usage": {
+    "prompt_tokens": 59,
+    "completion_tokens": 28,
+    "total_tokens": 87,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'deal'",
+   "response": "The cheatcode is `deal` \u2014 it can set an address\u2019s native ETH balance in Foundry tests.\n\nAnswer: deal"
+  },
+  {
+   "id": "testing-k-03",
+   "category": "testing",
+   "source": "testing",
+   "latency_s": 36.9,
+   "usage": {
+    "prompt_tokens": 57,
+    "completion_tokens": 36,
+    "total_tokens": 93,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'expectRevert'",
+   "response": "Use `vm.expectRevert()` immediately before the external call. You can pass a specific revert reason or selector to match a particular revert.\n\nAnswer: expectRevert"
+  },
+  {
+   "id": "testing-k-04",
+   "category": "testing",
+   "source": "testing",
+   "latency_s": 37.3,
+   "usage": {
+    "prompt_tokens": 55,
+    "completion_tokens": 36,
+    "total_tokens": 91,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [256]",
+   "response": "By default, Foundry runs each fuzz test **256** times when you use `forge test` with no fuzz configuration and no CLI flags.\n\nAnswer: 256"
+  },
+  {
+   "id": "testing-k-05",
+   "category": "testing",
+   "source": "testing",
+   "latency_s": 36.6,
+   "usage": {
+    "prompt_tokens": 81,
+    "completion_tokens": 8,
+    "total_tokens": 89,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'data'",
+   "response": "data  \nAnswer: data"
+  },
+  {
+   "id": "testing-k-06",
+   "category": "testing",
+   "source": "testing",
+   "latency_s": 36.6,
+   "usage": {
+    "prompt_tokens": 85,
+    "completion_tokens": 16,
+    "total_tokens": 101,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'bound'",
+   "response": "The preferred forge-std helper is `bound`.\n\nAnswer: bound"
+  },
+  {
+   "id": "testing-k-07",
+   "category": "testing",
+   "source": "testing",
+   "latency_s": 36.6,
+   "usage": {
+    "prompt_tokens": 69,
+    "completion_tokens": 30,
+    "total_tokens": 99,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'createSelectFork'",
+   "response": "The cheatcode is `createSelectFork`, which both creates the fork and selects it as the active fork.\n\nAnswer: createSelectFork"
+  },
+  {
+   "id": "testing-k-08",
+   "category": "testing",
+   "source": "testing",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 69,
+    "completion_tokens": 29,
+    "total_tokens": 98,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'targetContract'",
+   "response": "Use `targetContract(address(handler))` in `setUp` to register the handler for invariant fuzzing.\n\nAnswer: targetContract"
+  },
+  {
+   "id": "testing-k-09",
+   "category": "testing",
+   "source": "testing",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 61,
+    "completion_tokens": 52,
+    "total_tokens": 113,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer '1e18'",
+   "response": "In `forge-std`, `assertApproxEqRel(actual, expected, maxPercentDelta)` uses a fixed-point scale where `100%` is represented by `1e18`.\n\nAnswer: 1e18"
+  },
+  {
+   "id": "testing-k-10",
+   "category": "testing",
+   "source": "testing",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 74,
+    "completion_tokens": 31,
+    "total_tokens": 105,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'Unauthorized.selector'",
+   "response": "For a parameterless custom error like `Unauthorized()`, you pass the error type\u2019s selector member:\n\n`Unauthorized.selector`\n\nAnswer: Unauthorized.selector"
+  },
+  {
+   "id": "tooling-k-01",
+   "category": "tooling",
+   "source": "tools",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 69,
+    "completion_tokens": 46,
+    "total_tokens": 115,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'Anvil'",
+   "response": "You\u2019d run **Anvil** \u2014 Foundry\u2019s local Ethereum node, which supports forking mainnet via `--fork-url` so you can test against real deployed contracts with fake ETH.\n\nAnswer: Anvil"
+  },
+  {
+   "id": "tooling-k-02",
+   "category": "tooling",
+   "source": "tools",
+   "latency_s": 0.7,
+   "usage": {
+    "prompt_tokens": 54,
+    "completion_tokens": 29,
+    "total_tokens": 83,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "",
+   "response": "The primary Ethereum testnet developers should use now is **Sepolia**.\n\nAnswer: Sepolia, chain ID 11155111"
+  },
+  {
+   "id": "tooling-k-03",
+   "category": "tooling",
+   "source": "tools",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 66,
+    "completion_tokens": 21,
+    "total_tokens": 87,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'Truffle'",
+   "response": "The framework is **Truffle**.\n\nAnswer: Truffle"
+  },
+  {
+   "id": "tooling-k-04",
+   "category": "tooling",
+   "source": "tools",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 68,
+    "completion_tokens": 43,
+    "total_tokens": 111,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "answer 'cast 4byte'",
+   "response": "The Foundry `cast` subcommand is `cast 4byte`.\n\nIt queries the public 4-byte signature directory to match a function selector and decode the calldata.\n\nAnswer: cast 4byte"
+  },
+  {
+   "id": "tooling-k-05",
+   "category": "tooling",
+   "source": "tools",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 47,
+    "completion_tokens": 34,
+    "total_tokens": 81,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'cast resolve-name'",
+   "response": "The `cast` subcommand for resolving an ENS name like `vitalik.eth` to its address is `resolve-name`.\n\nAnswer: cast resolve-name"
+  },
+  {
+   "id": "tooling-k-06",
+   "category": "tooling",
+   "source": "tools",
+   "latency_s": 1.9,
+   "usage": {
+    "prompt_tokens": 53,
+    "completion_tokens": 37,
+    "total_tokens": 90,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'forge verify-contract'",
+   "response": "The `forge` subcommand used to submit your contract\u2019s source code for verification on a block explorer like Etherscan is `verify-contract`.\n\nAnswer: forge verify-contract"
+  },
+  {
+   "id": "tooling-k-07",
+   "category": "tooling",
+   "source": "tools",
+   "latency_s": 0.9,
+   "usage": {
+    "prompt_tokens": 71,
+    "completion_tokens": 33,
+    "total_tokens": 104,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "",
+   "response": "The ecosystem-consensus combo is **wagmi** paired with **viem**.\n\nAnswer: wagmi + viem"
+  },
+  {
+   "id": "tooling-k-08",
+   "category": "tooling",
+   "source": "tools",
+   "latency_s": 0.7,
+   "usage": {
+    "prompt_tokens": 64,
+    "completion_tokens": 15,
+    "total_tokens": 79,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'viem'",
+   "response": "The library is **viem**.\n\nAnswer: viem"
+  },
+  {
+   "id": "tooling-k-09",
+   "category": "tooling",
+   "source": "tools",
+   "latency_s": 0.7,
+   "usage": {
+    "prompt_tokens": 51,
+    "completion_tokens": 27,
+    "total_tokens": 78,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'npx create-eth@latest'",
+   "response": "Use:\n\n```bash\nnpx create-eth@latest\n```\n\nAnswer: npx create-eth@latest"
+  },
+  {
+   "id": "tooling-k-10",
+   "category": "tooling",
+   "source": "tools",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 58,
+    "completion_tokens": 17,
+    "total_tokens": 75,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer 'cast interface'",
+   "response": "The `cast` subcommand is `interface`.\n\nAnswer: cast interface"
+  },
+  {
+   "id": "units-01",
+   "category": "units",
+   "source": "generated",
+   "latency_s": 1.6,
+   "usage": {
+    "prompt_tokens": 38,
+    "completion_tokens": 37,
+    "total_tokens": 75,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [412500000000]",
+   "response": "412.5 gwei = 412.5 \u00d7 10^9 wei = 412,500,000,000 wei\n\nAnswer: 412500000000"
+  },
+  {
+   "id": "units-02",
+   "category": "units",
+   "source": "generated",
+   "latency_s": 2.4,
+   "usage": {
+    "prompt_tokens": 37,
+    "completion_tokens": 56,
+    "total_tokens": 93,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [2356000000000000000]",
+   "response": "1 ether = 10^18 wei, so:\n\n2.356 ether = 2.356 \u00d7 10^18 wei = 2356000000000000000 wei\n\nAnswer: 2356000000000000000"
+  },
+  {
+   "id": "units-03",
+   "category": "units",
+   "source": "generated",
+   "latency_s": 1.3,
+   "usage": {
+    "prompt_tokens": 48,
+    "completion_tokens": 49,
+    "total_tokens": 97,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [41400000000]",
+   "response": "For an ERC-20 token with 8 decimals, multiply the whole-token amount by \\(10^8\\):\n\n\\(414 \\times 100000000 = 41400000000\\)\n\nAnswer: 41400000000"
+  },
+  {
+   "id": "units-04",
+   "category": "units",
+   "source": "generated",
+   "latency_s": 1.6,
+   "usage": {
+    "prompt_tokens": 38,
+    "completion_tokens": 37,
+    "total_tokens": 75,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [418250000000]",
+   "response": "418.25 gwei = 418.25 \u00d7 10^9 wei = 418,250,000,000 wei.\n\nAnswer: 418250000000"
+  },
+  {
+   "id": "units-05",
+   "category": "units",
+   "source": "generated",
+   "latency_s": 1.7,
+   "usage": {
+    "prompt_tokens": 37,
+    "completion_tokens": 56,
+    "total_tokens": 93,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [6522000000000000000]",
+   "response": "1 ether = 10^18 wei.\n\nSo:\n\n6.522 ether = 6.522 \u00d7 10^18 wei = 6522000000000000000 wei\n\nAnswer: 6522000000000000000"
+  },
+  {
+   "id": "wallets-eip55-01",
+   "category": "wallets",
+   "source": "generated",
+   "latency_s": 2.1,
+   "usage": {
+    "prompt_tokens": 52,
+    "completion_tokens": 34,
+    "total_tokens": 86,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0xE653c60Ab4B1d30A1EfbEB73903Ed9423319832e'",
+   "response": "0xE653c60Ab4B1d30A1EfbEB73903Ed9423319832e"
+  },
+  {
+   "id": "wallets-eip55-02",
+   "category": "wallets",
+   "source": "generated",
+   "latency_s": 1.4,
+   "usage": {
+    "prompt_tokens": 53,
+    "completion_tokens": 34,
+    "total_tokens": 87,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0xf90e335B1b9f5bd07293aBBc75f66200469A3529'",
+   "response": "0xf90e335B1b9f5bd07293aBBc75f66200469A3529"
+  },
+  {
+   "id": "wallets-eip55-03",
+   "category": "wallets",
+   "source": "generated",
+   "latency_s": 1.2,
+   "usage": {
+    "prompt_tokens": 55,
+    "completion_tokens": 36,
+    "total_tokens": 91,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x80d48A6Ee577A0Ce3c3c4A913b30921fB264cd87'",
+   "response": "0x80d48A6Ee577A0Ce3c3c4A913b30921fB264cd87"
+  },
+  {
+   "id": "wallets-eip55-04",
+   "category": "wallets",
+   "source": "generated",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 49,
+    "completion_tokens": 31,
+    "total_tokens": 80,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0xC180D945AEABdD802D048Bb752Cd208eACB518Ad'",
+   "response": "0xC180D945AEABdD802D048Bb752Cd208eACB518Ad"
+  },
+  {
+   "id": "wallets-k-01",
+   "category": "wallets",
+   "source": "wallets",
+   "latency_s": 1.6,
+   "usage": {
+    "prompt_tokens": 68,
+    "completion_tokens": 61,
+    "total_tokens": 129,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer '7702'",
+   "response": "That\u2019s **EIP-7702**, which introduces a way for a regular EOA to temporarily delegate execution to smart-contract code, enabling features like batching, gas sponsorship, and session-key-style experiences without moving to a new wallet.\n\nAnswer: 7702"
+  },
+  {
+   "id": "wallets-k-02",
+   "category": "wallets",
+   "source": "wallets",
+   "latency_s": 0.7,
+   "usage": {
+    "prompt_tokens": 44,
+    "completion_tokens": 36,
+    "total_tokens": 80,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got [64]",
+   "response": "A raw Ethereum private key is 32 bytes long, which is 64 hex characters when written in hexadecimal without the `0x` prefix.\n\nAnswer: 64"
+  },
+  {
+   "id": "wallets-k-03",
+   "category": "wallets",
+   "source": "wallets",
+   "latency_s": 0.7,
+   "usage": {
+    "prompt_tokens": 39,
+    "completion_tokens": 33,
+    "total_tokens": 72,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "",
+   "response": "Ethereum\u2019s Pectra upgrade activated on mainnet in **May 2025**.\n\nAnswer: May 2025"
+  },
+  {
+   "id": "wallets-k-04",
+   "category": "wallets",
+   "source": "wallets",
+   "latency_s": 0.7,
+   "usage": {
+    "prompt_tokens": 89,
+    "completion_tokens": 19,
+    "total_tokens": 108,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got 'b'",
+   "response": "B) It stays active until it is replaced or explicitly cleared\n\nAnswer: B"
+  },
+  {
+   "id": "wallets-k-05",
+   "category": "wallets",
+   "source": "wallets",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 90,
+    "completion_tokens": 39,
+    "total_tokens": 129,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got 'b'",
+   "response": "In EIP-7702, the EOA holder\u2019s signed authorization message specifies which contract code the EOA is authorizing to be run as its account logic.\n\nAnswer: B"
+  },
+  {
+   "id": "wallets-k-06",
+   "category": "wallets",
+   "source": "wallets",
+   "latency_s": 1.1,
+   "usage": {
+    "prompt_tokens": 47,
+    "completion_tokens": 59,
+    "total_tokens": 106,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x0576a174d229e3cfa37253523e645a78a0c91b57'",
+   "response": "The canonical deployed address for the ERC-4337 EntryPoint contract, version 0.7, is:\n\nAnswer: 0x0576a174D229E3cFA37253523E645A78A0C91B57"
+  },
+  {
+   "id": "wallets-k-07",
+   "category": "wallets",
+   "source": "wallets",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 84,
+    "completion_tokens": 59,
+    "total_tokens": 143,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0xd9db270c1b5e3bd161e8c8503c55c48d2dbc5a95'",
+   "response": "The Safe Singleton (master-copy implementation) for Safe v1.4.1 is:\n\nAnswer: 0xd9Db270c1B5E3Bd161E8c8503c55c48d2DbC5A95"
+  },
+  {
+   "id": "wallets-k-08",
+   "category": "wallets",
+   "source": "wallets",
+   "latency_s": 1.0,
+   "usage": {
+    "prompt_tokens": 69,
+    "completion_tokens": 59,
+    "total_tokens": 128,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": false,
+   "detail": "got '0x9641d764fc13c8b624c04430c7356c1c7c8102d5'",
+   "response": "The Safe MultiSend contract for Safe v1.4.1 is deployed at the deterministic address:\n\nAnswer: 0x9641d764fc13c8B624c04430C7356C1C7C8102d5"
+  },
+  {
+   "id": "wallets-k-09",
+   "category": "wallets",
+   "source": "wallets",
+   "latency_s": 0.7,
+   "usage": {
+    "prompt_tokens": 100,
+    "completion_tokens": 22,
+    "total_tokens": 122,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "answer '2-of-3'",
+   "response": "This is a 2-of-3 multisig configuration.\n\nAnswer: 2-of-3"
+  },
+  {
+   "id": "wallets-k-10",
+   "category": "wallets",
+   "source": "wallets",
+   "latency_s": 0.8,
+   "usage": {
+    "prompt_tokens": 102,
+    "completion_tokens": 56,
+    "total_tokens": 158,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    }
+   },
+   "pass": true,
+   "detail": "got 'b'",
+   "response": "The first priority is to assume the key is compromised and immediately move the funds to a new, secure wallet. Code history changes do not revoke access to the leaked private key, and making the repo private or deleting commits does not reliably protect the funds.\n\nAnswer: B"
+  }
+ ]
+}
