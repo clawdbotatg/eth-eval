@@ -8,10 +8,12 @@ knowledge [ethskills.com](https://ethskills.com) packages for AI agents.
 
 Two questions it answers:
 
-1. **Which model knows Ethereum best?** A leaderboard across 222 closed-book
-   tasks in 23 categories: wallets, standards, security, testing, tooling, gas,
+1. **Which model knows Ethereum best?** A leaderboard across 243 closed-book
+   tasks in 25 categories: wallets, standards, security, testing, tooling, gas,
    calldata, derivations, L2s, frontend, indexing, protocol, concepts,
-   addresses, fundamentals, units — plus CROPS (censorship resistance / open
+   addresses, fundamentals, units, toolchain (Foundry/Hardhat 3/Scaffold-ETH 2
+   conventions), navigation (where you go: abi.ninja, explorers, faucets,
+   Sourcify, SpeedRun Ethereum) — plus CROPS (censorship resistance / open
    source / privacy / security), MEV, cryptoeconomics (walkaway-test
    scenarios), cypherpunk ideals, fork roadmap (date-tagged), contract-reading
    (full Solidity source in the prompt), and honesty (live-data questions where

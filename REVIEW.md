@@ -1,6 +1,6 @@
 # eth-eval — all tasks for review
 
-222 closed-book + 33 tool-track + 10 live tasks. Regenerate with `python3 gen/make_review.py`.
+243 closed-book + 33 tool-track + 10 live tasks. Regenerate with `python3 gen/make_review.py`.
 
 
 
@@ -1934,6 +1934,99 @@ End your reply with a line of the form "Answer: <letter>".
 **Source quote:** canon — Flashbots MEV-Share docs: MEV-Share lets users capture the MEV their transactions create; searchers bid to backrun user transactions and the majority of the payment (90% by default) is refunded back to the user.
 
 
+## tasks/skill-navigation.jsonl  (closed book)
+
+### navigation-k-01  (recommendation)
+**Q:** You have a verified contract's address and just want a browser UI to call any of its functions — zero setup, works on mainnet and all major L2s. Which site do you go to?
+End your reply with a line of the form "Answer: <answer>".
+
+**Grader:** `{"type": "regex", "pattern": "abi\\.?\\s?ninja"}`
+**Reference:** Answer: abi.ninja
+**Source quote:** **abi.ninja is essential:** https://abi.ninja — paste any verified contract address, get a UI to call any function. Zero setup. Supports mainnet + all major L2s.
+**Fixtures:** `{"must_pass": ["Answer: https://abi.ninja"], "must_fail": ["Answer: Etherscan", "Answer: Remix"]}`
+
+### navigation-k-02  (recommendation)
+**Q:** An AI agent needs structured multi-chain blockchain data (transactions, addresses, token balances) over the Model Context Protocol. Which MCP server is the primary choice?
+End your reply with a line of the form "Answer: <answer>".
+
+**Grader:** `{"type": "regex", "pattern": "blockscout"}`
+**Reference:** Answer: the Blockscout MCP server (mcp.blockscout.com)
+**Source quote:** **Blockscout MCP server exists:** https://mcp.blockscout.com/mcp — gives AI agents structured blockchain data via Model Context Protocol.
+**Fixtures:** `{"must_pass": ["Answer: Blockscout MCP"], "must_fail": ["Answer: the Etherscan API"]}`
+
+### navigation-k-03  (recommendation)
+**Q:** A developer wants to learn Ethereum development hands-on by completing a series of build challenges (BuidlGuidl's onboarding path). Which website?
+End your reply with a line of the form "Answer: <answer>".
+
+**Grader:** `{"type": "regex", "pattern": "speed\\s?-?run\\s?ethereum|speedrunethereum"}`
+**Reference:** Answer: SpeedRun Ethereum (speedrunethereum.com)
+**Source quote:** - **SpeedRun Ethereum:** https://speedrunethereum.com/
+**Fixtures:** `{"must_pass": ["Answer: speedrunethereum.com", "Answer: Speed Run Ethereum"], "must_fail": ["Answer: CryptoZombies"]}`
+
+### navigation-k-04  (fact)
+**Q:** Which block explorer do you go to for Arbitrum?
+End your reply with a line of the form "Answer: <answer>".
+
+**Grader:** `{"type": "regex", "pattern": "arbiscan"}`
+**Reference:** Answer: Arbiscan (arbiscan.io)
+**Source quote:** | Arbitrum | https://arbiscan.io | Etherscan-compatible |
+**Fixtures:** `{"must_pass": ["Answer: arbiscan.io"], "must_fail": ["Answer: etherscan.io", "Answer: basescan.org"]}`
+
+### navigation-k-05  (fact)
+**Q:** Which open-source, open-data contract-verification service is run by Argot Collective (an Ethereum Foundation spinout)?
+End your reply with a line of the form "Answer: <answer>".
+
+**Grader:** `{"type": "regex", "pattern": "sourcify"}`
+**Reference:** Answer: Sourcify
+**Source quote:** verified contracts via Sourcify (open-source, open-data verification, run by the EF spinout Argot Collective)
+**Fixtures:** `{"must_pass": ["Answer: sourcify.dev"], "must_fail": ["Answer: Etherscan"]}`
+
+### navigation-k-06  (fact)
+**Q:** Which RPC provider is MetaMask's default?
+End your reply with a line of the form "Answer: <answer>".
+
+**Grader:** `{"type": "regex", "pattern": "infura"}`
+**Reference:** Answer: Infura
+**Source quote:** - **Infura** — established, MetaMask default
+**Fixtures:** `{"must_pass": ["Answer: Infura (metamask default)"], "must_fail": ["Answer: Alchemy", "Answer: QuickNode"]}`
+
+### navigation-k-07  (fact)
+**Q:** BuidlGuidl runs a free community RPC endpoint. What is its hostname?
+End your reply with a line of the form "Answer: <answer>".
+
+**Grader:** `{"type": "regex", "pattern": "rpc\\.buidlguidl\\.com"}`
+**Reference:** Answer: rpc.buidlguidl.com
+**Source quote:** **Community:** `rpc.buidlguidl.com`
+**Fixtures:** `{"must_pass": ["Answer: https://rpc.buidlguidl.com"], "must_fail": ["Answer: eth.llamarpc.com", "Answer: buidlguidl.com"]}`
+
+### navigation-k-08  (fact)
+**Q:** You need testnet ETH on an L2 testnet (e.g. an OP Stack chain's Sepolia). Per ethskills, what is the two-step path to get it?
+End your reply with a line of the form "Answer: <answer>".
+
+**Grader:** `{"type": "regex_all", "patterns": ["faucet", "bridge"]}`
+**Reference:** Answer: get Sepolia ETH from a faucet, then bridge it over using that L2's testnet bridge
+**Source quote:** Once you have Sepolia ETH you can bridge it to any L2 using each L2's testnet bridge then you will have ETH on that L2 testnet.
+**Fixtures:** `{"must_pass": ["Answer: faucet Sepolia ETH first, then bridge it to the L2"], "must_fail": ["Answer: buy it on an exchange", "Answer: use a faucet"]}`
+
+### navigation-k-09  (fact)
+**Q:** For making paid HTTP requests from TypeScript using the x402 payment protocol, which npm package provides the fetch wrapper?
+End your reply with a line of the form "Answer: <answer>".
+
+**Grader:** `{"type": "regex", "pattern": "x402/fetch"}`
+**Reference:** Answer: @x402/fetch
+**Source quote:** **x402 has production SDKs:** `@x402/fetch` (TS), `x402` (Python), `github.com/coinbase/x402/go` — production-ready libraries for HTTP payments.
+**Fixtures:** `{"must_pass": ["Answer: the @x402/fetch package"], "must_fail": ["Answer: @x402/express", "Answer: x402 (the Python package)"]}`
+
+### navigation-k-10  (recommendation)
+**Q:** Where do you go for prebuilt drop-in UI components for a Scaffold-ETH 2 app?
+End your reply with a line of the form "Answer: <answer>".
+
+**Grader:** `{"type": "regex", "pattern": "ui\\.scaffoldeth\\.io"}`
+**Reference:** Answer: ui.scaffoldeth.io
+**Source quote:** - **UI Components:** https://ui.scaffoldeth.io/
+**Fixtures:** `{"must_pass": ["Answer: https://ui.scaffoldeth.io/"], "must_fail": ["Answer: docs.scaffoldeth.io"]}`
+
+
 ## tasks/skill-protocol.jsonl  (closed book)
 
 ### protocol-k-01  (fact)
@@ -2373,6 +2466,117 @@ End your reply with a line of the form "Answer: <member name>".
 **Grader:** `{"type": "regex", "pattern": "\\bselector\\b"}`
 **Reference:** Answer: selector (e.g. MyContract.Unauthorized.selector)
 **Source quote:** vm.expectRevert(MyContract.CustomError.selector); // Custom error
+
+
+## tasks/skill-toolchain.jsonl  (closed book)
+
+### toolchain-k-01  (fact)
+**Q:** In 2026 both Foundry and Hardhat 3 are considered legitimate smart-contract development choices. Foundry is faster and Solidity-native; what is Hardhat 3's distinguishing strength?
+End your reply with a line of the form "Answer: <answer>".
+
+**Grader:** `{"type": "regex", "pattern": "typescript"}`
+**Reference:** Answer: it is TypeScript-first with a mature plugin ecosystem
+**Source quote:** **Foundry and Hardhat 3 are both legitimate choices in 2026.** Foundry: faster, Solidity-native. Hardhat 3: TypeScript-first, mature plugin ecosystem.
+**Fixtures:** `{"must_pass": ["Answer: TypeScript-first"], "must_fail": ["Answer: it is Solidity-native and faster"]}`
+
+### toolchain-k-02  (fact)
+**Q:** Foundry became the default over Hardhat for new projects — until Hardhat 3 (August 2025) shipped capabilities that made it a legitimate choice again. Name two of them.
+End your reply with a line of the form "Answer: <answer>".
+
+**Grader:** `{"type": "regex_all", "patterns": ["solidity", "fuzz|rust"]}`
+**Reference:** Answer: Solidity testing and fuzzing (plus Rust internals)
+**Source quote:** **Foundry became the default** over Hardhat for new projects — then Hardhat 3 (Aug 2025) shipped Solidity testing, fuzzing, and Rust internals, making it a legitimate choice again.
+**Fixtures:** `{"must_pass": ["Answer: native Solidity tests and Rust internals"], "must_fail": ["Answer: TypeScript support and plugins"]}`
+
+### toolchain-k-03  (recommendation)
+**Q:** In a Scaffold-ETH 2 project, which file must you never edit by hand, because `yarn deploy` regenerates it?
+A) externalContracts.ts
+B) deployedContracts.ts
+C) scaffold.config.ts
+D) foundry.toml
+End your reply with a line of the form "Answer: <answer>".
+
+**Grader:** `{"type": "any_of", "options": [{"type": "exact", "expect": "B"}, {"type": "regex", "pattern": "^\\(?B\\b"}]}`
+**Reference:** Answer: B
+**Source quote:** SE2 auto-generates `deployedContracts.ts` — DON'T edit it. Use Scaffold hooks, NOT raw wagmi. External contracts go in `externalContracts.ts` BEFORE building the frontend.
+**Fixtures:** `{"must_pass": ["Answer: B", "Answer: B \u2014 deployedContracts.ts", "B"], "must_fail": ["Answer: A", "Answer: not B"]}`
+
+### toolchain-k-04  (recommendation)
+**Q:** In a Scaffold-ETH 2 frontend, instead of raw wagmi's useReadContract, which Scaffold hook do you use to read your deployed contract?
+End your reply with a line of the form "Answer: <answer>".
+
+**Grader:** `{"type": "regex", "pattern": "useScaffoldReadContract"}`
+**Reference:** Answer: useScaffoldReadContract
+**Source quote:** Use Scaffold-ETH 2 hooks, not raw wagmi — `useScaffoldReadContract`, `useScaffoldWriteContract`
+**Fixtures:** `{"must_pass": ["Answer: the useScaffoldReadContract hook"], "must_fail": ["Answer: useReadContract", "Answer: useScaffoldWriteContract"]}`
+
+### toolchain-k-05  (recommendation)
+**Q:** Scaffold-ETH 2 offers `yarn chain` (fresh local chain) and `yarn fork --network <chain>`. Why does ethskills say to ALWAYS fork and never `yarn chain`?
+End your reply with a line of the form "Answer: <answer>".
+
+**Grader:** `{"type": "regex", "pattern": "real|deployed|existing|state|uniswap|mock"}`
+**Reference:** Answer: forking gives you real protocol state (Uniswap, USDC, Aave already deployed), so you never write mock contracts for things that already exist onchain
+**Source quote:** **Always fork, never `yarn chain`.** `yarn fork` does everything `yarn chain` does AND gives you real protocol state — Uniswap, USDC, Aave, whale balances, everything already deployed
+**Fixtures:** `{"must_pass": ["Answer: you get the real deployed protocols instead of an empty chain"], "must_fail": ["Answer: forking is much faster"]}`
+
+### toolchain-k-06  (fact)
+**Q:** Which single Scaffold-ETH 2 yarn command deploys your frontend to IPFS (via BuidlGuidl IPFS)?
+End your reply with a line of the form "Answer: <answer>".
+
+**Grader:** `{"type": "regex", "pattern": "yarn\\s+ipfs"}`
+**Reference:** Answer: yarn ipfs
+**Source quote:** - **Deploy to IPFS:** `yarn ipfs` (BuidlGuidl IPFS)
+**Fixtures:** `{"must_pass": ["Answer: `yarn ipfs`"], "must_fail": ["Answer: yarn vercel", "Answer: yarn deploy"]}`
+
+### toolchain-k-07  (fact)
+**Q:** Scaffold-ETH 2 trap: `rpcOverrides` and `alchemyApiKey` in scaffold.config.ts are committed to git, so an API key pasted there leaks. Where should the key live instead?
+End your reply with a line of the form "Answer: <answer>".
+
+**Grader:** `{"type": "regex", "pattern": "\\.env|environment variable"}`
+**Reference:** Answer: in an environment variable (.env.local), read via process.env
+**Source quote:** `rpcOverrides` and `alchemyApiKey` in `scaffold.config.ts` are committed to Git. **NEVER paste API keys directly into this file.** Use environment variables
+**Fixtures:** `{"must_pass": ["Answer: .env.local via process.env"], "must_fail": ["Answer: directly in scaffold.config.ts"]}`
+
+### toolchain-k-08  (recommendation)
+**Q:** Which static-analysis tool does ethskills tell you to run over your contracts (as `<tool> .`) before deploying?
+End your reply with a line of the form "Answer: <answer>".
+
+**Grader:** `{"type": "regex", "pattern": "slither"}`
+**Reference:** Answer: Slither
+**Source quote:** - Run `slither .` for static analysis before deploying
+**Fixtures:** `{"must_pass": ["Answer: slither"], "must_fail": ["Answer: Mythril"]}`
+
+### toolchain-k-09  (fact)
+**Q:** In a Scaffold-ETH 2 monorepo using Foundry, in which directory (path from the repo root) do your Solidity contracts live?
+End your reply with a line of the form "Answer: <answer>".
+
+**Grader:** `{"type": "regex", "pattern": "packages/foundry/contracts"}`
+**Reference:** Answer: packages/foundry/contracts/
+**Source quote:** 1. Write contracts in `packages/foundry/contracts/` (or `packages/hardhat/contracts/`)
+**Fixtures:** `{"must_pass": ["Answer: packages/foundry/contracts"], "must_fail": ["Answer: contracts/", "Answer: src/"]}`
+
+### toolchain-k-10  (recommendation)
+**Q:** Immediately after `yarn deploy --network mainnet` in Scaffold-ETH 2, ethskills says to run `yarn verify --network mainnet`. What does it note about block-explorer API keys?
+A) You must create an Etherscan API key first
+B) No explorer API key is needed — SE2 handles it for you
+C) Verification only works through Sourcify
+D) An Alchemy key doubles as the explorer key
+End your reply with a line of the form "Answer: <answer>".
+
+**Grader:** `{"type": "any_of", "options": [{"type": "exact", "expect": "B"}, {"type": "regex", "pattern": "^\\(?B\\b"}]}`
+**Reference:** Answer: B
+**Source quote:** 4. Verify immediately after deploy: `yarn verify --network mainnet`
+   - **No block explorer API key needed** — SE2 handles this for you
+**Fixtures:** `{"must_pass": ["Answer: B", "Answer: B \u2014 no API key needed", "B"], "must_fail": ["Answer: A", "Answer: not B"]}`
+
+### toolchain-k-11  (fact)
+**Q:** Before a production Scaffold-ETH 2 deploy, what value must `burnerWalletMode` in scaffold.config.ts be set to, so burner wallets never show up in production?
+End your reply with a line of the form "Answer: <answer>".
+
+**Grader:** `{"type": "regex", "pattern": "localNetworksOnly"}`
+**Reference:** Answer: "localNetworksOnly"
+**Source quote:** - `burnerWalletMode: "localNetworksOnly"` in scaffold.config.ts (prevents burner wallet on prod)
+**Fixtures:** `{"must_pass": ["Answer: localNetworksOnly"], "must_fail": ["Answer: false", "Answer: disabled"]}`
 
 
 ## tasks/skill-tooling.jsonl  (closed book)
