@@ -8,14 +8,14 @@ knowledge [ethskills.com](https://ethskills.com) packages for AI agents.
 
 Two questions it answers:
 
-1. **Which model knows Ethereum best?** A leaderboard across 243 closed-book
+1. **Which model knows Ethereum best?** A leaderboard across 222 closed-book
    tasks in 23 categories: wallets, standards, security, testing, tooling, gas,
    calldata, derivations, L2s, frontend, indexing, protocol, concepts,
    addresses, fundamentals, units — plus CROPS (censorship resistance / open
    source / privacy / security), MEV, cryptoeconomics (walkaway-test
    scenarios), cypherpunk ideals, fork roadmap (date-tagged), contract-reading
    (full Solidity source in the prompt), and honesty (live-data questions where
-   the only right closed-book answer is "I can't know that").
+   the only right closed-book answer is `{"can_know": false}`).
 2. **What can ethskills stop teaching?** Every knowledge task is keyed to a
    specific ethskills SKILL.md claim. When every frontier model aces a skill's
    tasks, that content is already in the models and is a candidate for
@@ -28,12 +28,17 @@ from its own knowledge would build an eval of *what LLMs already know*. Two
 defenses:
 
 - **Computational tasks (`gen/`)** — ground truth is *computed*, never authored:
-  function selectors, ABI calldata, event topics, CREATE/CREATE2 addresses,
-  EIP-55 checksums and storage slots come from foundry's `cast`; EIP-1559
-  base-fee steps and intrinsic-gas sums are integer math from the spec pseudocode
+  ABI calldata, event signatures, CREATE2 derivations, gas and unit math come
+  from foundry's `cast` or integer math straight from the spec pseudocode
   (sanity-asserted against known vectors, e.g. EIP-1014's CREATE2 test vector).
   Instances are randomized from a seed — regenerate per release
   (`python3 gen/generate_tasks.py --seed <new>`), so there is nothing to memorize.
+  **No closed-book task requires unaided keccak**: anything that ends in
+  producing a hash digest (selectors, topic0, EIP-55, CREATE/CREATE2, mapping
+  slots) lives in `tasks-tools/` and runs with `--track tools` against a
+  tool-using agent; the closed-book versions give the hash and test the
+  surrounding rule (padding, layout, selector matching, address truncation,
+  canonical signature strings).
 - **Knowledge tasks (`tasks/skill-*.jsonl`)** — the answer key is the ethskills
   file's claim, not the author's opinion. Every task carries a `source_quote`
   field with the verbatim SKILL.md line it grades against, and a `source` field
@@ -44,8 +49,12 @@ Residual bias disclosed: question *selection* still passed through an LLM, and
 pure-recall items are trained-on by definition (tagged and accepted).
 
 Grading is 100% deterministic (exact / regex / JSON-shape / bigint) — there is
-no LLM judge. `--self-test` grades every task's bundled reference answer and
-must be 100% before any run counts.
+no LLM judge. `--self-test` grades every task's bundled reference answer AND
+its adversarial fixtures (`checks.must_pass` / `checks.must_fail` — correct
+paraphrases that must pass, wrong answers that must fail) and must be 100%
+before any run counts. `python3 test_graders.py` additionally pins the grader
+helpers against known failure modes (`EIP-4844` ≠ -4844, wrong-then-right
+numbers, fabricated values beside a disclaimer).
 
 ## Run it
 
@@ -58,6 +67,9 @@ python3 run_eval.py --name gpt-5.6 --base-url https://llm.bankr.bot/v1 \
 
 # any CLI harness (prompt on stdin, answer on stdout):
 python3 run_eval.py --name haiku --cmd 'claude -p --model haiku' --concurrency 4
+
+# tool track (33 keccak tasks — needs an agent with cast, not a bare model):
+python3 run_eval.py --track tools --name haiku --cmd 'claude -p --model haiku'
 
 python3 report.py          # leaderboard + per-skill ethskills coverage
 python3 report.py --md     # markdown tables

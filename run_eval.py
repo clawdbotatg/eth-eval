@@ -40,6 +40,13 @@ HERE = Path(__file__).resolve().parent
 TASKS_DIR = HERE / "tasks"
 RESULTS_DIR = HERE / "results"
 
+# --track tools: tasks whose answers require computing a keccak hash — fair
+# for a tool-using agent (cast on PATH), impossible closed-book.
+TOOLS_TASKS_DIR = HERE / "tasks-tools"
+TOOLS_RESULTS_DIR = HERE / "results-tools"
+TOOL_PREFIX = ("You are an agent with shell access. Foundry's `cast` is installed. "
+               "Use any tools you need.\n\n")
+
 # ---------------------------------------------------------------- helpers
 
 def norm(t, casefold=True):
@@ -79,7 +86,9 @@ def extract_num(r):
             return float(pick.replace("$", "").replace(",", ""))
     return None
 
-_INT_RE = re.compile(r"(?:0x[0-9a-fA-F][0-9a-fA-F_]*|-?\d[\d_,]*)")
+# minus sign only counts when it isn't glued to a word (EIP-4844 must parse as
+# 4844, not -4844)
+_INT_RE = re.compile(r"(?:0x[0-9a-fA-F][0-9a-fA-F_]*|(?<![\w-])-\d[\d_,]*|\d[\d_,]*)")
 
 def extract_bigints(r):
     """All integers (decimal with separators, or 0x hex) in a string, as ints."""
@@ -148,9 +157,16 @@ def _grade_one(g, resp):
         exp = g["expect"]
         if isinstance(exp, str):
             exp = int(exp, 16) if exp.lower().startswith("0x") else int(exp)
-        cands = extract_bigints(ans_line(resp)) or extract_bigints(resp)
-        ok = bool(cands) and (cands[0] == exp if len(cands) == 1 else exp in cands[:3])
-        return ok, f"got {cands[:3]}"
+        # the Answer line's FIRST integer is the answer — "13, though 12 is
+        # expected" must fail. Without an Answer line, take the response's
+        # last integer (models conclude with the result).
+        a_ints = extract_bigints(ans_line(resp))
+        if a_ints:
+            ok, got = a_ints[0] == exp, a_ints[0]
+        else:
+            r_ints = extract_bigints(resp)
+            ok, got = bool(r_ints) and r_ints[-1] == exp, (r_ints[-1] if r_ints else None)
+        return ok, f"got {got}"
     if t == "exact":
         cf = not g.get("case_sensitive", False)
         cands = [norm(resp, cf)]
@@ -262,9 +278,9 @@ class CmdTarget:
 
 # ---------------------------------------------------------------- run
 
-def load_tasks(category=None, limit=None):
+def load_tasks(category=None, limit=None, tasks_dir=TASKS_DIR):
     tasks, seen = [], set()
-    for f in sorted(TASKS_DIR.glob("*.jsonl")):
+    for f in sorted(tasks_dir.glob("*.jsonl")):
         for line in f.read_text().splitlines():
             line = line.strip()
             if not line:
@@ -325,6 +341,8 @@ def main():
     ap.add_argument("--auth", choices=["bearer", "xapikey"], default="bearer")
     ap.add_argument("--cmd")
     ap.add_argument("--self-test", action="store_true")
+    ap.add_argument("--track", choices=["closed", "tools"], default="closed",
+                    help="closed = vanilla model, no tools; tools = keccak tasks for a tool-using agent")
     ap.add_argument("--category")
     ap.add_argument("--limit", type=int)
     ap.add_argument("--runs", type=int, default=1)
@@ -333,20 +351,41 @@ def main():
     ap.add_argument("--verbose", "-v", action="store_true")
     args = ap.parse_args()
 
-    tasks = load_tasks(args.category, args.limit)
+    tools = args.track == "tools"
+    tasks = load_tasks(args.category, args.limit,
+                       TOOLS_TASKS_DIR if tools else TASKS_DIR)
     if not tasks:
         sys.exit("no tasks found")
+    if tools and not args.self_test:
+        for t in tasks:
+            t["prompt"] = TOOL_PREFIX + t["prompt"]
 
     if args.self_test:
-        rows = []
+        # reference must pass, every checks.must_pass must pass, every
+        # checks.must_fail must fail — the fixtures are what catch a grader
+        # that accepts wrong answers or rejects right ones; the reference
+        # alone was written to fit the grader and proves little.
+        rows, n_fix = [], 0
         for t in tasks:
             ok, detail = grade(t, t["reference"])
-            rows.append({"id": t["id"], "category": t["category"], "pass": ok, "detail": detail})
-            if not ok:
-                print(f"SELF-TEST FAIL {t['id']}: {detail}")
+            probs = [] if ok else [f"reference: {detail}"]
+            checks = t.get("checks", {})
+            for s in checks.get("must_pass", []):
+                p, d = grade(t, s)
+                n_fix += 1
+                if not p:
+                    probs.append(f"must_pass rejected {s[:60]!r}: {d}")
+            for s in checks.get("must_fail", []):
+                p, _ = grade(t, s)
+                n_fix += 1
+                if p:
+                    probs.append(f"must_fail accepted {s[:60]!r}")
+            rows.append({"id": t["id"], "category": t["category"], "pass": not probs})
+            for pr in probs:
+                print(f"SELF-TEST FAIL {t['id']}: {pr}")
         cats = summarize(rows)
         n_ok = sum(r["pass"] for r in rows)
-        print(f"\nself-test: {n_ok}/{len(rows)} graders green across {len(cats)} categories")
+        print(f"\nself-test: {n_ok}/{len(rows)} tasks green ({n_fix} fixtures) across {len(cats)} categories")
         sys.exit(0 if n_ok == len(rows) else 1)
 
     if args.cmd:
@@ -407,16 +446,17 @@ def main():
     tok_note = f" · tokens in {tok_in:,} out {tok_out:,}" if tok_in else ""
     print(f"{len(rows)} tasks in {elapsed:.0f}s{tok_note}")
 
-    RESULTS_DIR.mkdir(exist_ok=True)
+    results_dir = TOOLS_RESULTS_DIR if tools else RESULTS_DIR
+    results_dir.mkdir(exist_ok=True)
     out = {
-        "name": args.name, "target": target.desc,
+        "name": args.name, "target": target.desc, "track": args.track,
         "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
         "overall": overall, "ci95": [round(lo, 1), round(hi, 1)],
         "categories": cats, "skills": skills, "elapsed_s": round(elapsed, 1),
         "tokens": {"in": tok_in, "out": tok_out},
         "runs": args.runs, "temperature": 0, "tasks": rows,
     }
-    path = RESULTS_DIR / f"{args.name}.json"
+    path = results_dir / f"{args.name}.json"
     path.write_text(json.dumps(out, indent=1))
     print(f"saved {path.relative_to(HERE)}")
 

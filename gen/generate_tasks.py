@@ -9,8 +9,17 @@ That is the contamination defense: instances are randomized from a seed, so
 there is nothing for a model to have memorized, and the ground truth never
 passes through an LLM.
 
+Two tracks:
+  tasks/       closed book — everything here is computable in-context (unit
+               math, gas math, ABI layout with the selector GIVEN, matching
+               given selectors, finishing a CREATE2 derivation from a given
+               hash). No task requires producing a keccak digest unaided.
+  tasks-tools/ needs a hash tool — selectors, full encode/decode, event
+               topics, EIP-55, CREATE/CREATE2, mapping slots. Run with
+               `run_eval.py --track tools` against a tool-using agent.
+
 Usage:  python3 gen/generate_tasks.py [--seed STR]
-Writes: tasks/gen-*.jsonl (overwrites)
+Writes: tasks/gen-*.jsonl and tasks-tools/gen-*.jsonl (overwrites)
 """
 import argparse
 import json
@@ -20,6 +29,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
 TASKS = HERE / "tasks"
+TASKS_TOOLS = HERE / "tasks-tools"
 
 def cast(*args):
     p = subprocess.run(["cast", *args], capture_output=True, text=True, timeout=30)
@@ -256,28 +266,119 @@ def g_basefee(rng, n=4):
             "reference": f"Answer: {cur}",
         }
 
-GENS = [g_selectors, g_encode, g_decode, g_topics, g_checksum, g_create, g_create2,
-        g_slots, g_units, g_intrinsic, g_basefee]
+# ------------------------------------------- closed-book (hash provided)
+
+def g_encode_given(rng, n=4):
+    """ABI encoding with the selector GIVEN — tests padding/layout, not keccak."""
+    for i in range(n):
+        sig, params = rand_sig(rng, kinds=["address", "uint256", "bool"])
+        vals = [rand_val(rng, t) for t in params]
+        data = cast("calldata", sig, *vals)
+        arglist = ", ".join(f"{t} = {v}" for t, v in zip(params, vals))
+        yield {
+            "id": f"calldata-encgiven-{i+1:02d}", "category": "calldata", "source": "generated",
+            "prompt": (f"The Solidity function `{sig}` has 4-byte selector {data[:10]}.\n"
+                       f"ABI-encode a call to it with arguments: {arglist}.\n\n"
+                       "Answer with only the full 0x-prefixed calldata hex string."),
+            "grader": {"type": "exact", "expect": data},
+            "reference": data,
+        }
+
+def g_decode_given(rng, n=4):
+    """Decode calldata against an interface whose selectors are GIVEN."""
+    for i in range(n):
+        sigs = []
+        while len(sigs) < 3:
+            s, p = rand_sig(rng, kinds=["address", "uint256", "bool"])
+            if s.split("(")[0] not in [x[0].split("(")[0] for x in sigs]:
+                sigs.append((s, p))
+        pick, params = sigs[rng.randrange(3)]
+        vals = [rand_val(rng, t) for t in params]
+        data = cast("calldata", pick, *vals)
+        exp_args = []
+        for t, v in zip(params, vals):
+            if t == "address":
+                exp_args.append(v.lower())
+            elif t == "bool":
+                exp_args.append(v == "true")
+            else:
+                exp_args.append(int(v))
+        iface = "\n".join(f"- `{s}` — selector {cast('sig', s)}" for s, _ in sigs)
+        yield {
+            "id": f"calldata-decgiven-{i+1:02d}", "category": "calldata", "source": "generated",
+            "prompt": (f"A contract has these functions:\n{iface}\n\nThis calldata is sent to it:\n{data}\n\n"
+                       "Which function is being called, and with what arguments?\n\n"
+                       'Reply with JSON only: {"function": "<name>", "args": [...]} — addresses as 0x strings, uints as numbers, bools as true/false.'),
+            "grader": {"type": "json", "expect": {"function": pick.split("(")[0], "args": exp_args}},
+            "reference": json.dumps({"function": pick.split("(")[0], "args": exp_args}),
+        }
+
+def g_create2_finish(rng, n=2):
+    """Finish the CREATE2 derivation from a GIVEN final hash (address = last 20 bytes)."""
+    for i in range(n):
+        h = rand_b32(rng)
+        addr = "0x" + h[2:][24:]
+        yield {
+            "id": f"derivations-c2finish-{i+1:02d}", "category": "derivations", "source": "generated",
+            "prompt": (f"In a CREATE2 derivation, keccak256(0xff ++ deployer ++ salt ++ keccak256(init_code)) evaluates to:\n{h}\n\n"
+                       "What address is the contract deployed at?\n\nAnswer with only the address (any casing)."),
+            "grader": {"type": "exact", "expect": addr},
+            "reference": addr,
+            "checks": {"must_fail": [h]},
+        }
+
+EV_ARGNAMES = ["user", "amount", "id", "to", "operator", "value"]
+
+def g_event_sig(rng, n=3):
+    """Canonical event signature string — the normalization rules, not the hash."""
+    for i in range(n):
+        name = rng.choice(EV_NAMES)
+        params = [rng.choice(["address", "uint256", "bytes32"]) for _ in range(rng.randint(2, 3))]
+        names = rng.sample(EV_ARGNAMES, len(params))
+        decl = ", ".join(f"{t}{' indexed' if j == 0 else ''} {names[j]}" for j, t in enumerate(params))
+        canon = f"{name}({','.join(params)})"
+        wrong = f"{name}({', '.join(t + ' ' + names[j] for j, t in enumerate(params))})"
+        yield {
+            "id": f"indexing-evsig-{i+1:02d}", "category": "indexing", "source": "generated",
+            "prompt": (f"A contract declares:\n\n`event {name}({decl});`\n\n"
+                       "topic0 of this event's logs is the keccak256 hash of exactly what ASCII string?\n\n"
+                       "Answer with only that string."),
+            "grader": {"type": "exact", "expect": canon, "case_sensitive": True},
+            "reference": canon,
+            "checks": {"must_fail": [wrong, canon.lower()]},
+        }
+
+# closed book: everything is computable in-context (no unaided keccak)
+CLOSED_GENS = [g_encode_given, g_decode_given, g_create2_finish, g_event_sig,
+               g_units, g_intrinsic, g_basefee]
+# needs a hash tool: run with `run_eval.py --track tools` against an agent
+TOOL_GENS = [g_selectors, g_encode, g_decode, g_topics, g_checksum, g_create,
+             g_create2, g_slots]
+
+def write_track(gens, outdir, seed):
+    outdir.mkdir(exist_ok=True)
+    for old in outdir.glob("gen-*.jsonl"):
+        old.unlink()
+    byfile = {}
+    for gen in gens:
+        rng = random.Random(f"{seed}:{gen.__name__}")
+        for t in gen(rng):
+            byfile.setdefault(t["category"], []).append(t)
+    total = 0
+    for cat, ts in sorted(byfile.items()):
+        p = outdir / f"gen-{cat}.jsonl"
+        p.write_text("\n".join(json.dumps(t) for t in ts) + "\n")
+        print(f"{p.relative_to(HERE)}: {len(ts)} tasks")
+        total += len(ts)
+    return total
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--seed", default="eth-eval-2026-08-14")
     args = ap.parse_args()
-    TASKS.mkdir(exist_ok=True)
-    for old in TASKS.glob("gen-*.jsonl"):
-        old.unlink()
-    byfile = {}
-    for gen in GENS:
-        rng = random.Random(f"{args.seed}:{gen.__name__}")
-        for t in gen(rng):
-            byfile.setdefault(t["category"], []).append(t)
-    total = 0
-    for cat, ts in sorted(byfile.items()):
-        p = TASKS / f"gen-{cat}.jsonl"
-        p.write_text("\n".join(json.dumps(t) for t in ts) + "\n")
-        print(f"{p.name}: {len(ts)} tasks")
-        total += len(ts)
-    print(f"total {total} generated tasks (seed {args.seed!r})")
+    n_closed = write_track(CLOSED_GENS, TASKS, args.seed)
+    n_tools = write_track(TOOL_GENS, TASKS_TOOLS, args.seed)
+    print(f"total {n_closed} closed-book + {n_tools} tool-track tasks (seed {args.seed!r})")
 
 if __name__ == "__main__":
     main()
