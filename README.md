@@ -8,7 +8,7 @@ knowledge [ethskills.com](https://ethskills.com) packages for AI agents.
 
 Two questions it answers:
 
-1. **Which model knows Ethereum best?** A leaderboard across 243 closed-book
+1. **Which model knows Ethereum best?** A leaderboard across 242 closed-book
    tasks in 25 categories: wallets, standards, security, testing, tooling, gas,
    calldata, derivations, L2s, frontend, indexing, protocol, concepts,
    addresses, fundamentals, units, toolchain (Foundry/Hardhat 3/Scaffold-ETH 2
@@ -94,7 +94,9 @@ One JSON object per line in `tasks/*.jsonl`:
 ```
 
 `kind: "recommendation"` marks ethskills' opinionated guidance (which tool,
-which pattern) vs objective `fact`s — reports can split them.
+which pattern) vs objective `fact`s. The leaderboard reports them separately
+(`facts` vs `rec-adh`) — a model can be right and disagree with an opinion,
+so recommendation adherence never blends into the factual score.
 
 See `tasks/AUTHORING.md` for the authoring rules and grader semantics.
 

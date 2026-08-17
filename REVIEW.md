@@ -1,6 +1,6 @@
 # eth-eval — all tasks for review
 
-243 closed-book + 33 tool-track + 10 live tasks. Regenerate with `python3 gen/make_review.py`.
+242 closed-book + 33 tool-track + 10 live tasks. Regenerate with `python3 gen/make_review.py`.
 
 
 
@@ -1937,7 +1937,7 @@ End your reply with a line of the form "Answer: <letter>".
 ## tasks/skill-navigation.jsonl  (closed book)
 
 ### navigation-k-01  (recommendation)
-**Q:** You have a verified contract's address and just want a browser UI to call any of its functions — zero setup, works on mainnet and all major L2s. Which site do you go to?
+**Q:** You have a verified contract's address and want a browser UI to call any of its functions — zero setup, works across mainnet and all major L2s from one page. Which dedicated single-purpose site (not a block explorer) does this?
 End your reply with a line of the form "Answer: <answer>".
 
 **Grader:** `{"type": "regex", "pattern": "abi\\.?\\s?ninja"}`
@@ -1989,15 +1989,6 @@ End your reply with a line of the form "Answer: <answer>".
 **Reference:** Answer: Infura
 **Source quote:** - **Infura** — established, MetaMask default
 **Fixtures:** `{"must_pass": ["Answer: Infura (metamask default)"], "must_fail": ["Answer: Alchemy", "Answer: QuickNode"]}`
-
-### navigation-k-07  (fact)
-**Q:** BuidlGuidl runs a free community RPC endpoint. What is its hostname?
-End your reply with a line of the form "Answer: <answer>".
-
-**Grader:** `{"type": "regex", "pattern": "rpc\\.buidlguidl\\.com"}`
-**Reference:** Answer: rpc.buidlguidl.com
-**Source quote:** **Community:** `rpc.buidlguidl.com`
-**Fixtures:** `{"must_pass": ["Answer: https://rpc.buidlguidl.com"], "must_fail": ["Answer: eth.llamarpc.com", "Answer: buidlguidl.com"]}`
 
 ### navigation-k-08  (fact)
 **Q:** You need testnet ETH on an L2 testnet (e.g. an OP Stack chain's Sepolia). Per ethskills, what is the two-step path to get it?

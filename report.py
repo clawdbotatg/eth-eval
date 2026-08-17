@@ -9,6 +9,34 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 
+def task_kinds():
+    """id -> kind for every task on disk. Generated tasks count as facts."""
+    kinds = {}
+    for p in (HERE / "tasks").glob("*.jsonl"):
+        for line in p.read_text().splitlines():
+            if line.strip():
+                t = json.loads(line)
+                kinds[t["id"]] = t.get("kind", "fact")
+    return kinds
+
+def split_scores(run, kinds):
+    """(fact-only overall via per-category mean, recommendation adherence pct).
+
+    Recommendation tasks grade agreement with ethskills' opinions, not truth —
+    a model can be right and disagree — so they get their own number instead
+    of silently blending into the headline.
+    """
+    bycat, rec = {}, []
+    for row in run.get("tasks", []):
+        kind = kinds.get(row["id"])
+        if kind == "recommendation":
+            rec.append(row["pass"])
+        elif kind is not None:
+            bycat.setdefault(row["category"], []).append(row["pass"])
+    fact = round(100 * sum(sum(v) / len(v) for v in bycat.values()) / len(bycat), 1) if bycat else "-"
+    rec_pct = round(100 * sum(rec) / len(rec), 1) if rec else "-"
+    return fact, rec_pct
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--md", action="store_true", help="emit GitHub-flavored markdown")
@@ -35,11 +63,18 @@ def main():
         out += ["  ".join(str(c).ljust(w[i]) for i, c in enumerate(row)) for row in rows]
         return "\n".join(out)
 
+    kinds = task_kinds()
     print("## Leaderboard (per-category mean, pass@1, temperature 0)\n" if args.md else
           "LEADERBOARD (per-category mean, pass@1, temp 0)\n")
-    rows = [[r["name"], r["overall"], f"{r['ci95'][0]}-{r['ci95'][1]}"] +
-            [r["categories"].get(c, {}).get("pct", "-") for c in cats] for r in runs]
-    print(table(["model", "overall", "95% CI"] + cats, rows))
+    rows = []
+    for r in runs:
+        fact, rec = split_scores(r, kinds)
+        rows.append([r["name"], r["overall"], fact, rec, f"{r['ci95'][0]}-{r['ci95'][1]}"] +
+                    [r["categories"].get(c, {}).get("pct", "-") for c in cats])
+    print(table(["model", "overall", "facts", "rec-adh", "95% CI"] + cats, rows))
+    if not args.md:
+        print("\n'facts' = objective tasks only; 'rec-adh' = agreement with ethskills' "
+              "opinionated recommendations (a model can be right and disagree — judge separately).")
 
     print("\n\n## ethskills coverage (per source skill — high everywhere = candidate to trim)\n"
           if args.md else "\nETHSKILLS COVERAGE (per source skill — high everywhere = candidate to trim)\n")
