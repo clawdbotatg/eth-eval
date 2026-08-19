@@ -2,55 +2,73 @@
  "name": "haiku",
  "target": "cmd:claude -p --model haiku --allowed-tools \"\"",
  "track": "exec",
- "timestamp": "2026-08-19 14:00:48",
- "passed": 2,
- "total": 5,
- "overall": 40.0,
+ "timestamp": "2026-08-19 15:03:17",
+ "passed": 3,
+ "total": 7,
+ "overall": 42.9,
  "tasks": [
   {
    "id": "dca-contract-01",
    "category": "exec-build",
-   "latency_s": 21.9,
+   "latency_s": 23.3,
    "usage": {},
    "pass": false,
    "detail": "test_deposit_and_buy(): EvmError: Revert; test_deposit_and_buy(): EvmError: Revert",
-   "response": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ninterface IERC20 {\n    function transfer(address to, uint256 amount) external returns (bool);\n    function transferFrom(address from, address to, uint256 amount) external returns (bool);\n    function approve(address spender, uint256 amount) external returns (bool);\n}\n\ninterface ISwapRouter02 {\n    struct ExactInputSingleParams {\n        bytes path;\n        address recipient;\n        uint256 deadline;\n        uint256 amountIn;\n        uint256 amountOutMinimum;\n    }\n    function exactInputSingle(ExactInputSingleParams calldata params) external payable returns (uint256 amountOut);\n}\n\ncontract DCA {\n    address public owner;\n    address public router;\n    address public tokenIn;\n    address public tokenOut;\n    uint24 public fee;\n    \n    constructor(address _router, address _tokenIn, address _tokenOut, uint24 _fee) {\n        owner = msg.sender;\n        router = _router;\n        tokenIn = _tokenIn;\n        tokenOut = _tokenOut;\n        fee = _fee;\n    }\n    \n    modifier onlyOwner() {\n        require(msg.sender == owner, \"Not owner\");\n        _;\n    }\n    \n    function deposit(uint256 amount) external {\n        IERC20(tokenIn).transferFrom(msg.sender, address(this), amount);\n    }\n    \n    function buy(uint256 amountIn, uint256 minOut) external onlyOwner {\n        IERC20(tokenIn).approve(router, amountIn);\n        \n        bytes memory path = abi.encodePacked(tokenIn, fee, tokenOut);\n        \n        ISwapRouter02.ExactInputSingleParams memory params = ISwapRouter02.ExactInputSingleParams({\n            path: path,\n            recipient: address(this),\n            deadline: block.timestamp,\n            amountIn: amountIn,\n            amountOutMinimum: minOut\n        });\n        \n        ISwapRouter02(router).exactInputSingle(params);\n    }\n    \n    function withdraw(address token, uint256 amount) external onlyOwner {\n        IERC20(token).transfer(owner, amount);\n    }\n}"
+   "response": "```solidity\n// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ninterface IERC20 {\n    function transferFrom(address from, address to, uint256 amount) external returns (bool);\n    function transfer(address to, uint256 amount) external returns (bool);\n    function approve(address spender, uint256 amount) external returns (bool);\n}\n\ninterface ISwapRouter {\n    struct ExactInputSingleParams {\n        bytes path;\n        address recipient;\n        uint256 deadline;\n        uint256 amountIn;\n        uint256 amountOutMinimum;\n    }\n    \n    function exactInputSingle(ExactInputSingleParams calldata params) external payable returns (uint256 amountOut);\n}\n\ncontract DCA {\n    address public owner;\n    address public router;\n    address public tokenIn;\n    address public tokenOut;\n    uint24 public fee;\n    \n    modifier onlyOwner() {\n        require(msg.sender == owner, \"Only owner\");\n        _;\n    }\n    \n    constructor(address _router, address _tokenIn, address _tokenOut, uint24 _fee) {\n        owner = msg.sender;\n        router = _router;\n        tokenIn = _tokenIn;\n        tokenOut = _tokenOut;\n        fee = _fee;\n    }\n    \n    function deposit(uint256 amount) external {\n        IERC20(tokenIn).transferFrom(msg.sender, address(this), amount);\n    }\n    \n    function buy(uint256 amountIn, uint256 minOut) external onlyOwner {\n        IERC20(tokenIn).approve(router, amountIn);\n        \n        bytes memory path = abi.encodePacked(tokenIn, fee, tokenOut);\n        \n        ISwapRouter(router).exactInputSingle(\n            ISwapRouter.ExactInputSingleParams({\n                path: path,\n                recipient: address(this),\n                deadline: block.timestamp,\n                amountIn: amountIn,\n                amountOutMinimum: minOut\n            })\n        );\n    }\n    \n    function withdraw(address token, uint256 amount) external onlyOwner {\n        IERC20(token).transfer(owner, amount);\n    }\n}\n```"
   },
   {
    "id": "fix-vault-01",
    "category": "exec-security",
-   "latency_s": 44.9,
+   "latency_s": 33.6,
    "usage": {},
    "pass": true,
    "detail": "",
-   "response": "```solidity\n// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ninterface IERC20 {\n    function balanceOf(address) external view returns (uint256);\n    function transfer(address, uint256) external returns (bool);\n    function transferFrom(address, address, uint256) external returns (bool);\n}\n\ncontract Vault {\n    IERC20 public immutable asset;\n    uint256 public totalShares;\n    uint256 public totalAssets;\n    mapping(address => uint256) public shares;\n\n    constructor(address _asset) { asset = IERC20(_asset); }\n\n    function deposit(uint256 amount) external returns (uint256 s) {\n        if (totalAssets == 0) {\n            s = amount;\n        } else {\n            s = (amount * totalShares) / totalAssets;\n        }\n        shares[msg.sender] += s;\n        totalShares += s;\n        totalAssets += amount;\n        asset.transferFrom(msg.sender, address(this), amount);\n    }\n\n    function withdraw(uint256 s) external returns (uint256 amount) {\n        amount = (s * totalAssets) / totalShares;\n        shares[msg.sender] -= s;\n        totalShares -= s;\n        totalAssets -= amount;\n        asset.transfer(msg.sender, amount);\n    }\n}\n```"
+   "response": "```solidity\n// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ninterface IERC20 {\n    function balanceOf(address) external view returns (uint256);\n    function transfer(address, uint256) external returns (bool);\n    function transferFrom(address, address, uint256) external returns (bool);\n}\n\ncontract Vault {\n    IERC20 public immutable asset;\n    uint256 public totalShares;\n    mapping(address => uint256) public shares;\n    \n    uint256 private constant DEAD_SHARES = 1e3;\n\n    constructor(address _asset) { asset = IERC20(_asset); }\n\n    function deposit(uint256 amount) external returns (uint256 s) {\n        uint256 total = asset.balanceOf(address(this));\n        s = (amount * (totalShares + DEAD_SHARES)) / (total + DEAD_SHARES);\n        shares[msg.sender] += s;\n        totalShares += s;\n        asset.transferFrom(msg.sender, address(this), amount);\n    }\n\n    function withdraw(uint256 s) external returns (uint256 amount) {\n        amount = (s * (asset.balanceOf(address(this)) + DEAD_SHARES)) / (totalShares + DEAD_SHARES);\n        shares[msg.sender] -= s;\n        totalShares -= s;\n        asset.transfer(msg.sender, amount);\n    }\n}\n```"
   },
   {
    "id": "lp-range-01",
    "category": "exec-liquidity",
-   "latency_s": 33.4,
+   "latency_s": 32.3,
    "usage": {},
    "pass": true,
    "detail": "",
-   "response": "200700,200940"
+   "response": "200640,200940"
   },
   {
    "id": "permit2-calldata-01",
    "category": "exec-approval",
-   "latency_s": 124.7,
+   "latency_s": 137.4,
    "usage": {},
    "pass": false,
    "detail": "FORMAT: odd-length calldata hex",
-   "response": "0xdba8c59e000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb480000000000000000000000003fc91a3afd70395cd496c647d5a6cc9d4b2b7fad000000000000000000000000000000000000000000000000000000003b9aca00000000000000000000000000000000000000000000000000000000070dbd880"
+   "response": "0xd505accf000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb480000000000000000000000003fc91a3afd70395cd496c647d5a6cc9d4b2b7fad0000000000000000000000000000000000000000000000000000000003b9ca00000000000000000000000000000000000000000000000000000000000707d0b00"
   },
   {
    "id": "swap-calldata-01",
    "category": "exec-swap",
-   "latency_s": 123.6,
+   "latency_s": 59.7,
    "usage": {},
    "pass": false,
-   "detail": "test_grade(): calldata reverted on SwapRouter02; test_grade(): calldata reverted on SwapRouter02",
-   "response": "0x414bf38900000000000000000000000000000000000000000000000000000000000000c0000000000000000000000000f39Fd6e51aad88F6F4ce6aB8827279cffFb922660000000000000000000000000000000000000000000000000000000002540BE40000000000000000000000000000000000000000000000000000001bc16d674ec800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002bC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc20001f4A0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+   "detail": "FORMAT: odd-length calldata hex",
+   "response": "0x414bf389000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb4800000000000000000000000000000000000000000000000000000000000001f4000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cffb922660000000000000000000000000000000000000000000000001bc16d674ec800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "id": "swap-slippage-01",
+   "category": "exec-swap",
+   "latency_s": 146.9,
+   "usage": {},
+   "pass": false,
+   "detail": "test_executes_cleanly(): calldata reverted on an unmoved market; test_executes_cleanly(): calldata reverted on an unmoved market",
+   "response": "0x414bf3890000000000000000000000000000000000000000000000000000000000000020000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb92266ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000008ac7230489e8000000000000000000000000000000000000000000000000000000000461639461000000000000000000000000000000000000000000000000000000000000002bc02aaa39b223fe8d0a0e5c4f27ead9083c756cc201f4a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+  },
+  {
+   "id": "vault-fuzz-01",
+   "category": "exec-security",
+   "latency_s": 80.3,
+   "usage": {},
+   "pass": true,
+   "detail": "",
+   "response": "```solidity\n// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ninterface IERC20 {\n    function balanceOf(address) external view returns (uint256);\n    function transfer(address, uint256) external returns (bool);\n    function transferFrom(address, address, uint256) external returns (bool);\n}\n\ncontract Vault {\n    IERC20 public asset;\n    uint256 public totalShares;\n    mapping(address => uint256) public balanceOf;\n    \n    uint256 private constant INITIAL_SCALE = 1e18;\n    \n    constructor(address _asset) {\n        asset = IERC20(_asset);\n    }\n    \n    function totalAssets() public view returns (uint256) {\n        return asset.balanceOf(address(this));\n    }\n    \n    function deposit(uint256 assets) external returns (uint256 shares) {\n        asset.transferFrom(msg.sender, address(this), assets);\n        \n        uint256 _totalAssets = totalAssets();\n        uint256 _totalShares = totalShares;\n        \n        if (_totalShares == 0) {\n            shares = assets * INITIAL_SCALE;\n        } else {\n            uint256 assetsBefore = _totalAssets - assets;\n            shares = (assets * _totalShares) / assetsBefore;\n        }\n        \n        totalShares += shares;\n        balanceOf[msg.sender] += shares;\n    }\n    \n    function redeem(uint256 shares) external returns (uint256 assets) {\n        require(balanceOf[msg.sender] >= shares);\n        \n        uint256 _totalAssets = totalAssets();\n        uint256 _totalShares = totalShares;\n        \n        assets = (shares * _totalAssets) / _totalShares;\n        \n        balanceOf[msg.sender] -= shares;\n        totalShares -= shares;\n        \n        asset.transfer(msg.sender, assets);\n    }\n}\n```"
   }
  ]
 }

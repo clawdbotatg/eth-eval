@@ -8,3 +8,4 @@ exec/cache/
 exec/lib/
 exec/src/Answer.sol
 exec/src/Submission.sol
+/*.sol

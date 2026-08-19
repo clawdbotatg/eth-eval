@@ -17,6 +17,8 @@ decides whether it passed.
 | `lp-range-01` | a tight Uniswap v3 tick range | tick-spacing alignment, brackets the live tick, ≥1% and ≤2.5% each side |
 | `dca-contract-01` | a whole `DCA` contract | our hidden suite: real swap through SwapRouter02 + **both** owner-gates must revert |
 | `fix-vault-01` | fix a share-inflation bug | an exploit test that must stop working, plus feature tests that must still pass |
+| `swap-slippage-01` | calldata with a REAL slippage guard | run twice: clean (must fill) and after an adversary moves the price 4% (must revert) — `amountOutMinimum=0` passes the first and fails the second |
+| `vault-fuzz-01` | a yield-bearing ERC-4626-style vault | a **fuzz campaign**: yield accrues pro-rata, late depositors don't dilute, no round-trip profit, solvent on exit, inflation attack dead |
 
 ## Rules for adding a task
 
@@ -29,3 +31,25 @@ decides whether it passed.
    failed a fix that blocks dust deposits — a legitimate mitigation. It now
    escalates the attacker's seed deposit instead of hardcoding 1 wei.
 4. Pin `fork_block`. Ground truth is whatever the EVM says at that block.
+5. **Grade only what the prompt asked for.** The fuzz grader called
+   `totalShares()`, a getter the task never required, and failed a correct
+   contract for not having it.
+6. **Measure before setting a threshold.** The first draft of the routing task
+   assumed splitting across pools beats one pool. Measured at the pinned block,
+   500 WETH through the single 0.05% pool returns 948,849 USDC and a 50/50
+   split returns 939,998 — splitting is *worse*. The task was rewritten around
+   slippage guards instead.
+7. **A mutant that still satisfies the spec is not a grader bug.** Two "wrong"
+   vault variants were accepted; tracing them showed floor-then-ceil returns
+   exactly the deposit, so the rounding never leaks. The spec defines
+   correctness, and a vault with no yield makes share math irrelevant — which
+   is why `vault-fuzz-01` requires yield.
+
+## Integrity note
+
+`CmdTarget` runs the model with `cwd` = the repo root. With tools disabled
+(`--allowed-tools ""`) that is fine, and it is how every run here was scored.
+A **tool-enabled** agent, though, could read `Grader.t.sol` or write to it —
+two stray `.sol` files did land in the repo root during development. Before
+running this track against an agent that has file access, sandbox it or move
+the graders out of its reach; otherwise the score measures nothing.

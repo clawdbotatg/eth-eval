@@ -44,8 +44,20 @@ def load_tasks(only=None):
 # ------------------------------------------------------------------ extraction
 
 def strip_fences(s):
-    m = re.search(r"```(?:solidity|sol)?\s*\n(.*?)```", s, re.S)
-    return (m.group(1) if m else s).strip()
+    """Pull the solidity out of a reply.
+
+    Models sometimes emit an EMPTY ```solidity fence before the real code, so
+    taking the first fenced block is not safe - take the first one that
+    actually contains a pragma, and fall back to slicing the raw text.
+    """
+    for block in re.findall(r"```(?:solidity|sol)?\s*\n(.*?)```", s, re.S):
+        if "pragma solidity" in block:
+            return block.strip()
+    body = re.sub(r"```(?:solidity|sol)?", "", s)
+    i = body.find("// SPDX")
+    if i < 0:
+        i = body.find("pragma solidity")
+    return (body[i:] if i >= 0 else body).strip()
 
 def extract(kind, resp):
     """Pull the answer out of a model reply. Returns (payload, error)."""
@@ -141,6 +153,8 @@ def main():
     ap.add_argument("--self-test", action="store_true",
                     help="grade each task's reference answer (no model calls)")
     ap.add_argument("--max-tokens", type=int, default=8000)
+    ap.add_argument("--timeout", type=int, default=2400,
+                    help="per-task seconds; writing a fuzz-proof contract is slow")
     args = ap.parse_args()
 
     tasks = load_tasks(args.task)
@@ -162,7 +176,7 @@ def main():
         sys.exit(0 if good == len(tasks) else 1)
 
     if args.cmd:
-        target = CmdTarget(args.cmd)
+        target = CmdTarget(args.cmd, timeout=args.timeout)
     elif args.base_url and args.model:
         target = OpenAITarget(args.base_url, args.model,
                               os.environ.get(args.api_key_env, ""), args.auth)
@@ -178,14 +192,24 @@ def main():
         rows.append(r)
         print(f"  {'PASS' if r['pass'] else 'FAIL'} {r['id']} ({r['latency_s']}s) {r['detail'][:150]}")
 
+    errs = [r["id"] for r in rows if r["detail"].startswith("TARGET ERROR")]
+    if errs:
+        # same rule as the closed-book runner: an outage is not a score
+        sys.exit(f"refusing to save - never reached the target on: {', '.join(errs)}")
+
+    RESULTS.mkdir(exist_ok=True)
+    path = RESULTS / f"{args.name}.json"
+    if args.task and path.is_file():          # merge a single-task re-run
+        prev = json.loads(path.read_text())
+        keep = [r for r in prev["tasks"] if r["id"] not in {x["id"] for x in rows}]
+        rows = sorted(rows + keep, key=lambda r: r["id"])
     n = sum(r["pass"] for r in rows)
     print(f"\n{n}/{len(rows)} passed in {time.time()-t0:.0f}s")
-    RESULTS.mkdir(exist_ok=True)
     out = {"name": args.name, "target": target.desc, "track": "exec",
            "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
            "passed": n, "total": len(rows),
            "overall": round(100 * n / len(rows), 1), "tasks": rows}
-    (RESULTS / f"{args.name}.json").write_text(json.dumps(out, indent=1))
+    path.write_text(json.dumps(out, indent=1))
     print(f"saved results-exec/{args.name}.json")
 
 if __name__ == "__main__":

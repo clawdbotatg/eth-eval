@@ -1,0 +1,7 @@
+{
+  "id": "swap-slippage-01",
+  "category": "exec-swap",
+  "answer": "calldata",
+  "fork_block": 25700000,
+  "prompt": "You are producing raw transaction calldata for Ethereum mainnet.\n\nProduce the calldata for a single call to Uniswap SwapRouter02 at 0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45 that swaps EXACTLY 10 WETH into USDC.\n\n- WETH: 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2\n- USDC: 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48 (6 decimals)\n- Use the 0.05% fee tier.\n- Recipient and caller: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 (WETH already approved).\n- No price limit.\n\nAt the block this will execute against, 10 WETH quotes to 19003.784187 USDC.\nYour slippage guard must be REAL: set amountOutMinimum between 99% and 100%\nof that quote, so the swap fills at the quoted price but reverts if the market\nmoves 4% against you before it lands.\n\nOutput ONLY the 0x-prefixed calldata hex. No explanation, no code fences."
+}
