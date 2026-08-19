@@ -141,12 +141,16 @@ score) and refuses to save a run with unreached tasks unless `--save-partial`.
 
 ## Loose ends / open decisions
 
-- **Untracked, provenance unclear — do not delete without asking Austin:**
-  `run_exec_eval.py`, `exec/`, `results-exec/` (fable/opus-5/sonnet results).
-  A DIFFERENT exec-eval approach from an earlier session: injects the model's
-  answer into hidden Foundry tests on a pinned mainnet fork. Overlaps with
-  `harness/` but is answer-injection, not agent-in-workspace. Decide: merge,
-  keep both, or drop.
+- **TWO exec tracks now coexist — coordinate before touching either.**
+  `run_exec_eval.py` + `exec/` + `results-exec/` is a PARALLEL track built in
+  another session (committed 1ea5846/8318133 on 2026-08-19, while this doc was
+  being written): the model's *answer* (calldata/script) is injected into
+  hidden Foundry tests on a pinned mainnet fork — answer-injection grading.
+  `harness/` + `scenarios/` (this doc's track) is agent-in-workspace grading:
+  the agent gets a shell, a wallet, and a live local chain. They test
+  different things (can it produce the right artifact vs can it operate).
+  Neither subsumes the other yet; a future consolidation should keep both
+  grading modes but share the manifest/reporting layer.
 - **Deferred on purpose** (see the "do it" conversation, 2026-08-19):
   capability gates and track weights (too few execution tasks to be stable —
   report the score vector instead), and the ethskills with/without A/B
