@@ -3,3 +3,8 @@ __pycache__/
 .env
 results-live/
 exec-results/
+exec/out/
+exec/cache/
+exec/lib/
+exec/src/Answer.sol
+exec/src/Submission.sol

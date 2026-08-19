@@ -1,0 +1,56 @@
+{
+ "name": "fable",
+ "target": "cmd:claude -p --model fable --allowed-tools \"\"",
+ "track": "exec",
+ "timestamp": "2026-08-19 13:51:17",
+ "passed": 5,
+ "total": 5,
+ "overall": 100.0,
+ "tasks": [
+  {
+   "id": "dca-contract-01",
+   "category": "exec-build",
+   "latency_s": 22.1,
+   "usage": {},
+   "pass": true,
+   "detail": "",
+   "response": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ninterface IERC20 {\n    function transfer(address to, uint256 amount) external returns (bool);\n    function transferFrom(address from, address to, uint256 amount) external returns (bool);\n    function approve(address spender, uint256 amount) external returns (bool);\n}\n\ninterface ISwapRouter02 {\n    struct ExactInputSingleParams {\n        address tokenIn;\n        address tokenOut;\n        uint24 fee;\n        address recipient;\n        uint256 amountIn;\n        uint256 amountOutMinimum;\n        uint160 sqrtPriceLimitX96;\n    }\n\n    function exactInputSingle(ExactInputSingleParams calldata params)\n        external\n        payable\n        returns (uint256 amountOut);\n}\n\ncontract DCA {\n    address public immutable owner;\n    ISwapRouter02 public immutable router;\n    address public immutable tokenIn;\n    address public immutable tokenOut;\n    uint24 public immutable fee;\n\n    modifier onlyOwner() {\n        require(msg.sender == owner, \"not owner\");\n        _;\n    }\n\n    constructor(address _router, address _tokenIn, address _tokenOut, uint24 _fee) {\n        owner = msg.sender;\n        router = ISwapRouter02(_router);\n        tokenIn = _tokenIn;\n        tokenOut = _tokenOut;\n        fee = _fee;\n    }\n\n    function deposit(uint256 amount) external {\n        require(IERC20(tokenIn).transferFrom(msg.sender, address(this), amount), \"transferFrom failed\");\n    }\n\n    function buy(uint256 amountIn, uint256 minOut) external onlyOwner {\n        require(IERC20(tokenIn).approve(address(router), amountIn), \"approve failed\");\n\n        ISwapRouter02.ExactInputSingleParams memory params = ISwapRouter02.ExactInputSingleParams({\n            tokenIn: tokenIn,\n            tokenOut: tokenOut,\n            fee: fee,\n            recipient: address(this),\n            amountIn: amountIn,\n            amountOutMinimum: minOut,\n            sqrtPriceLimitX96: 0\n        });\n\n        router.exactInputSingle(params);\n    }\n\n    function withdraw(address token, uint256 amount) external onlyOwner {\n        require(IERC20(token).transfer(owner, amount), \"transfer failed\");\n    }\n}"
+  },
+  {
+   "id": "fix-vault-01",
+   "category": "exec-security",
+   "latency_s": 37.5,
+   "usage": {},
+   "pass": true,
+   "detail": "",
+   "response": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ninterface IERC20 {\n    function balanceOf(address) external view returns (uint256);\n    function transfer(address, uint256) external returns (bool);\n    function transferFrom(address, address, uint256) external returns (bool);\n}\n\ncontract Vault {\n    IERC20 public immutable asset;\n    uint256 public totalShares;\n    // Internal asset accounting: only deposit/withdraw move this, so tokens\n    // sent directly to the vault can never move the share price.\n    uint256 public totalAssets;\n    mapping(address => uint256) public shares;\n\n    constructor(address _asset) { asset = IERC20(_asset); }\n\n    function deposit(uint256 amount) external returns (uint256 s) {\n        require(amount > 0, \"zero amount\");\n        s = totalShares == 0 ? amount : (amount * totalShares) / totalAssets;\n        require(s > 0, \"zero shares\");\n        shares[msg.sender] += s;\n        totalShares += s;\n        totalAssets += amount;\n        require(asset.transferFrom(msg.sender, address(this), amount), \"transferFrom failed\");\n    }\n\n    function withdraw(uint256 s) external returns (uint256 amount) {\n        require(s > 0, \"zero shares\");\n        amount = (s * totalAssets) / totalShares;\n        shares[msg.sender] -= s;\n        totalShares -= s;\n        totalAssets -= amount;\n        require(asset.transfer(msg.sender, amount), \"transfer failed\");\n    }\n}"
+  },
+  {
+   "id": "lp-range-01",
+   "category": "exec-liquidity",
+   "latency_s": 17.6,
+   "usage": {},
+   "pass": true,
+   "detail": "",
+   "response": "200700,200940"
+  },
+  {
+   "id": "permit2-calldata-01",
+   "category": "exec-approval",
+   "latency_s": 23.9,
+   "usage": {},
+   "pass": true,
+   "detail": "",
+   "response": "0x87517c45000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb480000000000000000000000003fc91a3afd70395cd496c647d5a6cc9d4b2b7fad000000000000000000000000000000000000000000000000000000003b9aca000000000000000000000000000000000000000000000000000000000070dbd880"
+  },
+  {
+   "id": "swap-calldata-01",
+   "category": "exec-swap",
+   "latency_s": 25.3,
+   "usage": {},
+   "pass": true,
+   "detail": "",
+   "response": "0x04e45aaf000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb4800000000000000000000000000000000000000000000000000000000000001f4000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000001bc16d674ec8000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  }
+ ]
+}

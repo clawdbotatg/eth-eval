@@ -1,0 +1,7 @@
+{
+  "id": "permit2-calldata-01",
+  "category": "exec-approval",
+  "answer": "calldata",
+  "fork_block": 25700000,
+  "prompt": "You are producing raw transaction calldata for Ethereum mainnet.\n\nProduce the calldata for a single call to Permit2 at 0x000000000022D473030F116dDEE9F6B43aC78BA3 that grants the Uniswap Universal Router an allowance of 1000 USDC, expiring at unix timestamp 1893456000.\n\n- USDC: 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48 (6 decimals)\n- Universal Router (spender): 0x3fC91A3afd70395Cd496C647d5a6CC9D4B2b7FAD\n- Use Permit2's direct allowance-setting function, not a signature-based one.\n\nOutput ONLY the 0x-prefixed calldata hex. No explanation, no code fences."
+}

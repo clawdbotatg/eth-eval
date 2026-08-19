@@ -1,0 +1,7 @@
+{
+  "id": "dca-contract-01",
+  "category": "exec-build",
+  "answer": "contract",
+  "fork_block": 25700000,
+  "prompt": "Write a Solidity contract for Ethereum mainnet. Output ONLY the Solidity source file. No explanation, no markdown fences.\n\nRequirements \u2014 a dollar-cost-averaging buyer named exactly `DCA`:\n\n  constructor(address router, address tokenIn, address tokenOut, uint24 fee)\n      Stores the config. The deployer becomes the owner.\n\n  function deposit(uint256 amount) external\n      Pulls `amount` of tokenIn from msg.sender into the contract.\n\n  function buy(uint256 amountIn, uint256 minOut) external\n      OWNER ONLY. Swaps exactly `amountIn` of tokenIn for tokenOut using the\n      router's exactInputSingle, requiring at least `minOut` out. The bought\n      tokens stay in this contract. Must revert for any non-owner caller.\n\n  function withdraw(address token, uint256 amount) external\n      OWNER ONLY. Sends `amount` of `token` to the owner. Must revert for any\n      non-owner caller.\n\nThe router is Uniswap SwapRouter02 (0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45).\nDo not import anything \u2014 the file must compile standalone on solc 0.8.28 with\nno dependencies. Declare any interfaces you need in the file itself.\nUse `pragma solidity ^0.8.20;` and an SPDX line."
+}

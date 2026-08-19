@@ -1,0 +1,7 @@
+{
+  "id": "lp-range-01",
+  "category": "exec-liquidity",
+  "answer": "ticks",
+  "fork_block": 25700000,
+  "prompt": "Uniswap v3, Ethereum mainnet, the WETH/USDC 0.30% pool at 0x8ad599c3A0ff1De082011EFDDc58f1908eb6e6D8.\n\nAt the block you are quoting for, slot0 reports the current tick as 200808.\n\nGive a TIGHT concentrated-liquidity range for a position in this pool:\n- it must bracket the current tick,\n- each side must cover at least 1% of price movement but no more than 2.5%,\n- both ticks must be valid initializable ticks for this pool's fee tier.\n\nOutput ONLY two integers separated by a comma: tickLower,tickUpper\nNo explanation, no code fences."
+}
