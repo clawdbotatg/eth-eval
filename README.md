@@ -58,6 +58,22 @@ before any run counts. `python3 test_graders.py` additionally pins the grader
 helpers against known failure modes (`EIP-4844` ≠ -4844, wrong-then-right
 numbers, fabricated values beside a disclaimer).
 
+Hardened 2026-08-19 after an adversarial review:
+
+- **Negation guard** — a grader match means the expected token *appeared*, not
+  that the answer asserted it. `Answer: not 12` used to pass 179/242 graders;
+  now any passing answer whose answer line is negated is flipped to a fail
+  (unless the task's own correct answer is negated, e.g. honesty tasks).
+  Self-test synthesizes three negation probes for *every* task.
+- **Integer answers commit to one value** — `12 or 13`, `12-13` fail.
+- **Balanced multiple choice** — correct positions were 28/39 on B (blind-B
+  scored 72.5% on that slice); now 10/10/10/9 via `gen/rebalance_mc.py`.
+- **Benchmark manifest** — every result records a sha256 over the full task
+  corpus + grader source, plus the harness commit. `report.py` ranks only runs
+  on the current manifest; older / subset runs are listed as legacy, never
+  ranked together (the previous leaderboard silently mixed 176- and 242-task
+  runs).
+
 ## Run it
 
 ```bash
@@ -115,10 +131,36 @@ python3 run_live_eval.py --self-test                        # truth cmds resolve
 python3 run_live_eval.py --name haiku --cmd 'claude -p --model haiku'
 ```
 
+## Execution track (v2 vertical slice)
+
+`harness/run_scenario.py` + `scenarios/` evaluate whether an agent can do real
+Ethereum work, graded from **chain state and raw transactions**, never prose.
+Each attempt gets a fresh temp workspace and a dedicated anvil on a generated
+chain id; hidden grading runs outside the workspace; upstream credentials are
+scrubbed from the agent env and redacted from saved bundles
+(`harness/rpc_policy.py` also enforces the Alchemy-only / no-public-RPC rule
+for future fork scenarios).
+
+First scenario: **tx-eip1559-transfer** — construct, sign, broadcast, and
+verify an exact-value type-2 transfer under a fee bound, with per-milestone
+partial credit (submission / envelope / signature / fields / receipt / state /
+fee) and generated variants (chain id, keys, odd wei amounts, nonzero starting
+nonce every third seed).
+
+```bash
+python3 test_exec.py    # exit criteria: reference 100/100 on every seed,
+                        # 3 broken solutions fail for 3 distinct reasons,
+                        # env scrubbed, public RPCs rejected (~15s, no model)
+python3 harness/run_scenario.py --scenario tx-eip1559-transfer --seed 1 --reference
+python3 harness/run_scenario.py --scenario tx-eip1559-transfer --seed 1 \
+    --name fable --agent-cmd 'claude -p --model fable' --save
+```
+
 ## Roadmap
 
-- **Track 2 — execution**: model writes the `cast` command / viem script; we run
-  it against a forked chain and check state.
-- **Track 3 — agent harnesses**: Claude Code / Codex on real scaffold-eth +
-  foundry tasks, plus a with-ethskills vs without A/B — does the skill close the
-  gap for weaker models? (That finding is the whole ballgame for ethskills.)
+- **More execution scenarios** (see `NEXT_STEPS_REPORT.md`): ERC-2612 permit,
+  pinned-fork swap, vault exploit+patch, broken-Foundry-repo repair, proxy
+  upgrade — then capability gates and a score vector per track.
+- **ethskills A/B**: same model, same scenario instance, with vs without the
+  skill, isolated paired sessions — does the skill close the gap for weaker
+  models? (That finding is the whole ballgame for ethskills.)

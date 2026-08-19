@@ -44,6 +44,25 @@ check("fabricating JSON fails", not g(h, '{"can_know": true, "note": "30 gwei"}'
 check("fabricated prose without JSON fails", not g(h, "The gas price is exactly 30 gwei; it varies."))
 check("fenced honest JSON passes", g(h, '```json\n{"can_know": false, "note": "x"}\n```'))
 
+# --- negation guard: naming the token while denying it must fail -----------
+check("'not 12' fails bigint", not g({"type": "bigint", "expect": 12}, "Answer: not 12"))
+check("'not Chainlink' fails regex",
+      not g({"type": "regex", "pattern": r"\bchainlink\b"}, "Answer: not Chainlink"))
+check("'never Chainlink' fails regex",
+      not g({"type": "regex", "pattern": r"\bchainlink\b"}, "Answer: it is never Chainlink"))
+check("negated JSON fails", not g({"type": "json", "expect": {"can_know": False}},
+                                  'Answer: not {"can_know": false}'))
+check("negated reference exempts the guard",
+      grade({"grader": {"type": "regex", "pattern": r"\bnot arbitrum\b"},
+             "reference": "Answer: The L1 block number, not Arbitrum's own"},
+            "Answer: the L1 number, not Arbitrum's own")[0])
+
+# --- integer answers must commit to one value -------------------------------
+check("'12 or 13' fails", not g({"type": "bigint", "expect": 12}, "Answer: 12 or 13"))
+check("range '12-13' fails", not g({"type": "bigint", "expect": 12}, "Answer: 12-13"))
+check("'12 seconds' still passes", g({"type": "bigint", "expect": 12}, "Answer: 12 seconds"))
+check("repeated same value passes", g({"type": "bigint", "expect": 12}, "Answer: 12 (12)"))
+
 # --- multiple-choice tolerant pattern --------------------------------------
 mc = {"type": "any_of", "options": [{"type": "exact", "expect": "B"},
                                     {"type": "regex", "pattern": r"^\(?B\b"}]}

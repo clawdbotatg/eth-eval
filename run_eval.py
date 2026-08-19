@@ -25,6 +25,8 @@ Examples:
 """
 import argparse
 import concurrent.futures
+import hashlib
+import inspect
 import json
 import os
 import random
@@ -146,6 +148,15 @@ def jmatch(exp, got):
 
 # ---------------------------------------------------------------- graders
 
+# A grader match means the expected token APPEARED — not that the answer
+# asserted it. "Answer: not 12" contains 12; "Answer: not Chainlink" contains
+# Chainlink. Any pass whose answer line is negated is flipped to a fail,
+# unless the task's own reference is negated (honesty tasks answer "cannot").
+_NEG_RE = re.compile(
+    r"(?i)(?<![\w-])(not|isn'?t|aren'?t|doesn'?t|don'?t|won'?t|wasn'?t|weren'?t|"
+    r"never|cannot|can'?t|neither|nor|rather than|instead of|no longer|wrong|incorrect)"
+    r"(?![\w-])|!=|≠")
+
 def _grade_one(g, resp):
     t = g["type"]
     if t == "numeric":
@@ -162,6 +173,10 @@ def _grade_one(g, resp):
         # last integer (models conclude with the result).
         a_ints = extract_bigints(ans_line(resp))
         if a_ints:
+            # an integer answer must commit to ONE value: "12 or 13",
+            # "12-13", "12 (i.e. 12000 ms)" are hedges, not answers.
+            if len(set(a_ints)) > 1:
+                return False, f"ambiguous: multiple integers {sorted(set(a_ints))[:4]}"
             ok, got = a_ints[0] == exp, a_ints[0]
         else:
             r_ints = extract_bigints(resp)
@@ -201,7 +216,10 @@ def _grade_one(g, resp):
 
 def grade(task, resp):
     try:
-        return _grade_one(task["grader"], resp)
+        ok, detail = _grade_one(task["grader"], resp)
+        if ok and _NEG_RE.search(ans_line(resp)) and not _NEG_RE.search(task.get("reference", "")):
+            return False, f"negated answer line: {ans_line(resp)[:80]!r}"
+        return ok, detail
     except Exception as e:  # noqa: BLE001 — a grading crash is a task failure
         return False, f"{type(e).__name__}: {e}"[:140]
 
@@ -275,6 +293,30 @@ class CmdTarget:
         if p.returncode != 0:
             raise RuntimeError(f"cmd exit {p.returncode}: {(p.stderr or p.stdout)[:300]}")
         return p.stdout.strip(), {}
+
+# ---------------------------------------------------------------- manifest
+
+BENCH_VERSION = "1.1.0"  # closed-book track, hardened graders
+
+def manifest_hash(tasks):
+    """sha256 over every scored input: the full task corpus (prompts, graders,
+    fixtures) plus the grading code itself. Results from different manifests
+    are not comparable and the reporter refuses to rank them together."""
+    graders_src = "".join(inspect.getsource(f) for f in (
+        norm, lines, ans_line, extract_num, extract_bigints, jload, jmatch,
+        _grade_one, grade)) + _NEG_RE.pattern
+    blob = json.dumps(tasks, sort_keys=True, separators=(",", ":")) + graders_src
+    return hashlib.sha256(blob.encode()).hexdigest()
+
+def harness_commit():
+    try:
+        sha = subprocess.run(["git", "rev-parse", "HEAD"], cwd=HERE,
+                             capture_output=True, text=True, timeout=10).stdout.strip()
+        dirty = subprocess.run(["git", "status", "--porcelain"], cwd=HERE,
+                               capture_output=True, text=True, timeout=10).stdout.strip()
+        return sha + ("-dirty" if dirty else "") if sha else "unknown"
+    except Exception:  # noqa: BLE001
+        return "unknown"
 
 # ---------------------------------------------------------------- run
 
@@ -379,7 +421,17 @@ def main():
                 n_fix += 1
                 if not p:
                     probs.append(f"must_pass rejected {s[:60]!r}: {d}")
-            for s in checks.get("must_fail", []):
+            # shared adversarial fixtures, synthesized for EVERY task: a
+            # response that names the reference answer while denying it must
+            # never pass. Skipped when the reference itself is negated
+            # (honesty tasks) — double negation is ambiguous there.
+            ref_ans = ans_line(t["reference"])
+            auto_neg = []
+            if ref_ans and not _NEG_RE.search(t["reference"]) and not checks.get("no_auto_negation"):
+                auto_neg = [f"Answer: not {ref_ans}",
+                            f"Answer: definitely not {ref_ans}",
+                            f"The correct answer is not {ref_ans}"]
+            for s in checks.get("must_fail", []) + auto_neg:
                 p, _ = grade(t, s)
                 n_fix += 1
                 if p:
@@ -467,8 +519,18 @@ def main():
 
     results_dir = TOOLS_RESULTS_DIR if tools else RESULTS_DIR
     results_dir.mkdir(exist_ok=True)
+    # manifest covers the FULL track corpus; a --category/--limit run is a
+    # subset and is flagged so the reporter never ranks it.
+    full = load_tasks(tasks_dir=TOOLS_TASKS_DIR if tools else TASKS_DIR)
     out = {
         "name": args.name, "target": target.desc, "track": args.track,
+        "benchmark": {
+            "version": BENCH_VERSION,
+            "manifest_sha256": manifest_hash(full),
+            "task_count": len(full),
+            "harness_commit": harness_commit(),
+            "subset": bool(args.category or args.limit),
+        },
         "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
         "overall": overall, "ci95": [round(lo, 1), round(hi, 1)],
         "categories": cats, "skills": skills, "elapsed_s": round(elapsed, 1),

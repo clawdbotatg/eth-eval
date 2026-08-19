@@ -1,0 +1,22 @@
+{
+  "id": "tx-eip1559-transfer",
+  "version": 1,
+  "track": "transactions",
+  "family": "eip1559-signing",
+  "timeout_seconds": 900,
+  "network": {"mode": "anvil", "chain_id": "generated", "fork": false, "writes_allowed": true},
+  "agent": {"network_access": "local-anvil-only"},
+  "artifacts": ["submission.json"],
+  "grading": {
+    "milestones": {
+      "submission_valid": 10,
+      "raw_type2": 10,
+      "sender_recovered": 10,
+      "fields_correct": 20,
+      "receipt_success": 20,
+      "state_correct": 20,
+      "fee_bound": 10
+    },
+    "capability_gate": "signed_transaction"
+  }
+}
