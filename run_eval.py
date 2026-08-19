@@ -349,6 +349,10 @@ def main():
     ap.add_argument("--concurrency", type=int, default=8)
     ap.add_argument("--max-tokens", type=int, default=16000)
     ap.add_argument("--verbose", "-v", action="store_true")
+    ap.add_argument("--save-partial", action="store_true",
+                    help="save even if tasks never reached the target (score will understate)")
+    ap.add_argument("--abort-after", type=int, default=10,
+                    help="stop the run after this many consecutive target errors (0 = never)")
     args = ap.parse_args()
 
     tools = args.track == "tools"
@@ -405,7 +409,7 @@ def main():
     rows = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.concurrency) as ex:
         futs = {ex.submit(run_one, target, t, args.max_tokens): t for t in work}
-        done = 0
+        done, streak, aborted = 0, 0, False
         for fut in concurrent.futures.as_completed(futs):
             r = fut.result()
             rows.append(r)
@@ -415,6 +419,18 @@ def main():
                 print(f"  {mark} {r['id']} ({r['latency_s']}s) {r['detail'][:110]}")
             elif done % 10 == 0:
                 print(f"  … {done}/{len(work)}")
+            # a dead target (rate limit, bad key, wrong model name) otherwise
+            # grinds through every task and saves a score that is really an
+            # outage. Bail once it is clearly the target and not one hiccup.
+            streak = streak + 1 if r["detail"].startswith("TARGET ERROR") else 0
+            if args.abort_after and streak >= args.abort_after:
+                aborted = True
+                print(f"\nABORTED: {streak} target errors in a row — the target is down, "
+                      f"not the model.\n  last: {r['detail'][:200]}")
+                ex.shutdown(wait=False, cancel_futures=True)
+                break
+    if aborted:
+        sys.exit(2)
     # network hiccups must not poison scores: re-run TARGET ERROR rows (gently)
     for sweep in range(2):
         errs = [i for i, r in enumerate(rows) if r["detail"].startswith("TARGET ERROR")]
@@ -430,7 +446,10 @@ def main():
 
     left = sum(1 for r in rows if r["detail"].startswith("TARGET ERROR"))
     if left:
-        print(f"WARNING: {left} tasks still failed at the network level — scores understate this model")
+        print(f"WARNING: {left}/{len(rows)} tasks never reached the target — "
+              f"they are scored as failures, so this is an outage, not a score.")
+        if not args.save_partial:
+            sys.exit("refusing to save a poisoned run (--save-partial to override)")
     rows.sort(key=lambda r: r["id"])
     cats = summarize(rows)
     skills = summarize(rows, key="source")
