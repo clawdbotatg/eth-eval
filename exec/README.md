@@ -45,11 +45,31 @@ decides whether it passed.
    correctness, and a vault with no yield makes share math irrelevant — which
    is why `vault-fuzz-01` requires yield.
 
-## Integrity note
+## Integrity note — read this before trusting any number
 
-`CmdTarget` runs the model with `cwd` = the repo root. With tools disabled
-(`--allowed-tools ""`) that is fine, and it is how every run here was scored.
-A **tool-enabled** agent, though, could read `Grader.t.sol` or write to it —
-two stray `.sol` files did land in the repo root during development. Before
-running this track against an agent that has file access, sandbox it or move
-the graders out of its reach; otherwise the score measures nothing.
+**`--allowed-tools ""` does NOT disable tools in this Claude CLI.** Verified:
+a run with that flag answered "what is the current Ethereum mainnet block
+number" with a live, correct block, using Bash. Every score taken with it is a
+*tool-using agent* score, not a closed-book one. Those result files are flagged
+with a `warning` field.
+
+What actually blocks tools:
+
+    --strict-mcp-config --mcp-config '{"mcpServers":{}}' \
+    --disallowedTools Bash Read Write Edit Glob Grep Task Workflow Agent WebSearch WebFetch NotebookEdit
+
+Tool names are **space-separated**; a comma-joined list is parsed as one bogus
+name and silently denies nothing. MCP must be stripped separately or the agent
+reaches a browser tool, and `Workflow`/`Agent` must be denied or it spawns a
+subagent that still has Bash.
+
+The runner now also gives the agent a **temp sandbox cwd** instead of the repo
+root, so it cannot read `Grader.t.sol` or the reference answers.
+
+## One run is a coin flip
+
+Agents are stochastic. `lp-mint-01` with fable and no tools passed **2 of 5**
+attempts — the same task, the same flags, failing three different ways
+(malformed hex twice, a revert twice). Use `--runs N`; the saved result carries
+`pass_rate` per task and `mean_pass_rate` overall. A single PASS means very
+little.

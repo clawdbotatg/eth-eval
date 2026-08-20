@@ -2670,5 +2670,6 @@
    "detail": "",
    "response": "B) The key must be treated as compromised the moment it touches a repo \u2014 history rewrites, deleting commits, or flipping the repo private are all irreversible-after-the-fact cleanups that do nothing about the exposure window. Anyone (or any scraper bot) may already have the key, and mempool sweepers hit funded addresses within seconds. Move the funds first, then do the history cleanup and rotate any other secrets that leaked alongside it.\n\nAnswer: B"
   }
- ]
+ ],
+ "warning": "CONTAMINATED: `--allowed-tools \"\"` does not disable tools in this CLI; this run had Bash/WebSearch/MCP available. It is an AGENT score, not the closed-book score the track claims to measure."
 }

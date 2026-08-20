@@ -280,16 +280,19 @@ class OpenAITarget:
         raise RuntimeError(last or "exhausted retries")
 
 class CmdTarget:
-    def __init__(self, cmd, timeout=900):
+    def __init__(self, cmd, timeout=900, cwd=None):
         self.cmd = cmd
         self.desc = f"cmd:{cmd}"
         self.timeout = timeout
+        # An agent CLI runs with tools. If its cwd is this repo it can read the
+        # graders and the answer keys, so the exec track passes a scratch dir.
+        self.cwd = str(cwd) if cwd else str(HERE)
         self.env = {k: v for k, v in os.environ.items() if not SCRUB.match(k)}
 
     def ask(self, prompt, max_tokens):
         p = subprocess.run(
             self.cmd, shell=True, input=prompt, capture_output=True, text=True,
-            timeout=self.timeout, env=self.env, cwd=str(HERE),
+            timeout=self.timeout, env=self.env, cwd=self.cwd,
         )
         if p.returncode != 0:
             raise RuntimeError(f"cmd exit {p.returncode}: {(p.stderr or p.stdout)[:300]}")

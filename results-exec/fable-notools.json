@@ -1,0 +1,83 @@
+{
+ "name": "fable-notools",
+ "target": "cmd:claude -p --model fable --strict-mcp-config --mcp-config \"{\\\"mcpServers\\\":{}}\" --disallowedTools Bash Read Write Edit Glob Grep Task Workflow Agent WebSearch WebFetch NotebookEdit",
+ "track": "exec",
+ "timestamp": "2026-08-19 20:12:14",
+ "passed": 8,
+ "total": 8,
+ "overall": 100.0,
+ "tasks": [
+  {
+   "id": "dca-contract-01",
+   "category": "exec-build",
+   "latency_s": 15.9,
+   "usage": {},
+   "pass": true,
+   "detail": "",
+   "response": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ninterface IERC20 {\n    function transfer(address to, uint256 amount) external returns (bool);\n    function transferFrom(address from, address to, uint256 amount) external returns (bool);\n    function approve(address spender, uint256 amount) external returns (bool);\n}\n\ninterface ISwapRouter02 {\n    struct ExactInputSingleParams {\n        address tokenIn;\n        address tokenOut;\n        uint24 fee;\n        address recipient;\n        uint256 amountIn;\n        uint256 amountOutMinimum;\n        uint160 sqrtPriceLimitX96;\n    }\n\n    function exactInputSingle(ExactInputSingleParams calldata params)\n        external\n        payable\n        returns (uint256 amountOut);\n}\n\ncontract DCA {\n    address public immutable owner;\n    ISwapRouter02 public immutable router;\n    address public immutable tokenIn;\n    address public immutable tokenOut;\n    uint24 public immutable fee;\n\n    modifier onlyOwner() {\n        require(msg.sender == owner, \"not owner\");\n        _;\n    }\n\n    constructor(address _router, address _tokenIn, address _tokenOut, uint24 _fee) {\n        owner = msg.sender;\n        router = ISwapRouter02(_router);\n        tokenIn = _tokenIn;\n        tokenOut = _tokenOut;\n        fee = _fee;\n    }\n\n    function deposit(uint256 amount) external {\n        require(IERC20(tokenIn).transferFrom(msg.sender, address(this), amount), \"transferFrom failed\");\n    }\n\n    function buy(uint256 amountIn, uint256 minOut) external onlyOwner {\n        require(IERC20(tokenIn).approve(address(router), amountIn), \"approve failed\");\n\n        router.exactInputSingle(\n            ISwapRouter02.ExactInputSingleParams({\n                tokenIn: tokenIn,\n                tokenOut: tokenOut,\n                fee: fee,\n                recipient: address(this),\n                amountIn: amountIn,\n                amountOutMinimum: minOut,\n                sqrtPriceLimitX96: 0\n            })\n        );\n    }\n\n    function withdraw(address token, uint256 amount) external onlyOwner {\n        require(IERC20(token).transfer(owner, amount), \"transfer failed\");\n    }\n}"
+  },
+  {
+   "id": "fix-vault-01",
+   "category": "exec-security",
+   "latency_s": 22.7,
+   "usage": {},
+   "pass": true,
+   "detail": "",
+   "response": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ninterface IERC20 {\n    function balanceOf(address) external view returns (uint256);\n    function transfer(address, uint256) external returns (bool);\n    function transferFrom(address, address, uint256) external returns (bool);\n}\n\ncontract Vault {\n    IERC20 public immutable asset;\n    uint256 public totalShares;\n    uint256 public totalAssets; // internal accounting: donations don't move the price\n    mapping(address => uint256) public shares;\n\n    constructor(address _asset) { asset = IERC20(_asset); }\n\n    function deposit(uint256 amount) external returns (uint256 s) {\n        require(amount > 0, \"zero amount\");\n        // Share price is derived from internally tracked assets, never from\n        // balanceOf, so direct token transfers to the vault cannot inflate it.\n        s = totalShares == 0 ? amount : (amount * totalShares) / totalAssets;\n        require(s > 0, \"zero shares\");\n        shares[msg.sender] += s;\n        totalShares += s;\n        totalAssets += amount;\n        require(asset.transferFrom(msg.sender, address(this), amount), \"transfer failed\");\n    }\n\n    function withdraw(uint256 s) external returns (uint256 amount) {\n        require(s > 0, \"zero shares\");\n        amount = (s * totalAssets) / totalShares;\n        shares[msg.sender] -= s;\n        totalShares -= s;\n        totalAssets -= amount;\n        require(asset.transfer(msg.sender, amount), \"transfer failed\");\n    }\n}"
+  },
+  {
+   "id": "lp-mint-01",
+   "category": "exec-liquidity",
+   "latency_s": 92.2,
+   "usage": {},
+   "pass": true,
+   "detail": "",
+   "response": "0x88316456000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc20000000000000000000000000000000000000000000000000000000000000bb80000000000000000000000000000000000000000000000000000000000030ffc00000000000000000000000000000000000000000000000000000000000310ec00000000000000000000000000000000000000000000000000000004a817c8000000000000000000000000000000000000000000000000008ac7230489e8000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000077359400"
+  },
+  {
+   "id": "lp-range-01",
+   "category": "exec-liquidity",
+   "latency_s": 15.2,
+   "usage": {},
+   "pass": true,
+   "detail": "",
+   "response": "200700,200940"
+  },
+  {
+   "id": "permit2-calldata-01",
+   "category": "exec-approval",
+   "latency_s": 16.9,
+   "usage": {},
+   "pass": true,
+   "detail": "",
+   "response": "0x87517c45000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb480000000000000000000000003fc91a3afd70395cd496c647d5a6cc9d4b2b7fad000000000000000000000000000000000000000000000000000000003b9aca000000000000000000000000000000000000000000000000000000000070dbd880"
+  },
+  {
+   "id": "swap-calldata-01",
+   "category": "exec-swap",
+   "latency_s": 15.2,
+   "usage": {},
+   "pass": true,
+   "detail": "",
+   "response": "0x04e45aaf000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb4800000000000000000000000000000000000000000000000000000000000001f4000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000001bc16d674ec8000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "id": "swap-slippage-01",
+   "category": "exec-swap",
+   "latency_s": 29.2,
+   "usage": {},
+   "pass": true,
+   "detail": "",
+   "response": "0x04e45aaf000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb4800000000000000000000000000000000000000000000000000000000000001f4000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000008ac7230489e8000000000000000000000000000000000000000000000000000000000004670cdc520000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "id": "vault-fuzz-01",
+   "category": "exec-security",
+   "latency_s": 187.9,
+   "usage": {},
+   "pass": true,
+   "detail": "",
+   "response": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ninterface IERC20 {\n    function balanceOf(address account) external view returns (uint256);\n    function transfer(address to, uint256 amount) external returns (bool);\n    function transferFrom(address from, address to, uint256 amount) external returns (bool);\n}\n\n/// @notice Yield-bearing share vault. Yield arrives as plain transfers of the\n/// asset to this contract and accrues pro-rata to existing shareholders.\n///\n/// Share pricing uses virtual shares/assets (ERC4626 \"decimal offset\" style):\n/// the vault behaves as if VIRTUAL_SHARES shares backed by VIRTUAL_ASSETS\n/// assets always exist. This makes the first-depositor donation/inflation\n/// attack strictly unprofitable (the donation is diluted into the virtual\n/// position) while direct-transfer yield still flows to real holders, since\n/// the virtual position is a negligible 1-wei-scale slice of the pool.\n///\n/// Rounding is always down (against the caller), so a deposit/redeem round\n/// trip can never extract even one wei, and the invariant\n/// totalSupply <= VIRTUAL_SHARES * totalAssets guarantees every holder can\n/// redeem in full, in any order, without overdrawing the vault.\ncontract Vault {\n    IERC20 public immutable asset;\n\n    uint256 public totalSupply;\n    mapping(address => uint256) public balanceOf;\n\n    uint256 private constant VIRTUAL_SHARES = 1e6;\n    uint256 private constant VIRTUAL_ASSETS = 1;\n\n    uint256 private _locked = 1;\n\n    modifier nonReentrant() {\n        require(_locked == 1, \"REENTRANCY\");\n        _locked = 2;\n        _;\n        _locked = 1;\n    }\n\n    constructor(address _asset) {\n        require(_asset != address(0), \"ZERO_ASSET\");\n        asset = IERC20(_asset);\n    }\n\n    function totalAssets() public view returns (uint256) {\n        return asset.balanceOf(address(this));\n    }\n\n    function deposit(uint256 assets) external nonReentrant returns (uint256 shares) {\n        require(assets > 0, \"ZERO_ASSETS\");\n\n        // Price against the balance before this deposit; measure what actually\n        // arrived so fee-on-transfer tokens cannot mint unbacked shares.\n        uint256 balanceBefore = asset.balanceOf(address(this));\n        _safeTransferFrom(msg.sender, address(this), assets);\n        uint256 received = asset.balanceOf(address(this)) - balanceBefore;\n\n        shares = _mulDiv(\n            received,\n            totalSupply + VIRTUAL_SHARES,\n            balanceBefore + VIRTUAL_ASSETS\n        );\n        require(shares > 0, \"ZERO_SHARES\");\n\n        totalSupply += shares;\n        balanceOf[msg.sender] += shares;\n    }\n\n    function redeem(uint256 shares) external nonReentrant returns (uint256 assets) {\n        require(shares > 0, \"ZERO_SHARES\");\n        uint256 bal = balanceOf[msg.sender];\n        require(shares <= bal, \"INSUFFICIENT_SHARES\");\n\n        assets = _mulDiv(\n            shares,\n            totalAssets() + VIRTUAL_ASSETS,\n            totalSupply + VIRTUAL_SHARES\n        );\n\n        balanceOf[msg.sender] = bal - shares;\n        totalSupply -= shares;\n\n        if (assets > 0) {\n            _safeTransfer(msg.sender, assets);\n        }\n    }\n\n    function _safeTransfer(address to, uint256 amount) private {\n        (bool ok, bytes memory data) =\n            address(asset).call(abi.encodeWithSelector(IERC20.transfer.selector, to, amount));\n        require(ok && (data.length == 0 || abi.decode(data, (bool))), \"TRANSFER_FAILED\");\n    }\n\n    function _safeTransferFrom(address from, address to, uint256 amount) private {\n        (bool ok, bytes memory data) =\n            address(asset).call(abi.encodeWithSelector(IERC20.transferFrom.selector, from, to, amount));\n        require(ok && (data.length == 0 || abi.decode(data, (bool))), \"TRANSFER_FROM_FAILED\");\n    }\n\n    /// @dev floor(x * y / d) with full 512-bit intermediate precision, so\n    /// share math cannot overflow-revert on large fuzzed amounts.\n    function _mulDiv(uint256 x, uint256 y, uint256 d) private pure returns (uint256 result) {\n        unchecked {\n            uint256 prod0;\n            uint256 prod1;\n            assembly {\n                let mm := mulmod(x, y, not(0))\n                prod0 := mul(x, y)\n                prod1 := sub(sub(mm, prod0), lt(mm, prod0))\n            }\n\n            if (prod1 == 0) {\n                return prod0 / d;\n            }\n\n            require(d > prod1, \"MULDIV_OVERFLOW\");\n\n            uint256 remainder;\n            assembly {\n                remainder := mulmod(x, y, d)\n                prod1 := sub(prod1, gt(remainder, prod0))\n                prod0 := sub(prod0, remainder)\n            }\n\n            uint256 twos = d & (~d + 1);\n            assembly {\n                d := div(d, twos)\n                prod0 := div(prod0, twos)\n                twos := add(div(sub(0, twos), twos), 1)\n            }\n\n            prod0 |= prod1 * twos;\n\n            uint256 inverse = (3 * d) ^ 2;\n            inverse *= 2 - d * inverse;\n            inverse *= 2 - d * inverse;\n            inverse *= 2 - d * inverse;\n            inverse *= 2 - d * inverse;\n            inverse *= 2 - d * inverse;\n            inverse *= 2 - d * inverse;\n\n            result = prod0 * inverse;\n        }\n    }\n}"
+  }
+ ]
+}

@@ -2670,5 +2670,6 @@
    "detail": "",
    "response": "**B.** Once a private key hits Git history, treat it as compromised the instant it's pushed \u2014 bots scrape public repos (and even \"private\" repos aren't a trust boundary: forks, clones, CI logs, collaborators). The race is against sweepers draining the wallet, so the first move is to transfer all funds to a fresh wallet immediately. History rewriting (A) and making the repo private (C) are cleanup steps that come *after* \u2014 they don't un-leak anything, and D is flatly wrong because the key must be assumed copied.\n\nAnswer: B"
   }
- ]
+ ],
+ "warning": "CONTAMINATED: `--allowed-tools \"\"` does not disable tools in this CLI; this run had Bash/WebSearch/MCP available. It is an AGENT score, not the closed-book score the track claims to measure."
 }

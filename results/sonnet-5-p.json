@@ -2670,5 +2670,6 @@
    "detail": "",
    "response": "B) Immediately move the funds to a new, secure wallet. A key that's been committed to git must be treated as permanently compromised \u2014 even if you scrub history or make the repo private, the key may already be cached, cloned, indexed, or scraped by bots that monitor public commits in real time. History rewriting and repo privacy are good follow-up hygiene, but they don't un-expose a key that's already out.\n\nAnswer: B"
   }
- ]
+ ],
+ "warning": "CONTAMINATED: `--allowed-tools \"\"` does not disable tools in this CLI; this run had Bash/WebSearch/MCP available. It is an AGENT score, not the closed-book score the track claims to measure."
 }

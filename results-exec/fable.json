@@ -2,10 +2,10 @@
  "name": "fable",
  "target": "cmd:claude -p --model fable --allowed-tools \"\"",
  "track": "exec",
- "timestamp": "2026-08-19 14:48:58",
- "passed": 6,
- "total": 7,
- "overall": 85.7,
+ "timestamp": "2026-08-19 15:49:26",
+ "passed": 7,
+ "total": 8,
+ "overall": 87.5,
  "tasks": [
   {
    "id": "dca-contract-01",
@@ -24,6 +24,15 @@
    "pass": true,
    "detail": "",
    "response": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ninterface IERC20 {\n    function balanceOf(address) external view returns (uint256);\n    function transfer(address, uint256) external returns (bool);\n    function transferFrom(address, address, uint256) external returns (bool);\n}\n\ncontract Vault {\n    IERC20 public immutable asset;\n    uint256 public totalShares;\n    uint256 public totalAssets;\n    mapping(address => uint256) public shares;\n\n    constructor(address _asset) { asset = IERC20(_asset); }\n\n    // Internal accounting: share price is derived from totalAssets, a value\n    // only deposit/withdraw can move. Tokens transferred directly to the\n    // vault never enter the exchange rate, so donation-based inflation is a\n    // pure gift to existing holders and the attack cannot strand a depositor\n    // at zero shares.\n    function deposit(uint256 amount) external returns (uint256 s) {\n        require(amount > 0, \"zero deposit\");\n        s = totalShares == 0 ? amount : (amount * totalShares) / totalAssets;\n        require(s > 0, \"zero shares\");\n        shares[msg.sender] += s;\n        totalShares += s;\n        totalAssets += amount;\n        require(asset.transferFrom(msg.sender, address(this), amount), \"transfer failed\");\n    }\n\n    function withdraw(uint256 s) external returns (uint256 amount) {\n        require(s > 0, \"zero shares\");\n        amount = (s * totalAssets) / totalShares;\n        shares[msg.sender] -= s;\n        totalShares -= s;\n        totalAssets -= amount;\n        require(asset.transfer(msg.sender, amount), \"transfer failed\");\n    }\n}"
+  },
+  {
+   "id": "lp-mint-01",
+   "category": "exec-liquidity",
+   "latency_s": 112.2,
+   "usage": {},
+   "pass": true,
+   "detail": "",
+   "response": "0x88316456000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc20000000000000000000000000000000000000000000000000000000000000bb80000000000000000000000000000000000000000000000000000000000030ffc00000000000000000000000000000000000000000000000000000000000310ec00000000000000000000000000000000000000000000000000000004a817c8000000000000000000000000000000000000000000000000008ac7230489e8000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000077359400"
   },
   {
    "id": "lp-range-01",
@@ -70,5 +79,6 @@
    "detail": "test_inflation_attack_fails(): victim lost more than 1% to the attacker: 66666666667 < 99000000000; test_inflation_attack_fails(): victim lost more than 1% to the attacker: 66666666667 < 99000000000",
    "response": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ninterface IERC20 {\n    function balanceOf(address account) external view returns (uint256);\n    function transfer(address to, uint256 amount) external returns (bool);\n    function transferFrom(address from, address to, uint256 amount) external returns (bool);\n}\n\n/// @title Vault\n/// @notice Yield-bearing share vault. Yield arrives as plain transfers of the\n///         underlying asset and accrues pro-rata to existing shareholders.\n/// @dev    Uses virtual-share/virtual-asset offset accounting (one virtual\n///         share backed by one virtual asset) so that:\n///         - share price starts at 1 and only rises with donated yield,\n///         - both conversions round down, so a deposit->redeem round trip can\n///           never mint value out of thin air,\n///         - a first-depositor donation/inflation attack costs the attacker at\n///           least as much as any victim could lose, and zero-share deposits\n///           revert so a victim's funds can never be absorbed for nothing.\ncontract Vault {\n    IERC20 public immutable asset;\n\n    uint256 public totalSupply;\n    mapping(address => uint256) public balanceOf;\n\n    constructor(address _asset) {\n        require(_asset != address(0), \"zero asset\");\n        asset = IERC20(_asset);\n    }\n\n    /// @notice Total underlying held by the vault, including plain-transfer yield.\n    function totalAssets() public view returns (uint256) {\n        return asset.balanceOf(address(this));\n    }\n\n    /// @notice Deposit `assets` of underlying, minting shares rounded down.\n    function deposit(uint256 assets) external returns (uint256 shares) {\n        require(assets > 0, \"zero assets\");\n\n        // Price shares off the balance BEFORE this deposit's tokens arrive.\n        // Virtual offset: +1 share, +1 asset. Round down (in the vault's favor).\n        shares = (assets * (totalSupply + 1)) / (totalAssets() + 1);\n        require(shares > 0, \"zero shares\");\n\n        _safeTransferFrom(msg.sender, address(this), assets);\n\n        totalSupply += shares;\n        balanceOf[msg.sender] += shares;\n    }\n\n    /// @notice Burn `shares`, returning underlying rounded down.\n    function redeem(uint256 shares) external returns (uint256 assets) {\n        require(shares > 0, \"zero shares\");\n        require(balanceOf[msg.sender] >= shares, \"insufficient shares\");\n\n        // Same virtual offset, rounding down: the sum of all pro-rata payouts\n        // can never exceed the vault's balance, in any redemption order.\n        assets = (shares * (totalAssets() + 1)) / (totalSupply + 1);\n\n        balanceOf[msg.sender] -= shares;\n        totalSupply -= shares;\n\n        _safeTransfer(msg.sender, assets);\n    }\n\n    // ---- internal safe-transfer helpers (tolerate no-return-value tokens) ----\n\n    function _safeTransfer(address to, uint256 amount) internal {\n        (bool ok, bytes memory data) =\n            address(asset).call(abi.encodeWithSelector(IERC20.transfer.selector, to, amount));\n        require(ok && (data.length == 0 || abi.decode(data, (bool))), \"transfer failed\");\n    }\n\n    function _safeTransferFrom(address from, address to, uint256 amount) internal {\n        (bool ok, bytes memory data) =\n            address(asset).call(abi.encodeWithSelector(IERC20.transferFrom.selector, from, to, amount));\n        require(ok && (data.length == 0 || abi.decode(data, (bool))), \"transferFrom failed\");\n    }\n}"
   }
- ]
+ ],
+ "warning": "CONTAMINATED: run with `--allowed-tools \"\"`, which does NOT disable tools in this CLI. The agent had Bash/WebSearch/MCP and ran with cwd=repo root, so it could read the graders. Not comparable to a tool-free run."
 }

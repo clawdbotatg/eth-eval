@@ -8,7 +8,7 @@ the EVM decides whether it passed.
   python3 run_exec_eval.py --self-test
   python3 run_exec_eval.py --name opus-5 --cmd 'claude -p --model opus'
 """
-import argparse, json, os, re, subprocess, sys, time
+import argparse, json, os, re, subprocess, sys, tempfile, time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -150,6 +150,8 @@ def main():
     ap.add_argument("--api-key-env", default="OPENAI_API_KEY")
     ap.add_argument("--auth", choices=["bearer", "xapikey"], default="bearer")
     ap.add_argument("--task", action="append")
+    ap.add_argument("--runs", type=int, default=1,
+                    help="attempts per task; an agent is stochastic, so 1 run is a coin flip")
     ap.add_argument("--self-test", action="store_true",
                     help="grade each task's reference answer (no model calls)")
     ap.add_argument("--max-tokens", type=int, default=8000)
@@ -176,7 +178,10 @@ def main():
         sys.exit(0 if good == len(tasks) else 1)
 
     if args.cmd:
-        target = CmdTarget(args.cmd, timeout=args.timeout)
+        # sandbox: the agent has tools, so keep it out of the repo entirely
+        sandbox = tempfile.mkdtemp(prefix="ethexec-")
+        print(f"agent sandbox: {sandbox}")
+        target = CmdTarget(args.cmd, timeout=args.timeout, cwd=sandbox)
     elif args.base_url and args.model:
         target = OpenAITarget(args.base_url, args.model,
                               os.environ.get(args.api_key_env, ""), args.auth)
@@ -185,12 +190,22 @@ def main():
     if not args.name:
         sys.exit("--name required")
 
-    print(f"running {len(tasks)} exec tasks against {target.desc}")
+    print(f"running {len(tasks)} exec tasks x{args.runs} against {target.desc}")
     rows, t0 = [], time.time()
     for t in tasks:
-        r = run_one(target, t, args.max_tokens)
-        rows.append(r)
-        print(f"  {'PASS' if r['pass'] else 'FAIL'} {r['id']} ({r['latency_s']}s) {r['detail'][:150]}")
+        attempts = []
+        for k in range(args.runs):
+            r = run_one(target, t, args.max_tokens)
+            attempts.append(r)
+            tag = f" [{k+1}/{args.runs}]" if args.runs > 1 else ""
+            print(f"  {'PASS' if r['pass'] else 'FAIL'} {r['id']}{tag} ({r['latency_s']}s) {r['detail'][:130]}")
+        n_ok = sum(a["pass"] for a in attempts)
+        best = next((a for a in attempts if a["pass"]), attempts[0])
+        best = {**best, "attempts": len(attempts), "passed_attempts": n_ok,
+                "pass_rate": round(n_ok / len(attempts), 2)}
+        if args.runs > 1:
+            print(f"    -> {r['id']}: {n_ok}/{args.runs} passed")
+        rows.append(best)
 
     errs = [r["id"] for r in rows if r["detail"].startswith("TARGET ERROR")]
     if errs:
@@ -204,11 +219,14 @@ def main():
         keep = [r for r in prev["tasks"] if r["id"] not in {x["id"] for x in rows}]
         rows = sorted(rows + keep, key=lambda r: r["id"])
     n = sum(r["pass"] for r in rows)
-    print(f"\n{n}/{len(rows)} passed in {time.time()-t0:.0f}s")
+    rate = sum(r.get("pass_rate", 1.0 if r["pass"] else 0.0) for r in rows) / len(rows)
+    print(f"\n{n}/{len(rows)} tasks passed at least once; "
+          f"mean pass rate {rate*100:.0f}% ({time.time()-t0:.0f}s)")
     out = {"name": args.name, "target": target.desc, "track": "exec",
            "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
            "passed": n, "total": len(rows),
-           "overall": round(100 * n / len(rows), 1), "tasks": rows}
+           "overall": round(100 * n / len(rows), 1),
+           "mean_pass_rate": round(100 * rate, 1), "runs": args.runs, "tasks": rows}
     path.write_text(json.dumps(out, indent=1))
     print(f"saved results-exec/{args.name}.json")
 

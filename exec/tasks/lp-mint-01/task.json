@@ -1,0 +1,7 @@
+{
+  "id": "lp-mint-01",
+  "category": "exec-liquidity",
+  "answer": "calldata",
+  "fork_block": 25700000,
+  "prompt": "You are producing raw transaction calldata for Ethereum mainnet.\n\nProduce the calldata for a single call to the Uniswap v3 NonfungiblePositionManager\nat 0xC36442b4a4522E871399CD717aBDD847Ab11FE88 that MINTS a new concentrated\nliquidity position in the WETH/USDC 0.30% pool.\n\n- WETH: 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2 (18 decimals)\n- USDC: 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48 (6 decimals)\n- The caller and recipient is 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266.\n- The caller holds EXACTLY 10 WETH and 20000 USDC, both already approved.\n- At the block this executes against, the pool's current tick is 200808.\n\nRequirements:\n- The range must bracket the current tick.\n- Each side must cover at least 1% but no more than 1.5% of price movement.\n- Both ticks must be valid initializable ticks for this pool's fee tier.\n- At least 90% of the capital (valuing WETH at 1900 USDC) must actually end up\n  in the position rather than being refunded, so the amounts you request must\n  match the ratio the range implies.\n- Use a deadline of 2000000000.\n\nOutput ONLY the 0x-prefixed calldata hex. No explanation, no code fences."
+}
