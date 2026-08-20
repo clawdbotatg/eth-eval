@@ -39,6 +39,23 @@ PROMPT_PREFIX = (
 )
 PROMPT_SUFFIX = "\n\nEnd your reply with a line of the form \"Answer: <value>\"."
 
+# --- closed-book (calibration) mode -------------------------------------
+# The agent track asks "can it look this up". This one asks the opposite:
+# what does the model BELIEVE, with no tools? Ethereum's world-state moved
+# hard (mainnet gas is now sub-gwei) and training data did not, so a model
+# will answer confidently and be wrong by an order of magnitude. Same live
+# ground truth, no tools, no prefix telling it to go and check.
+CLOSED_PREFIX = (
+    "Answer from your own knowledge. You have no tools and no network access. "
+    "Give your best single estimate anyway - do not refuse, and do not answer "
+    "with a range.\n\n"
+)
+NOTOOLS_FLAGS = (
+    "--strict-mcp-config --mcp-config '{\"mcpServers\":{}}' "
+    "--disallowedTools Bash Read Write Edit Glob Grep Task Workflow Agent "
+    "WebSearch WebFetch NotebookEdit"
+)
+
 
 def load_env_file():
     p = HERE / ".env"
@@ -59,6 +76,19 @@ def truth_value(task):
     return out.stdout.strip().splitlines()[-1].strip()
 
 
+_FLOAT_RE = re.compile(r"-?\d[\d,]*(?:\.\d+)?")
+
+def _floats(text):
+    """Every number in `text` as a float, commas and $ stripped."""
+    out = []
+    for m in _FLOAT_RE.finditer((text or "").replace("$", "")):
+        try:
+            out.append(float(m.group(0).replace(",", "")))
+        except ValueError:
+            pass
+    return out
+
+
 def grade_live(task, resp, truth):
     t = task["truth"]["type"]
     a = ans_line(resp)
@@ -74,6 +104,20 @@ def grade_live(task, resp, truth):
     exp, got = exp_nums[0], got_nums[0]
     if t == "abs":
         ok = abs(got - exp) <= task["truth"]["tol"]
+    elif t == "ratio":
+        # integers-only extraction turns "$0.0317" into 0 and 317 - parse floats
+        exp_f = _floats(truth)
+        got_f = _floats(a) or _floats(resp)
+        if not exp_f or not got_f:
+            return False, f"truth {truth[:40]!r} got {a[:50]!r}"
+        exp, got = exp_f[0], got_f[0]
+        # calibration answers are estimates, so grade on ORDER OF MAGNITUDE:
+        # pass if within a factor of tol either way. Generous on purpose - a
+        # model that still fails this is not imprecise, it is out of date.
+        if exp == 0 or got <= 0:
+            return False, f"truth {exp} got {got}"
+        f = max(got / exp, exp / got)
+        return f <= task["truth"]["tol"], f"truth {exp} got {got} ({f:.1f}x off)"
     else:  # rel
         ok = exp != 0 and abs(got - exp) / abs(exp) <= task["truth"]["tol"]
     return ok, f"truth {exp} got {got}"
@@ -88,9 +132,12 @@ def load_tasks():
     return tasks
 
 
-def run_one(target, task):
+def run_one(target, task, mode="agent"):
     t0 = time.time()
-    prompt = PROMPT_PREFIX + task["prompt"] + PROMPT_SUFFIX
+    if mode == "closed" and not task.get("closed_book", True):
+        return None                      # task only makes sense for an agent
+    prefix = CLOSED_PREFIX if mode == "closed" else PROMPT_PREFIX
+    prompt = prefix + task["prompt"] + PROMPT_SUFFIX
     try:
         resp, _ = target.ask(prompt, 0)
         truth = truth_value(task)  # computed right after the agent answers
@@ -109,6 +156,9 @@ def main():
     ap.add_argument("--cmd", help="agent CLI; prompt on stdin, answer on stdout")
     ap.add_argument("--self-test", action="store_true", help="run every truth cmd, print values")
     ap.add_argument("--concurrency", type=int, default=2)
+    ap.add_argument("--mode", choices=["agent", "closed"], default="agent",
+                    help="agent = tools + told to look it up; "
+                         "closed = no tools, graded on what the model believes")
     args = ap.parse_args()
 
     load_env_file()
@@ -130,18 +180,30 @@ def main():
 
     if not (args.cmd and args.name):
         sys.exit("need --name and --cmd (or --self-test)")
-    target = CmdTarget(args.cmd)
-    target.env["RPC_URL"] = os.environ["RPC_URL"]
+    cmd = args.cmd
+    if args.mode == "closed" and "--disallowedTools" not in cmd:
+        cmd = cmd + " " + NOTOOLS_FLAGS
+    target = CmdTarget(cmd)
+    if args.mode == "agent":
+        target.env["RPC_URL"] = os.environ["RPC_URL"]
+    else:
+        target.env.pop("RPC_URL", None)   # nothing to reach for
 
-    print(f"running {len(tasks)} live tasks against {target.desc}")
+    print(f"running {len(tasks)} live tasks ({args.mode} mode) against {target.desc}")
     rows = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.concurrency) as ex:
-        for r in ex.map(lambda t: run_one(target, t), tasks):
-            rows.append(r)
+        for r in ex.map(lambda t: run_one(target, t, args.mode), tasks):
+            if r is not None:
+                rows.append(r)
             print(f"  {'✓' if r['pass'] else '✗'} {r['id']} ({r['latency_s']}s) {r['detail'][:100]}")
 
     passed = sum(r["pass"] for r in rows)
     print(f"\n{passed}/{len(rows)} live tasks passed")
+    errs = [r['id'] for r in rows if r['detail'].startswith('ERROR')]
+    if errs:
+        # an outage is not a score - same rule as the other tracks
+        sys.exit(f"refusing to save - never reached the target on: {', '.join(errs)}")
+
     RESULTS_DIR.mkdir(exist_ok=True)
     out = {"name": args.name, "target": target.desc,
            "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
