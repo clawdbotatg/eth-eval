@@ -9,6 +9,7 @@ Flags (the only combination that actually blocks tools — see exec/README.md):
 
 | task | passed | note |
 |---|---|---|
+| lp-rebalance-01 | **1/3** | both failures near-miss: 16% and 19% undeployed vs a 10% bar |
 | lp-mint-01 | **3/8** | 1/3 here + 2/5 in a separate 5-run measurement |
 | swap-slippage-01 | **2/3** | |
 | dca-contract-01 | 3/3 | |
@@ -28,3 +29,17 @@ calculates it. That gap is what the track is for.
 **Still too easy.** Six of eight tasks are saturated. The next tasks should be
 lp-mint-class: multi-step, arithmetic that cannot be recalled, and a state
 assertion that only a correct computation satisfies.
+
+
+## The gap that matters: tools vs no tools
+
+Same task, same model, 3 runs each.
+
+| task | fable no-tools | fable with tools |
+|---|---|---|
+| `lp-rebalance-01` | **1/3** | **3/3** |
+| `lp-mint-01` | 3/8 | passes (shells out to Python for `getSqrtRatioAtTick`) |
+
+The tool-free failures are near misses, not confusion — fable knows it must
+rebalance, it just cannot land the ratio without computing it. That is exactly
+the shape a skills doc should close.
