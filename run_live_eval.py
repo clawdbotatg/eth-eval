@@ -93,6 +93,13 @@ def grade_live(task, resp, truth):
     t = task["truth"]["type"]
     a = ans_line(resp)
     if t == "exact":
+        # addresses are case-insensitive (EIP-55 checksums differ by case) and
+        # may arrive inside a sentence, so match anywhere in the answer line
+        if truth.startswith("0x") and len(truth) == 42:
+            hay = (a + " " + resp).lower()
+            ok = truth.lower() in hay
+            got = re.search(r"0x[0-9a-fA-F]{40}", a) or re.search(r"0x[0-9a-fA-F]{40}", resp)
+            return ok, f"truth {truth} got {got.group(0) if got else 'no address'}"
         ok = norm(truth) in (norm(a), norm(resp.strip().splitlines()[-1] if resp.strip() else ""))
         return ok, f"truth {truth!r} got {a[:60]!r}"
     exp_nums = extract_bigints(truth)
