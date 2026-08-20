@@ -1,0 +1,67 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+interface IERC20 {
+    function balanceOf(address) external view returns (uint256);
+    function approve(address, uint256) external returns (bool);
+}
+
+interface ISwapRouter02 {
+    struct ExactInputSingleParams {
+        address tokenIn; address tokenOut; uint24 fee; address recipient;
+        uint256 amountIn; uint256 amountOutMinimum; uint160 sqrtPriceLimitX96;
+    }
+    function exactInputSingle(ExactInputSingleParams calldata) external payable returns (uint256);
+}
+
+interface INPM {
+    struct MintParams {
+        address token0; address token1; uint24 fee;
+        int24 tickLower; int24 tickUpper;
+        uint256 amount0Desired; uint256 amount1Desired;
+        uint256 amount0Min; uint256 amount1Min;
+        address recipient; uint256 deadline;
+    }
+    function mint(MintParams calldata) external payable
+        returns (uint256 tokenId, uint128 liquidity, uint256 amount0, uint256 amount1);
+}
+
+contract Rebalancer {
+    address constant WETH   = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
+    address constant USDC   = 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48;
+    address constant ROUTER = 0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45;
+    address constant NPM    = 0xC36442b4a4522E871399CD717aBDD847Ab11FE88;
+
+    // 200808 is the live tick; 200700/200940 is the tightest spacing-aligned
+    // range that still covers >=1% on each side.
+    int24 constant LOWER = 200700;
+    int24 constant UPPER = 200940;
+
+    function onERC721Received(address, address, uint256, bytes calldata)
+        external pure returns (bytes4) { return this.onERC721Received.selector; }
+
+    function provide() external {
+        uint256 weth = IERC20(WETH).balanceOf(address(this));
+
+        // A near-symmetric range wants roughly equal VALUE on both sides, so
+        // sell down to about half the WETH and mint with whatever comes back.
+        uint256 sell = weth / 2;
+        IERC20(WETH).approve(ROUTER, sell);
+        ISwapRouter02(ROUTER).exactInputSingle(ISwapRouter02.ExactInputSingleParams({
+            tokenIn: WETH, tokenOut: USDC, fee: 500, recipient: address(this),
+            amountIn: sell, amountOutMinimum: 0, sqrtPriceLimitX96: 0
+        }));
+
+        uint256 bal0 = IERC20(USDC).balanceOf(address(this));
+        uint256 bal1 = IERC20(WETH).balanceOf(address(this));
+        IERC20(USDC).approve(NPM, bal0);
+        IERC20(WETH).approve(NPM, bal1);
+        INPM(NPM).mint(INPM.MintParams({
+            token0: USDC, token1: WETH, fee: 3000,
+            tickLower: LOWER, tickUpper: UPPER,
+            amount0Desired: bal0, amount1Desired: bal1,
+            amount0Min: 0, amount1Min: 0,
+            recipient: address(this), deadline: 2000000000
+        }));
+    }
+}

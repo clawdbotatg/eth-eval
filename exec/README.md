@@ -18,6 +18,7 @@ decides whether it passed.
 | `dca-contract-01` | a whole `DCA` contract | our hidden suite: real swap through SwapRouter02 + **both** owner-gates must revert |
 | `fix-vault-01` | fix a share-inflation bug | an exploit test that must stop working, plus feature tests that must still pass |
 | `swap-slippage-01` | calldata with a REAL slippage guard | run twice: clean (must fill) and after an adversary moves the price 4% (must revert) — `amountOutMinimum=0` passes the first and fails the second |
+| `lp-rebalance-01` | a `Rebalancer` contract that swaps THEN mints | chain state: a WETH-skewed purse cannot fill a tight range (caps near 49% deployed), so hitting 90% requires rebalancing first |
 | `vault-fuzz-01` | a yield-bearing ERC-4626-style vault | a **fuzz campaign**: yield accrues pro-rata, late depositors don't dilute, no round-trip profit, solvent on exit, inflation attack dead |
 
 ## Rules for adding a task
@@ -65,6 +66,14 @@ subagent that still has Bash.
 
 The runner now also gives the agent a **temp sandbox cwd** instead of the repo
 root, so it cannot read `Grader.t.sol` or the reference answers.
+
+## Two modes, both real
+
+`--mode notools` runs the model alone (the flags above). `--mode tools` gives it
+a full agent loop. Report them separately — they answer different questions, and
+the gap between them is the interesting number. On `lp-mint-01` fable tool-free
+scores 3/8, while with Bash it solves the task by shelling out to Python for
+`getSqrtRatioAtTick`.
 
 ## One run is a coin flip
 

@@ -19,6 +19,17 @@ EXEC = HERE / "exec"
 TASKS = EXEC / "tasks"
 RESULTS = HERE / "results-exec"
 
+# The ONLY flag combination that actually disables tools in this Claude CLI.
+# `--allowed-tools ""` does not. Tool names must be space-separated (a comma
+# list parses as one bogus name), MCP has to be stripped separately or the agent
+# reaches a browser tool, and Workflow/Agent must be denied or it spawns a
+# subagent that still has Bash.
+NOTOOLS_FLAGS = (
+    "--strict-mcp-config --mcp-config '{\"mcpServers\":{}}' "
+    "--disallowedTools Bash Read Write Edit Glob Grep Task Workflow Agent "
+    "WebSearch WebFetch NotebookEdit"
+)
+
 STUB_SUBMISSION = """// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 contract _Stub {}
@@ -150,6 +161,9 @@ def main():
     ap.add_argument("--api-key-env", default="OPENAI_API_KEY")
     ap.add_argument("--auth", choices=["bearer", "xapikey"], default="bearer")
     ap.add_argument("--task", action="append")
+    ap.add_argument("--mode", choices=["notools", "tools"], default="notools",
+                    help="notools = the model alone; tools = a full agent. "
+                         "Both are real measurements - report them separately.")
     ap.add_argument("--runs", type=int, default=1,
                     help="attempts per task; an agent is stochastic, so 1 run is a coin flip")
     ap.add_argument("--self-test", action="store_true",
@@ -181,7 +195,10 @@ def main():
         # sandbox: the agent has tools, so keep it out of the repo entirely
         sandbox = tempfile.mkdtemp(prefix="ethexec-")
         print(f"agent sandbox: {sandbox}")
-        target = CmdTarget(args.cmd, timeout=args.timeout, cwd=sandbox)
+        cmd = args.cmd
+        if args.mode == "notools" and " --disallowedTools" not in cmd:
+            cmd = cmd + " " + NOTOOLS_FLAGS
+        target = CmdTarget(cmd, timeout=args.timeout, cwd=sandbox)
     elif args.base_url and args.model:
         target = OpenAITarget(args.base_url, args.model,
                               os.environ.get(args.api_key_env, ""), args.auth)
@@ -223,6 +240,7 @@ def main():
     print(f"\n{n}/{len(rows)} tasks passed at least once; "
           f"mean pass rate {rate*100:.0f}% ({time.time()-t0:.0f}s)")
     out = {"name": args.name, "target": target.desc, "track": "exec",
+           "mode": args.mode,
            "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
            "passed": n, "total": len(rows),
            "overall": round(100 * n / len(rows), 1),
